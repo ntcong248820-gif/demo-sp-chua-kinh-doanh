@@ -1,6 +1,5 @@
-// Tương tác demo, mô phỏng danh mục đang bán: popup "Tất cả bộ lọc" (OR trong nhóm, AND giữa nhóm),
-// chip đã chọn bấm × để bỏ, sắp xếp Nổi bật / Mới, dải "đang bán" chen sau hàng card đầu.
-// Nội dung đã render sẵn trong HTML; tắt JS trang vẫn đọc được.
+// Tương tác demo v3: chip Hãng / Loại lọc ngay trên trang (OR trong nhóm, AND giữa nhóm),
+// sắp xếp Nổi bật / Có tin mới. Nội dung đã render sẵn trong HTML; tắt JS trang vẫn đọc được.
 (() => {
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -19,83 +18,35 @@
 
   const grid = $('[data-grid]');
   if (!grid) return;
-  const rail = $('[data-rail]');
   const empty = $('.empty');
+  const count = $('[data-visible-count]');
   const cards = $$('.pcard', grid);
-  cards.forEach((c) => { c._attrs = JSON.parse(c.dataset.attrs); });
-  const modal = $('[data-filter-modal]');
-  const opts = $$('.opt', modal);
-  let applied = {};   // { nhóm: [giá trị] } đang áp dụng
-  let draft = {};     // lựa chọn trong popup, chưa bấm "Xem kết quả"
+  const chips = $$('button.chip[data-g]');
   let sort = 'featured';
-  let lastFocus;
 
-  const matches = (card, sel) => Object.entries(sel).every(([g, vals]) =>
-    !vals.length || vals.some((v) => card._attrs[g].includes(v)));
-  const clone = (o) => JSON.parse(JSON.stringify(o));
-
-  const placeRail = () => {
-    const cols = getComputedStyle(grid).gridTemplateColumns.split(' ').length;
-    const visible = cards.filter((c) => !c.hidden);
-    if (visible.length > cols) visible[cols - 1].after(rail); else grid.after(rail);
-  };
-
-  const renderPicked = () => {
-    const box = $('.picked-dyn');
-    box.innerHTML = '';
-    opts.filter((o) => (applied[o.dataset.g] || []).includes(o.dataset.v)).forEach((o) => {
-      const b = document.createElement('button');
-      b.type = 'button'; b.className = 'picked';
-      b.innerHTML = `${o.textContent}<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>`;
-      b.setAttribute('aria-label', `Bỏ lọc ${o.textContent}`);
-      b.addEventListener('click', () => {
-        applied[o.dataset.g] = applied[o.dataset.g].filter((v) => v !== o.dataset.v); apply();
-      });
-      box.append(b);
-    });
-    const n = Object.values(applied).flat().length;
-    const badge = $('.filter-count');
-    badge.hidden = !n; badge.textContent = n;
-  };
+  // data-g = brand | type | line, khớp với data-brand / data-type / data-line của card
+  const selected = () => chips.filter((c) => c.getAttribute('aria-pressed') === 'true')
+    .reduce((acc, c) => ((acc[c.dataset.g] ||= []).push(c.dataset.v), acc), {});
+  const matches = (card, sel) => Object.entries(sel).every(([g, vals]) => vals.includes(card.dataset[g]));
 
   const apply = () => {
-    const key = sort === 'new' ? (c) => -Number(c.dataset.order) : (c) => Number(c.dataset.order);
-    cards.sort((a, b) => key(a) - key(b));
-    cards.forEach((c) => { c.hidden = !matches(c, applied); grid.append(c); });
-    empty.hidden = cards.some((c) => !c.hidden);
-    placeRail(); renderPicked();
+    const sel = selected();
+    const key = sort === 'news' ? (c) => -Number(c.dataset.newsTs) : (c) => Number(c.dataset.order);
+    cards.sort((a, b) => key(a) - key(b) || Number(a.dataset.order) - Number(b.dataset.order));
+    cards.forEach((c) => { c.hidden = !matches(c, sel); grid.append(c); });
+    const n = cards.filter((c) => !c.hidden).length;
+    empty.hidden = n > 0;
+    count.textContent = Object.keys(sel).length ? `${n}/${cards.length}` : cards.length;
   };
 
-  const syncDraft = () => {
-    opts.forEach((o) => o.setAttribute('aria-pressed', String((draft[o.dataset.g] || []).includes(o.dataset.v))));
-    $('[data-result-count]').textContent = cards.filter((c) => matches(c, draft)).length;
-  };
-  const openModal = () => {
-    lastFocus = document.activeElement; draft = clone(applied); syncDraft();
-    modal.hidden = false; document.body.classList.add('modal-open'); $('.modal-close', modal).focus();
-  };
-  const closeModal = () => {
-    modal.hidden = true; document.body.classList.remove('modal-open'); lastFocus?.focus();
-  };
-
-  $('[data-open-filter]').addEventListener('click', openModal);
-  $$('[data-close-filter]').forEach((b) => b.addEventListener('click', closeModal));
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.hidden) closeModal(); });
-  opts.forEach((o) => o.addEventListener('click', () => {
-    const { g, v } = o.dataset; const cur = draft[g] || [];
-    draft[g] = cur.includes(v) ? cur.filter((x) => x !== v) : [...cur, v]; syncDraft();
+  chips.forEach((c) => c.addEventListener('click', () => {
+    c.setAttribute('aria-pressed', String(c.getAttribute('aria-pressed') !== 'true')); apply();
   }));
   $$('[data-reset-filter]').forEach((b) => b.addEventListener('click', () => {
-    draft = {};
-    if (modal.hidden) { applied = {}; apply(); } else syncDraft();
+    chips.forEach((c) => c.setAttribute('aria-pressed', 'false')); apply();
   }));
-  $('[data-apply-filter]').addEventListener('click', () => { applied = clone(draft); closeModal(); apply(); });
-
   $$('.sort-btn').forEach((b) => b.addEventListener('click', () => {
     $$('.sort-btn').forEach((x) => x.classList.remove('is-active'));
     b.classList.add('is-active'); sort = b.dataset.sort; apply();
   }));
-  let rt;
-  window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(placeRail, 150); });
-  apply();
 })();

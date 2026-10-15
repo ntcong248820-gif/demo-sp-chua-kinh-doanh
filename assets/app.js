@@ -1,87 +1,101 @@
-// Tương tác demo: lọc trạng thái, sắp xếp, chèn dải "Đang bán" sau hàng card đầu, nút nhận tin, toast.
-// Nội dung đã render sẵn trong HTML; tắt JS trang vẫn đọc được đầy đủ.
+// Tương tác demo, mô phỏng danh mục đang bán: popup "Tất cả bộ lọc" (OR trong nhóm, AND giữa nhóm),
+// chip đã chọn bấm × để bỏ, sắp xếp Nổi bật / Mới, dải "đang bán" chen sau hàng card đầu.
+// Nội dung đã render sẵn trong HTML; tắt JS trang vẫn đọc được.
 (() => {
-  const toastEl = document.querySelector('.toast');
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const toastEl = $('.toast');
   let toastTimer;
   const toast = (msg) => {
-    toastEl.textContent = msg;
-    toastEl.hidden = false;
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => { toastEl.hidden = true; }, 3500);
+    toastEl.textContent = msg; toastEl.hidden = false;
+    clearTimeout(toastTimer); toastTimer = setTimeout(() => { toastEl.hidden = true; }, 3500);
   };
-
-  // Link sang trang sản phẩm: phần đó Chí Hiếu demo riêng.
   document.addEventListener('click', (e) => {
     const pdp = e.target.closest('[data-pdp]');
-    if (pdp) {
-      e.preventDefault();
-      toast(`Demo: trang sản phẩm "${pdp.dataset.pdp}" do Chí Hiếu làm, chưa nối link.`);
-      return;
-    }
-    const nt = e.target.closest('button[data-notify]');
-    if (nt) {
-      const on = nt.getAttribute('aria-pressed') !== 'true';
-      nt.setAttribute('aria-pressed', String(on));
-      toast(on ? `Demo: sẽ báo bạn khi ${nt.dataset.notify} mở bán.` : 'Đã bỏ nhận tin.');
-    }
+    if (!pdp) return;
+    e.preventDefault();
+    toast(`Demo: trang sản phẩm "${pdp.dataset.pdp}" do Chí Hiếu làm, chưa nối link.`);
   });
 
-  const grid = document.querySelector('[data-grid]');
+  const grid = $('[data-grid]');
   if (!grid) return;
-  const rail = document.querySelector('[data-rail]');
-  const empty = document.querySelector('.empty');
-  const cards = [...grid.querySelectorAll('.pcard')];
-  let status = 'all';
-  let sort = 'fans';
+  const rail = $('[data-rail]');
+  const empty = $('.empty');
+  const cards = $$('.pcard', grid);
+  cards.forEach((c) => { c._attrs = JSON.parse(c.dataset.attrs); });
+  const modal = $('[data-filter-modal]');
+  const opts = $$('.opt', modal);
+  let applied = {};   // { nhóm: [giá trị] } đang áp dụng
+  let draft = {};     // lựa chọn trong popup, chưa bấm "Xem kết quả"
+  let sort = 'featured';
+  let lastFocus;
 
-  // Đặt dải cross-sell ngay sau hàng card đầu tiên đang hiện.
+  const matches = (card, sel) => Object.entries(sel).every(([g, vals]) =>
+    !vals.length || vals.some((v) => card._attrs[g].includes(v)));
+  const clone = (o) => JSON.parse(JSON.stringify(o));
+
   const placeRail = () => {
     const cols = getComputedStyle(grid).gridTemplateColumns.split(' ').length;
     const visible = cards.filter((c) => !c.hidden);
-    if (visible.length > cols) visible[cols - 1].after(rail);
-    else grid.after(rail);
+    if (visible.length > cols) visible[cols - 1].after(rail); else grid.after(rail);
+  };
+
+  const renderPicked = () => {
+    const box = $('.picked-dyn');
+    box.innerHTML = '';
+    opts.filter((o) => (applied[o.dataset.g] || []).includes(o.dataset.v)).forEach((o) => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'picked';
+      b.innerHTML = `${o.textContent}<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>`;
+      b.setAttribute('aria-label', `Bỏ lọc ${o.textContent}`);
+      b.addEventListener('click', () => {
+        applied[o.dataset.g] = applied[o.dataset.g].filter((v) => v !== o.dataset.v); apply();
+      });
+      box.append(b);
+    });
+    const n = Object.values(applied).flat().length;
+    const badge = $('.filter-count');
+    badge.hidden = !n; badge.textContent = n;
   };
 
   const apply = () => {
-    const key = { fans: (c) => -Number(c.dataset.fans), launch: (c) => c.dataset.launch, price: (c) => Number(c.dataset.price) }[sort];
-    cards.sort((a, b) => (key(a) > key(b) ? 1 : key(a) < key(b) ? -1 : 0));
-    cards.forEach((c) => { c.hidden = status !== 'all' && c.dataset.status !== status; grid.append(c); });
+    const key = sort === 'new' ? (c) => -Number(c.dataset.order) : (c) => Number(c.dataset.order);
+    cards.sort((a, b) => key(a) - key(b));
+    cards.forEach((c) => { c.hidden = !matches(c, applied); grid.append(c); });
     empty.hidden = cards.some((c) => !c.hidden);
-    placeRail();
+    placeRail(); renderPicked();
   };
 
-  document.querySelectorAll('.seg').forEach((b) => b.addEventListener('click', () => {
-    document.querySelectorAll('.seg').forEach((x) => { x.classList.remove('is-active'); x.setAttribute('aria-pressed', 'false'); });
-    b.classList.add('is-active'); b.setAttribute('aria-pressed', 'true');
-    status = b.dataset.status; apply();
+  const syncDraft = () => {
+    opts.forEach((o) => o.setAttribute('aria-pressed', String((draft[o.dataset.g] || []).includes(o.dataset.v))));
+    $('[data-result-count]').textContent = cards.filter((c) => matches(c, draft)).length;
+  };
+  const openModal = () => {
+    lastFocus = document.activeElement; draft = clone(applied); syncDraft();
+    modal.hidden = false; document.body.classList.add('modal-open'); $('.modal-close', modal).focus();
+  };
+  const closeModal = () => {
+    modal.hidden = true; document.body.classList.remove('modal-open'); lastFocus?.focus();
+  };
+
+  $('[data-open-filter]').addEventListener('click', openModal);
+  $$('[data-close-filter]').forEach((b) => b.addEventListener('click', closeModal));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.hidden) closeModal(); });
+  opts.forEach((o) => o.addEventListener('click', () => {
+    const { g, v } = o.dataset; const cur = draft[g] || [];
+    draft[g] = cur.includes(v) ? cur.filter((x) => x !== v) : [...cur, v]; syncDraft();
   }));
-  document.querySelectorAll('.sort-btn').forEach((b) => b.addEventListener('click', () => {
-    document.querySelectorAll('.sort-btn').forEach((x) => x.classList.remove('is-active'));
+  $$('[data-reset-filter]').forEach((b) => b.addEventListener('click', () => {
+    draft = {};
+    if (modal.hidden) { applied = {}; apply(); } else syncDraft();
+  }));
+  $('[data-apply-filter]').addEventListener('click', () => { applied = clone(draft); closeModal(); apply(); });
+
+  $$('.sort-btn').forEach((b) => b.addEventListener('click', () => {
+    $$('.sort-btn').forEach((x) => x.classList.remove('is-active'));
     b.classList.add('is-active'); sort = b.dataset.sort; apply();
   }));
   let rt;
   window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(placeRail, 150); });
   apply();
-
-  // Form nhận tin: chỉ kiểm định dạng, không gửi dữ liệu đi đâu.
-  const form = document.querySelector('[data-notify-form]');
-  if (form) {
-    const phone = form.querySelector('#nt-phone');
-    const err = form.querySelector('#nt-err');
-    const valid = () => /^0\d{9}$/.test(phone.value.replace(/\s/g, ''));
-    phone.addEventListener('blur', () => {
-      if (!phone.value) return;
-      err.hidden = valid();
-      phone.setAttribute('aria-invalid', String(!valid()));
-    });
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      if (!valid()) {
-        err.hidden = false; phone.setAttribute('aria-invalid', 'true'); phone.focus(); return;
-      }
-      err.hidden = true; phone.setAttribute('aria-invalid', 'false');
-      toast('Demo: đăng ký hợp lệ. Bản demo không lưu số điện thoại.');
-      form.reset();
-    });
-  }
 })();

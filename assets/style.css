@@ -82,12 +82,22 @@ main > * { min-width: 0; }
 .summary-note svg { flex: none; margin-top: 2px; }
 .summary-more { display: inline-flex; align-items: center; gap: 4px; margin-top: 10px; font-weight: 500; min-height: 32px; }
 
-/* Chip Hãng / Loại — thay popup lọc chi tiết */
+/* Khối lọc — nút Lọc + chip đã chọn như danh mục đang bán; popup chỉ Thương hiệu / Loại sản phẩm */
+.filter-top { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 12px; }
+.btn-filter { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 14px; background: #fff;
+  border: 1px solid var(--primary); color: var(--title); border-radius: var(--radius-chip); }
+.btn-filter svg { color: #F79009; }
+.filter-count { background: var(--primary); color: #fff; border-radius: 999px; font-size: 12px; min-width: 20px; padding: 0 6px; }
+.picked-dyn { display: contents; }
+.picked { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 10px; background: var(--tag-bg);
+  color: var(--title); border: 0; border-radius: var(--radius-chip); }
+.picked:hover { background: #EAECF0; }
+.clear-all { padding: 0 4px; min-height: 36px; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
 .chip { display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border: 1px solid var(--chip-border);
   border-radius: var(--radius-chip); color: var(--title); background: #fff; font-size: 15px; white-space: nowrap; }
 .chip:hover { border-color: var(--primary); text-decoration: none; }
-.chip.is-active, .chip[aria-pressed="true"] { border-color: var(--primary); color: var(--primary); background: var(--primary-50); }
+.chip.is-active { border-color: var(--primary); color: var(--primary); background: var(--primary-50); }
 .sort { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; color: var(--title); margin-bottom: 12px; }
 .sort-btn { border: 0; background: none; color: var(--muted); padding: 8px 0; min-height: 36px; }
 .sort-btn.is-active { color: var(--primary); font-weight: 500; }
@@ -189,6 +199,27 @@ main > * { min-width: 0; }
 .plain { margin: 0; padding-left: 20px; }
 .plain li { margin-bottom: 6px; }
 
+/* Popup "Lọc" */
+body.modal-open { overflow: hidden; }
+.modal { position: fixed; inset: 0; z-index: 60; display: flex; align-items: center; justify-content: center; padding: 16px; }
+.modal-backdrop { position: absolute; inset: 0; background: rgb(16 24 40 / .5); }
+.modal-box { position: relative; background: #fff; border-radius: var(--radius-panel); width: 100%; max-width: 640px;
+  max-height: calc(100dvh - 32px); display: flex; flex-direction: column; }
+.modal-head { display: flex; align-items: center; justify-content: center; position: relative; padding: 16px; border-bottom: 1px solid var(--border); }
+.modal-head h2 { font-size: 17px; }
+.modal-close { position: absolute; right: 12px; display: inline-flex; align-items: center; gap: 4px; min-height: 36px;
+  padding: 0 10px; background: #fff; border: 1px solid var(--border); border-radius: var(--radius-chip); color: var(--title); }
+.modal-body { overflow-y: auto; padding: 4px 20px 12px; }
+.fgroup { border: 0; margin: 0; padding: 16px 0 4px; }
+.fgroup legend { float: left; width: 100%; font-weight: 600; font-size: 15px; color: var(--title); padding: 0; margin-bottom: 10px; }
+.fgroup .opts { clear: both; }
+.opts { display: flex; flex-wrap: wrap; gap: 8px; }
+.opt { min-height: 40px; padding: 0 14px; background: #fff; border: 1px solid var(--chip-border); border-radius: var(--radius-chip); color: var(--title); }
+.opt:hover { border-color: var(--primary); }
+.opt[aria-pressed="true"] { border-color: var(--primary); color: var(--primary); background: var(--primary-50); }
+.modal-foot { display: flex; justify-content: center; gap: 16px; padding: 12px 16px; border-top: 1px solid var(--border); }
+.modal-foot .btn { min-width: 160px; }
+
 /* Responsive */
 @media (max-width: 1100px) {
   .hub { grid-template-columns: minmax(0, 1fr) 260px; }
@@ -222,6 +253,9 @@ main > * { min-width: 0; }
   .pcard { padding: 8px; }
   .chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
   .news-list { grid-template-columns: 1fr; }
+  .modal { padding: 0; align-items: flex-end; }
+  .modal-box { max-height: 92dvh; border-radius: var(--radius-panel) var(--radius-panel) 0 0; }
+  .modal-foot .btn { min-width: 0; flex: 1; }
   .news-item img { width: 112px; height: 63px; }
   .news-tags { margin-left: 124px; }
   .idx-list { grid-template-columns: 1fr; }

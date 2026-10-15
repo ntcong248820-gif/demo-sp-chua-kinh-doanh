@@ -1,5 +1,5 @@
-// Tương tác demo v3: chip Hãng / Loại lọc ngay trên trang (OR trong nhóm, AND giữa nhóm),
-// sắp xếp Nổi bật / Có tin mới. Nội dung đã render sẵn trong HTML; tắt JS trang vẫn đọc được.
+// Tương tác demo v3: nút "Lọc" mở popup 2 nhóm Thương hiệu / Loại sản phẩm (OR trong nhóm, AND giữa nhóm),
+// chip đã chọn có × để bỏ, sắp xếp Nổi bật / Có tin mới. Nội dung đã render sẵn; tắt JS trang vẫn đọc được.
 (() => {
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -18,33 +18,76 @@
 
   const grid = $('[data-grid]');
   if (!grid) return;
-  const empty = $('.empty');
+  const empty = $('.empty', grid.parentElement);
   const count = $('[data-visible-count]');
   const cards = $$('.pcard', grid);
-  const chips = $$('button.chip[data-g]');
+  cards.forEach((c) => { c._attrs = JSON.parse(c.dataset.attrs); });
+  const modal = $('[data-filter-modal]');
+  const opts = modal ? $$('.opt', modal) : [];
+  let applied = {};   // { nhóm: [giá trị] } đang áp dụng
+  let draft = {};     // lựa chọn trong popup, chưa bấm "Xem kết quả"
   let sort = 'featured';
+  let lastFocus;
 
-  // data-g = brand | type | line, khớp với data-brand / data-type / data-line của card
-  const selected = () => chips.filter((c) => c.getAttribute('aria-pressed') === 'true')
-    .reduce((acc, c) => ((acc[c.dataset.g] ||= []).push(c.dataset.v), acc), {});
-  const matches = (card, sel) => Object.entries(sel).every(([g, vals]) => vals.includes(card.dataset[g]));
+  const matches = (card, sel) => Object.entries(sel).every(([g, vals]) =>
+    !vals.length || vals.some((v) => card._attrs[g].includes(v)));
+  const clone = (o) => JSON.parse(JSON.stringify(o));
+  const nSelected = (sel) => Object.values(sel).flat().length;
 
-  const apply = () => {
-    const sel = selected();
-    const key = sort === 'news' ? (c) => -Number(c.dataset.newsTs) : (c) => Number(c.dataset.order);
-    cards.sort((a, b) => key(a) - key(b) || Number(a.dataset.order) - Number(b.dataset.order));
-    cards.forEach((c) => { c.hidden = !matches(c, sel); grid.append(c); });
-    const n = cards.filter((c) => !c.hidden).length;
-    empty.hidden = n > 0;
-    count.textContent = Object.keys(sel).length ? `${n}/${cards.length}` : cards.length;
+  const renderPicked = () => {
+    const box = $('.picked-dyn');
+    if (!box) return;
+    box.innerHTML = '';
+    opts.filter((o) => (applied[o.dataset.g] || []).includes(o.dataset.v)).forEach((o) => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'picked';
+      b.innerHTML = `${o.textContent}<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>`;
+      b.setAttribute('aria-label', `Bỏ lọc ${o.textContent}`);
+      b.addEventListener('click', () => {
+        applied[o.dataset.g] = applied[o.dataset.g].filter((v) => v !== o.dataset.v); apply();
+      });
+      box.append(b);
+    });
+    const n = nSelected(applied);
+    const badge = $('.filter-count');
+    if (badge) { badge.hidden = !n; badge.textContent = n; $('.clear-all').hidden = !n; }
   };
 
-  chips.forEach((c) => c.addEventListener('click', () => {
-    c.setAttribute('aria-pressed', String(c.getAttribute('aria-pressed') !== 'true')); apply();
+  const apply = () => {
+    const key = sort === 'news' ? (c) => -Number(c.dataset.newsTs) : (c) => Number(c.dataset.order);
+    cards.sort((a, b) => key(a) - key(b) || Number(a.dataset.order) - Number(b.dataset.order));
+    cards.forEach((c) => { c.hidden = !matches(c, applied); grid.append(c); });
+    const n = cards.filter((c) => !c.hidden).length;
+    empty.hidden = n > 0;
+    count.textContent = nSelected(applied) ? `${n}/${cards.length}` : cards.length;
+    renderPicked();
+  };
+
+  const syncDraft = () => {
+    opts.forEach((o) => o.setAttribute('aria-pressed', String((draft[o.dataset.g] || []).includes(o.dataset.v))));
+    $('[data-result-count]').textContent = cards.filter((c) => matches(c, draft)).length;
+  };
+  const openModal = () => {
+    lastFocus = document.activeElement; draft = clone(applied); syncDraft();
+    modal.hidden = false; document.body.classList.add('modal-open'); $('.modal-close', modal).focus();
+  };
+  const closeModal = () => {
+    modal.hidden = true; document.body.classList.remove('modal-open'); lastFocus?.focus();
+  };
+
+  if (modal) {
+  $('[data-open-filter]').addEventListener('click', openModal);
+  $$('[data-close-filter]').forEach((b) => b.addEventListener('click', closeModal));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.hidden) closeModal(); });
+  opts.forEach((o) => o.addEventListener('click', () => {
+    const { g, v } = o.dataset; const cur = draft[g] || [];
+    draft[g] = cur.includes(v) ? cur.filter((x) => x !== v) : [...cur, v]; syncDraft();
   }));
-  $$('[data-reset-filter]').forEach((b) => b.addEventListener('click', () => {
-    chips.forEach((c) => c.setAttribute('aria-pressed', 'false')); apply();
-  }));
+  $('[data-clear-draft]').addEventListener('click', () => { draft = {}; syncDraft(); });
+  $('[data-apply-filter]').addEventListener('click', () => { applied = clone(draft); closeModal(); apply(); });
+  }
+  $$('[data-reset-filter]').forEach((b) => b.addEventListener('click', () => { applied = {}; apply(); }));
+
   $$('.sort-btn').forEach((b) => b.addEventListener('click', () => {
     $$('.sort-btn').forEach((x) => x.classList.remove('is-active'));
     b.classList.add('is-active'); sort = b.dataset.sort; apply();

@@ -1,4 +1,5 @@
-// Tương tác demo v3: nút "Lọc" mở popup 2 nhóm Thương hiệu / Loại sản phẩm (OR trong nhóm, AND giữa nhóm),
+// Tương tác demo v3: nút "Lọc" xổ panel ngay dưới nút (như danh mục đang bán), 2 nhóm Thương hiệu / Loại sản phẩm
+// (OR trong nhóm, AND giữa nhóm),
 // chip đã chọn có × để bỏ, sắp xếp Nổi bật / Có tin mới. Nội dung đã render sẵn; tắt JS trang vẫn đọc được.
 (() => {
   const $ = (s, r = document) => r.querySelector(s);
@@ -41,8 +42,8 @@
     opts.filter((o) => (applied[o.dataset.g] || []).includes(o.dataset.v)).forEach((o) => {
       const b = document.createElement('button');
       b.type = 'button'; b.className = 'picked';
-      b.innerHTML = `${o.textContent}<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>`;
-      b.setAttribute('aria-label', `Bỏ lọc ${o.textContent}`);
+      b.innerHTML = `${o.dataset.label}<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>`;
+      b.setAttribute('aria-label', `Bỏ lọc ${o.dataset.label}`);
       b.addEventListener('click', () => {
         applied[o.dataset.g] = applied[o.dataset.g].filter((v) => v !== o.dataset.v); apply();
       });
@@ -67,16 +68,23 @@
     opts.forEach((o) => o.setAttribute('aria-pressed', String((draft[o.dataset.g] || []).includes(o.dataset.v))));
     $('[data-result-count]').textContent = cards.filter((c) => matches(c, draft)).length;
   };
+  const overlay = $('.f-overlay');
+  const openBtn = $('[data-open-filter]');
   const openModal = () => {
     lastFocus = document.activeElement; draft = clone(applied); syncDraft();
-    modal.hidden = false; document.body.classList.add('modal-open'); $('.modal-close', modal).focus();
+    // Như web thật: cuộn để nút Lọc nằm sát mép trên, panel xổ xuống ngay dưới nút còn đủ chỗ
+    const y = openBtn.getBoundingClientRect().top + scrollY - 16;
+    if (Math.abs(scrollY - y) > 4) scrollTo({ top: y, behavior: 'instant' });
+    modal.hidden = false; overlay.hidden = false; openBtn.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('modal-open'); $('.modal-close', modal).focus();
   };
   const closeModal = () => {
-    modal.hidden = true; document.body.classList.remove('modal-open'); lastFocus?.focus();
+    modal.hidden = true; overlay.hidden = true; openBtn.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('modal-open'); lastFocus?.focus();
   };
 
   if (modal) {
-  $('[data-open-filter]').addEventListener('click', openModal);
+  openBtn.addEventListener('click', () => (modal.hidden ? openModal() : closeModal()));
   $$('[data-close-filter]').forEach((b) => b.addEventListener('click', closeModal));
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.hidden) closeModal(); });
   opts.forEach((o) => o.addEventListener('click', () => {

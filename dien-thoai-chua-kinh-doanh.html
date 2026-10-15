@@ -43,7 +43,19 @@
   <a class="summary-more" href="#thong-tin">Đọc đầy đủ<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></a>
 </section>
 <section class="panel listing" aria-label="Danh sách sản phẩm"><div class="filter">
-  <div class="filter-top"><button type="button" class="btn-filter" data-open-filter aria-haspopup="dialog"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg>Lọc<span class="filter-count" hidden></span></button><span class="picked-dyn"></span><button type="button" class="clear-all link-btn" data-reset-filter hidden>Xóa tất cả</button></div>
+  <div class="filter-top">
+    <div class="filter-anchor">
+      <button type="button" class="btn-filter" data-open-filter aria-haspopup="dialog" aria-expanded="false" aria-controls="fpanel"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg>Lọc<span class="filter-count" hidden></span></button>
+      <div class="fpanel" id="fpanel" data-filter-modal role="dialog" aria-modal="true" aria-labelledby="mf-title" hidden>
+        <div class="fpanel-head"><h2 id="mf-title">Tất cả bộ lọc</h2>
+          <button type="button" class="modal-close" data-close-filter><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>Đóng</button></div>
+        <div class="fpanel-body"><fieldset class="fgroup"><legend>Thương hiệu</legend><div class="opts opts--brand"><button type="button" class="opt opt--logo" data-g="brand" data-v="Samsung" data-label="Samsung" aria-pressed="false"><img src="https://cdn.tgdd.vn/Brand//1/samsungnew-220x48-1.png" alt="Samsung" height="24" loading="lazy"></button><button type="button" class="opt opt--logo" data-g="brand" data-v="Apple" data-label="iPhone (Apple)" aria-pressed="false"><img src="https://cdnv2.tgdd.vn/mwg-static/tgdd/Category/42/57/72/5772f1aa6fbbfde84c43bb4debb65169.png" alt="iPhone (Apple)" height="24" loading="lazy"></button><button type="button" class="opt opt--logo" data-g="brand" data-v="OPPO" data-label="OPPO" aria-pressed="false"><img src="https://cdn.tgdd.vn/Brand//1/OPPO42-b_5.jpg" alt="OPPO" height="24" loading="lazy"></button><button type="button" class="opt opt--logo" data-g="brand" data-v="Xiaomi" data-label="Xiaomi" aria-pressed="false"><img src="https://cdn.tgdd.vn/Brand//1/logo-xiaomi-220x48-5.png" alt="Xiaomi" height="24" loading="lazy"></button><button type="button" class="opt" data-g="brand" data-v="Google" data-label="Google" aria-pressed="false">Google</button></div></fieldset><fieldset class="fgroup"><legend>Loại sản phẩm</legend><div class="opts opts--type"><button type="button" class="opt opt--thumb" data-g="type" data-v="android" data-label="Android" aria-pressed="false"><img src="https://cdnv2.tgdd.vn/mwg-static/common/Category/a7/ee/a7eec0ca009159fc332d80aba4558f57.jpg" alt="" width="32" height="32" loading="lazy">Android</button><button type="button" class="opt opt--thumb" data-g="type" data-v="ios" data-label="iPhone (iOS)" aria-pressed="false"><img src="https://cdnv2.tgdd.vn/mwg-static/common/Category/c4/7e/c47ecdb77b4d1ecf0902807556a0c99a.jpg" alt="" width="32" height="32" loading="lazy">iPhone (iOS)</button><button type="button" class="opt opt--thumb" data-g="type" data-v="gap" data-label="Điện thoại gập" aria-pressed="false"><img src="https://cdnv2.tgdd.vn/mwg-static/common/Category/39/a1/39a1db788071164224dc4292f2a7f9b1.jpg" alt="" width="32" height="32" loading="lazy">Điện thoại gập</button></div></fieldset></div>
+        <div class="fpanel-foot"><button type="button" class="btn btn-outline-red" data-clear-draft>Bỏ chọn</button>
+          <button type="button" class="btn btn-primary" data-apply-filter><span>Xem <span data-result-count>18</span> kết quả</span></button></div>
+      </div>
+    </div>
+    <span class="picked-dyn"></span><button type="button" class="clear-all link-btn" data-reset-filter hidden>Xóa tất cả</button>
+  </div>
   <div class="chips" aria-label="Xem theo trang"><a class="chip" href="iphone-chua-kinh-doanh.html">iPhone</a></div>
 </div><div class="sort" role="group" aria-label="Sắp xếp"><span>Sắp xếp theo:</span><button type="button" class="sort-btn is-active" data-sort="featured">Nổi bật</button><button type="button" class="sort-btn" data-sort="news">Có tin mới</button></div><div class="grid" data-grid><article class="pcard" data-order="0" data-news-ts="1791864000" data-brand="Samsung" data-attrs="{&quot;brand&quot;:[&quot;Samsung&quot;],&quot;type&quot;:[&quot;android&quot;]}">
   <a class="pcard-main" href="#" data-pdp="Samsung Galaxy S27 Ultra">
@@ -246,16 +258,7 @@
   <a class="bs-all" href="#">Xem tất cả<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
 </aside>
 </main>
-<div class="modal" data-filter-modal hidden>
-  <div class="modal-backdrop" data-close-filter></div>
-  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="mf-title">
-    <div class="modal-head"><h2 id="mf-title">Lọc sản phẩm</h2>
-      <button type="button" class="modal-close" data-close-filter><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>Đóng</button></div>
-    <div class="modal-body"><fieldset class="fgroup"><legend>Thương hiệu</legend><div class="opts"><button type="button" class="opt" data-g="brand" data-v="Samsung" aria-pressed="false">Samsung</button><button type="button" class="opt" data-g="brand" data-v="Apple" aria-pressed="false">iPhone (Apple)</button><button type="button" class="opt" data-g="brand" data-v="OPPO" aria-pressed="false">OPPO</button><button type="button" class="opt" data-g="brand" data-v="Xiaomi" aria-pressed="false">Xiaomi</button><button type="button" class="opt" data-g="brand" data-v="Google" aria-pressed="false">Google</button></div></fieldset><fieldset class="fgroup"><legend>Loại sản phẩm</legend><div class="opts"><button type="button" class="opt" data-g="type" data-v="android" aria-pressed="false">Android</button><button type="button" class="opt" data-g="type" data-v="ios" aria-pressed="false">iPhone (iOS)</button><button type="button" class="opt" data-g="type" data-v="gap" aria-pressed="false">Điện thoại gập</button></div></fieldset></div>
-    <div class="modal-foot"><button type="button" class="btn btn-outline-red" data-clear-draft>Bỏ chọn</button>
-      <button type="button" class="btn btn-primary" data-apply-filter>Xem <span data-result-count>18</span> kết quả</button></div>
-  </div>
-</div>
+<div class="f-overlay" data-close-filter hidden></div>
 <footer class="site-footer">
   <div class="container footer-grid">
     <div><h3>Tổng đài hỗ trợ</h3><p>Gọi mua: <a href="#">1900 232 460</a> (8:00 - 21:30)</p>

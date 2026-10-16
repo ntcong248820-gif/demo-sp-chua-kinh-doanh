@@ -18,6 +18,25 @@
     toast(`Demo: trang sản phẩm "${pdp.dataset.pdp}" do Chí Hiếu làm, chưa nối link.`);
   });
 
+  // Infobox dài: gập còn phần đầu + "Xem thêm" như danh mục đang bán. Chỉ gập khi bài dài hơn khung đủ đáng kể;
+  // tắt JS thì bài hiện đủ. Thu gọn lại thì cuộn về đầu bài để không lạc chỗ đọc.
+  const art = $('.ib-article');
+  const ibBtn = $('[data-ib-toggle]');
+  if (art && ibBtn) {
+    art.classList.add('is-collapsed');
+    if (art.scrollHeight > art.clientHeight + 80) {
+      ibBtn.hidden = false; ibBtn.setAttribute('aria-expanded', 'false');
+      ibBtn.addEventListener('click', () => {
+        const open = art.classList.toggle('is-collapsed') === false;
+        ibBtn.setAttribute('aria-expanded', String(open));
+        ibBtn.firstElementChild.textContent = open ? 'Thu gọn' : 'Xem thêm';
+        if (!open) art.closest('section').scrollIntoView({ block: 'start' });
+      });
+    } else {
+      art.classList.remove('is-collapsed');
+    }
+  }
+
   const grid = $('[data-grid]');
   if (!grid) return;
   const empty = $('.empty', grid.parentElement);

@@ -149,6 +149,13 @@ main > * { min-width: 0; }
 .pb-price { color: var(--price); font-size: 16px; font-weight: 700; font-variant-numeric: tabular-nums; }
 .pb-old { display: flex; gap: 6px; font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
 .pb-old b { color: var(--price); font-weight: 500; }
+.pb-tags { display: flex; min-height: 22px; overflow: hidden; }
+.pb-tag { font-size: 12px; line-height: 1.4; padding: 2px 6px; border-radius: 4px; background: var(--tag-bg); color: #344054;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pb-gift { font-size: 13px; color: #B42318; }
+.pb-status { font-size: 12px; color: #475467; }
+.pb-rate { display: flex; align-items: center; gap: 4px; margin-top: auto; padding-top: 6px; font-size: 13px; color: #475467; white-space: nowrap; }
+.pb-star { color: #F79009; }
 
 
 /* Feed tin mới */
@@ -173,7 +180,8 @@ main > * { min-width: 0; }
   border: 0; background: none; color: var(--primary); font-size: 15px; font-weight: 500; }
 .ib-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
 .ib-toggle[hidden] { display: none; }
-.ib-news { padding-left: 24px; border-left: 1px solid var(--border); }
+/* Bài viết liên quan dính theo khi cuộn trong lúc bài infobox mở dài */
+.ib-news { position: sticky; top: 12px; padding-left: 24px; border-left: 1px solid var(--border); }
 .ib-news h3 { margin: 0 0 4px; font-size: 16px; font-weight: 700; color: var(--title); }
 .faq-panel h2 { margin-bottom: 8px; font-size: 18px; }
 .ibn-list { list-style: none; margin: 0; padding: 0; }
@@ -276,7 +284,7 @@ body.modal-open { overflow: hidden; }
   .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   /* Tin mới thành băng cuộn ngang giữa đoạn mở và hỏi đáp */
   .infobox.has-news { display: block; }
-  .ib-news { margin: 16px 0 0; padding: 16px 0 0; border-left: 0; border-top: 1px solid var(--border); }
+  .ib-news { position: static; margin: 16px 0 0; padding: 16px 0 0; border-left: 0; border-top: 1px solid var(--border); }
   .ib-article.is-collapsed { max-height: 420px; }
   .ibn-list { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
   .ibn-list li { flex: 0 0 64%; scroll-snap-align: start; border: 1px solid var(--border) !important; border-radius: var(--radius-card); overflow: hidden; }
@@ -302,6 +310,7 @@ body.modal-open { overflow: hidden; }
 
   .pb-list li { flex-basis: 44%; }
   .pb-card { padding: 8px 8px 10px; }
+  .pb-rate, .pb-old, .pb-gift { font-size: 12px; }
   .cnkd-note { font-size: 12px; }
   .fpanel { width: calc(100vw - 24px); }
   .opts--brand { grid-template-columns: repeat(2, minmax(0, 1fr)); }

@@ -159,17 +159,24 @@ main > * { min-width: 0; }
 .infobox-lead { margin: 0 0 12px; font-size: 16px; line-height: 1.6; color: #344054; max-width: 80ch; }
 
 /* Feed tin mới */
-.news h2, .infobox h2 { font-size: 18px; }
-.news-list { list-style: none; margin: 12px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 20px; }
-.news-item a { display: flex; gap: 12px; color: var(--text); }
-.news-item a:hover { text-decoration: none; }
-.news-item a:hover .news-title { color: var(--primary); }
-.news-item img { flex: none; width: 128px; height: 72px; object-fit: cover; border-radius: 6px; background: var(--tag-bg); }
-.news-body { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
-.news-title { font-weight: 500; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-.news-date { font-size: 12px; color: var(--muted); }
-.news-tags { display: flex; flex-wrap: wrap; gap: 4px; list-style: none; margin: 6px 0 0 140px; padding: 0; }
-.news-tags li { font-size: 12px; color: #344054; background: var(--tag-bg); border-radius: 4px; padding: 1px 6px; }
+.infobox h2 { font-size: 18px; }
+/* Khối Thông tin có tin mới: 2 cột (hỏi đáp | tin mới) trên desktop */
+.infobox.has-news { display: grid; grid-template-columns: minmax(0, 1fr) 340px; grid-template-rows: auto 1fr; grid-template-areas: "head news" "faq news";
+  column-gap: 32px; align-items: start; }
+.ib-head { grid-area: head; }
+.infobox .faq { grid-area: faq; }
+.ib-news { grid-area: news; padding-left: 24px; border-left: 1px solid var(--border); }
+.ib-news h3 { display: flex; align-items: center; gap: 6px; margin: 0 0 10px; font-size: 16px; color: #B54708; }
+.ibn-list { list-style: none; margin: 0; padding: 0; }
+.ibn-list li + li { border-top: 1px solid var(--border); }
+.ibn-item { display: flex; gap: 10px; padding: 10px 0; color: var(--text); }
+.ibn-item:hover { text-decoration: none; }
+.ibn-item:hover .ibn-title { color: var(--primary); }
+.ibn-item img { flex: none; width: 96px; height: 54px; object-fit: cover; border-radius: 6px; background: var(--tag-bg); }
+.ibn-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.ibn-title { font-size: 14px; font-weight: 500; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical; overflow: hidden; }
+.ibn-date { font-size: 12px; color: var(--muted); }
 
 /* Sidebar "Đang bán chạy" — danh sách gọn, khác hẳn lưới card */
 
@@ -259,6 +266,14 @@ body.modal-open { overflow: hidden; }
 }
 @media (max-width: 900px) {
   .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  /* Tin mới thành băng cuộn ngang giữa đoạn mở và hỏi đáp */
+  .infobox.has-news { display: block; }
+  .ib-news { margin: 4px 0 16px; padding-left: 0; border-left: 0; }
+  .ibn-list { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .ibn-list li { flex: 0 0 64%; scroll-snap-align: start; border: 1px solid var(--border) !important; border-radius: var(--radius-card); overflow: hidden; }
+  .ibn-item { flex-direction: column; gap: 6px; padding: 0 0 10px; }
+  .ibn-item img { width: 100%; height: auto; aspect-ratio: 16 / 9; border-radius: 0; }
+  .ibn-body { padding: 0 10px; }
   /* Dải "đang bán" thành băng cuộn ngang, card sau ló một nửa để báo còn nữa */
   .pb-list { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 2px; }
   .pb-list li { flex: 0 0 30%; scroll-snap-align: start; }
@@ -283,12 +298,9 @@ body.modal-open { overflow: hidden; }
   .pb-all { min-height: 36px; padding: 0 10px; font-size: 13px; }
   .pb-card { padding: 8px 8px 10px; }
   .cnkd-note { font-size: 12px; }
-  .news-list { grid-template-columns: 1fr; }
   .fpanel { width: calc(100vw - 24px); }
   .opts--brand { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .fpanel-foot .btn { min-width: 0; flex: 1; }
-  .news-item img { width: 112px; height: 63px; }
-  .news-tags { margin-left: 124px; }
   .idx-list { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
 }

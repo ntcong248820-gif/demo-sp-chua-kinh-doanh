@@ -1,6 +1,6 @@
 // Tương tác demo v3: nút "Lọc" xổ panel ngay dưới nút (như danh mục đang bán), 2 nhóm Thương hiệu / Loại sản phẩm
 // (OR trong nhóm, AND giữa nhóm),
-// chip đã chọn có × để bỏ, sắp xếp Nổi bật / Có tin mới, dải "đang bán" luôn nằm ngay sau hàng card đầu.
+// chip đã chọn có × để bỏ, sắp xếp Nổi bật / Có tin mới, lưới gập 2 hàng + "Xem thêm".
 // Nội dung đã render sẵn; tắt JS trang vẫn đọc được.
 (() => {
   const $ = (s, r = document) => r.querySelector(s);
@@ -30,21 +30,23 @@
   let draft = {};     // lựa chọn trong popup, chưa bấm "Xem kết quả"
   let sort = 'featured';
   let lastFocus;
-  const promo = $('[data-promo]', grid);
+  const moreBtn = $('[data-more]');
+  let expanded = false;
 
-  // Dải "đang bán" đứng sau hàng card đầu (lưới 2 cột: sau 2 hàng, để màn đầu mobile vẫn thấy SP chưa KD trước).
-  // Số cột đọc từ CSS thật nên tự đúng ở mọi breakpoint; lọc còn ít card thì dải xuống cuối.
-  const placePromo = () => {
-    if (!promo) return;
+  // Gập lưới còn 2 hàng (lưới 2 cột: 3 hàng) + "Xem thêm", như danh mục đang bán. Số cột đọc từ CSS thật nên
+  // đúng ở mọi breakpoint; áp trên kết quả đã lọc/sắp. Đã bấm "Xem thêm" thì giữ mở tới khi tải lại trang.
+  const fold = () => {
     const cols = getComputedStyle(grid).gridTemplateColumns.split(' ').length;
-    const k = cols * (cols <= 2 ? 2 : 1);
+    const limit = cols * (cols <= 2 ? 3 : 2);
     const visible = cards.filter((c) => !c.hidden);
-    const anchor = visible.length > k ? visible[k - 1] : visible[visible.length - 1];
-    if (!anchor) { grid.append(promo); return; }
-    if (anchor.nextElementSibling !== promo) anchor.after(promo);
+    visible.forEach((c, i) => c.classList.toggle('is-folded', !expanded && i >= limit));
+    const rest = expanded ? 0 : Math.max(0, visible.length - limit);
+    moreBtn.hidden = !rest;
+    $('[data-more-count]', moreBtn).textContent = rest;
   };
+  moreBtn.addEventListener('click', () => { expanded = true; fold(); });
   let rz;
-  addEventListener('resize', () => { cancelAnimationFrame(rz); rz = requestAnimationFrame(placePromo); });
+  addEventListener('resize', () => { cancelAnimationFrame(rz); rz = requestAnimationFrame(fold); });
 
   const matches = (card, sel) => Object.entries(sel).every(([g, vals]) =>
     !vals.length || vals.some((v) => card._attrs[g].includes(v)));
@@ -77,7 +79,7 @@
     const n = cards.filter((c) => !c.hidden).length;
     empty.hidden = n > 0;
     count.textContent = nSelected(applied) ? `${n}/${cards.length}` : cards.length;
-    placePromo(); renderPicked();
+    fold(); renderPicked();
   };
 
   const syncDraft = () => {
@@ -116,5 +118,5 @@
     $$('.sort-btn').forEach((x) => x.classList.remove('is-active'));
     b.classList.add('is-active'); sort = b.dataset.sort; apply();
   }));
-  placePromo();
+  fold();
 })();

@@ -1,6 +1,7 @@
 // Tương tác demo v3: nút "Lọc" xổ panel ngay dưới nút (như danh mục đang bán), 2 nhóm Thương hiệu / Loại sản phẩm
 // (OR trong nhóm, AND giữa nhóm),
-// chip đã chọn có × để bỏ, sắp xếp Nổi bật / Có tin mới. Nội dung đã render sẵn; tắt JS trang vẫn đọc được.
+// chip đã chọn có × để bỏ, sắp xếp Nổi bật / Có tin mới, dải "đang bán" luôn nằm ngay sau hàng card đầu.
+// Nội dung đã render sẵn; tắt JS trang vẫn đọc được.
 (() => {
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -29,6 +30,21 @@
   let draft = {};     // lựa chọn trong popup, chưa bấm "Xem kết quả"
   let sort = 'featured';
   let lastFocus;
+  const promo = $('[data-promo]', grid);
+
+  // Dải "đang bán" đứng sau hàng card đầu (lưới 2 cột: sau 2 hàng, để màn đầu mobile vẫn thấy SP chưa KD trước).
+  // Số cột đọc từ CSS thật nên tự đúng ở mọi breakpoint; lọc còn ít card thì dải xuống cuối.
+  const placePromo = () => {
+    if (!promo) return;
+    const cols = getComputedStyle(grid).gridTemplateColumns.split(' ').length;
+    const k = cols * (cols <= 2 ? 2 : 1);
+    const visible = cards.filter((c) => !c.hidden);
+    const anchor = visible.length > k ? visible[k - 1] : visible[visible.length - 1];
+    if (!anchor) { grid.append(promo); return; }
+    if (anchor.nextElementSibling !== promo) anchor.after(promo);
+  };
+  let rz;
+  addEventListener('resize', () => { cancelAnimationFrame(rz); rz = requestAnimationFrame(placePromo); });
 
   const matches = (card, sel) => Object.entries(sel).every(([g, vals]) =>
     !vals.length || vals.some((v) => card._attrs[g].includes(v)));
@@ -61,7 +77,7 @@
     const n = cards.filter((c) => !c.hidden).length;
     empty.hidden = n > 0;
     count.textContent = nSelected(applied) ? `${n}/${cards.length}` : cards.length;
-    renderPicked();
+    placePromo(); renderPicked();
   };
 
   const syncDraft = () => {
@@ -100,4 +116,5 @@
     $$('.sort-btn').forEach((x) => x.classList.remove('is-active'));
     b.classList.add('is-active'); sort = b.dataset.sort; apply();
   }));
+  placePromo();
 })();

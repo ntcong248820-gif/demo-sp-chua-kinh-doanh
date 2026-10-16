@@ -53,7 +53,8 @@ h1, h2, h3 { color: var(--title); margin: 0; line-height: 1.3; }
 .breadcrumb li { display: flex; align-items: center; color: var(--muted); }
 .breadcrumb a { color: var(--muted); }
 .breadcrumb .sep { margin: 0 6px; }
-.breadcrumb h1 { font-size: 15px; font-weight: 500; color: var(--title); }
+.breadcrumb h1 { margin: 0; font-size: 16px; font-weight: 700; color: var(--title); }
+.h1-count { font-weight: 400; color: var(--muted); }
 
 main { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; padding-bottom: 32px; }
 main > * { min-width: 0; }
@@ -67,23 +68,8 @@ main > * { min-width: 0; }
 .btn-primary:hover { background: #0567DA; }
 .btn-outline-red { background: #fff; color: var(--price); border-color: var(--price); }
 
-/* Hub 2 cột: cột chính + sidebar dính "Đang bán chạy" */
-.hub { grid-template-columns: minmax(0, 1fr) 300px; align-items: start; }
-.hub-main { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
-
-/* Tóm tắt đầu trang = đoạn mở infobox */
-.summary { padding: 20px 24px; border-top: 4px solid var(--yellow); }
-.summary h1 { font-size: 26px; font-weight: 700; }
-.summary-meta { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 8px 0 12px; color: var(--muted); font-size: 13px; }
-.meta-item { display: inline-flex; align-items: center; gap: 6px; }
-.summary-lead { margin: 0; font-size: 16px; line-height: 1.6; color: #344054; max-width: 72ch; }
-.summary-note { display: flex; gap: 8px; align-items: flex-start; margin: 14px 0 0; padding: 10px 12px;
-  background: var(--primary-50); color: #174A8B; border-radius: var(--radius-chip); font-size: 14px; }
-.summary-note svg { flex: none; margin-top: 2px; }
-.summary-more { display: inline-flex; align-items: center; gap: 4px; margin-top: 10px; font-weight: 500; min-height: 32px; }
-
 /* Khối lọc — nút Lọc + chip đã chọn như danh mục đang bán; popup chỉ Thương hiệu / Loại sản phẩm */
-.filter-top { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 12px; }
+.filter-top { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 8px; }
 .btn-filter { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 14px; background: #fff;
   border: 1px solid var(--primary); color: var(--title); border-radius: var(--radius-chip); }
 .btn-filter svg { color: #F79009; }
@@ -93,17 +79,20 @@ main > * { min-width: 0; }
   color: var(--title); border: 0; border-radius: var(--radius-chip); }
 .picked:hover { background: #EAECF0; }
 .clear-all { padding: 0 4px; min-height: 36px; }
-.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.chips { display: contents; }
 .chip { display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border: 1px solid var(--chip-border);
   border-radius: var(--radius-chip); color: var(--title); background: #fff; font-size: 15px; white-space: nowrap; }
 .chip:hover { border-color: var(--primary); text-decoration: none; }
 .chip.is-active { border-color: var(--primary); color: var(--primary); background: var(--primary-50); }
-.sort { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; color: var(--title); margin-bottom: 12px; }
+.sort-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0 16px; margin-bottom: 8px; }
+.sort { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; color: var(--title); }
+.cnkd-note { display: inline-flex; align-items: center; gap: 6px; margin: 0; font-size: 13px; color: #475467; }
+.cnkd-note svg { flex: none; color: var(--primary); }
 .sort-btn { border: 0; background: none; color: var(--muted); padding: 8px 0; min-height: 36px; }
 .sort-btn.is-active { color: var(--primary); font-weight: 500; }
 
 /* Lưới card */
-.grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
 .pcard { display: flex; flex-direction: column; gap: 6px; background: #fff; border: 1px solid var(--border);
   border-radius: var(--radius-card); padding: 10px 12px 12px; transition: box-shadow .2s; }
 .pcard:hover { box-shadow: 0 4px 16px rgb(16 24 40 / .1); }
@@ -113,13 +102,15 @@ main > * { min-width: 0; }
 .pcard-img { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; }
 .pcard-img img { width: 100%; height: 100%; object-fit: contain; }
 .pcard-img--news img { border-radius: 4px; object-fit: cover; }
-.pcard-img--blank { flex-direction: column; gap: 4px; background: linear-gradient(160deg, #F9FAFB, #EAECF0); border-radius: 4px; color: #98A2B3; font-weight: 600; text-align: center; }
-.pcard-img--blank small { font-size: 11px; font-weight: 400; color: var(--muted); }
+.pcard-img--blank { flex-direction: column; gap: 10px; background: linear-gradient(160deg, #F9FAFB, #EAECF0); border-radius: 4px; text-align: center; }
+.pcard-img--blank img { width: auto; height: 24px; max-width: 70%; }
+.pcard-img--blank b { font-size: 20px; color: #344054; }
+.pcard-img--blank small { font-size: 12px; color: #475467; }
 .pcard-name { font-size: 15px; font-weight: 600; }
-.tag { align-self: flex-start; font-size: 12px; border-radius: 4px; padding: 2px 6px; background: var(--tag-bg); color: var(--muted); }
 .spec-chips { display: flex; flex-wrap: wrap; gap: 4px; list-style: none; margin: 0; padding: 0; }
 .spec-chips li { font-size: 12px; background: var(--tag-bg); color: #344054; border-radius: 4px; padding: 2px 6px; }
-.no-spec { margin: 0; font-size: 12px; color: var(--muted); }
+.release { display: flex; align-items: center; gap: 4px; margin: 0; font-size: 13px; color: #475467; }
+.release svg { flex: none; }
 .card-news { display: block; margin-top: auto; padding-top: 8px; border-top: 1px dashed var(--border); font-size: 13px; color: var(--text); }
 .card-news:hover { text-decoration: none; }
 .card-news:hover .card-news-title { color: var(--primary); }
@@ -129,8 +120,39 @@ main > * { min-width: 0; }
 .empty { color: var(--muted); text-align: center; padding: 24px; }
 .link-btn { border: 0; background: none; color: var(--primary); padding: 0; }
 
+/* Dải "đang bán": nằm ngang trong lưới, sau hàng card đầu. Nền vàng thương hiệu + card trắng có giá để
+   tách hẳn khỏi card SP chưa KD — mục đích của trang là đẩy khách sang máy mua được. */
+.promo { grid-column: 1 / -1; margin: 6px 0; padding: 14px 16px 16px; border-radius: var(--radius-panel);
+  background: linear-gradient(135deg, #FFE14C, var(--yellow)); }
+.pb-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.pb-eyebrow { display: inline-flex; align-items: center; gap: 4px; margin: 0 0 2px; font-size: 13px; font-weight: 500; color: var(--title); }
+.pb-eyebrow svg { color: #067647; stroke-width: 3; }
+.promo h2 { font-size: 20px; font-weight: 700; color: #101828; }
+.pb-all { display: inline-flex; flex: none; align-items: center; gap: 2px; min-height: 40px; padding: 0 14px;
+  background: #fff; border-radius: 999px; color: var(--title); font-size: 14px; font-weight: 500; }
+.pb-all:hover { text-decoration: none; color: var(--primary); }
+.pb-list { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; list-style: none; margin: 0; padding: 0; }
+.pb-list li { display: flex; min-width: 0; }
+.pb-card { display: flex; flex: 1; flex-direction: column; gap: 4px; padding: 10px 12px 12px; background: #fff;
+  border-radius: 8px; color: var(--text); transition: box-shadow .2s; }
+.pb-card:hover { text-decoration: none; box-shadow: 0 6px 18px rgb(16 24 40 / .16); }
+.pb-card:hover .pb-name { color: var(--primary); }
+.pb-card img { width: 100%; height: auto; aspect-ratio: 1; max-height: 160px; object-fit: contain; margin-bottom: 4px; }
+.pb-name { font-size: 14px; font-weight: 600; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical; overflow: hidden; min-height: 2.7em; }
+.pb-price { color: var(--price); font-size: 16px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.pb-old { display: flex; gap: 6px; font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.pb-old b { color: var(--price); font-weight: 500; }
+.pb-cta { display: flex; align-items: center; justify-content: center; min-height: 36px; margin-top: auto;
+  border: 1px solid var(--primary); border-radius: var(--radius-chip); color: var(--primary); font-size: 14px; font-weight: 600; white-space: nowrap; }
+/* CTA bám đáy card để thẳng hàng; tên giữ chỗ 2 dòng để giá cũng thẳng hàng */
+.pb-card > :nth-last-child(2) { margin-bottom: 8px; }
+.pb-card:hover .pb-cta { background: var(--primary-50); }
+
+.infobox-lead { margin: 0 0 12px; font-size: 16px; line-height: 1.6; color: #344054; max-width: 80ch; }
+
 /* Feed tin mới */
-.news h2, .infobox h2, .bestsellers h2 { font-size: 18px; }
+.news h2, .infobox h2 { font-size: 18px; }
 .news-list { list-style: none; margin: 12px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 20px; }
 .news-item a { display: flex; gap: 12px; color: var(--text); }
 .news-item a:hover { text-decoration: none; }
@@ -143,22 +165,6 @@ main > * { min-width: 0; }
 .news-tags li { font-size: 12px; color: #344054; background: var(--tag-bg); border-radius: 4px; padding: 1px 6px; }
 
 /* Sidebar "Đang bán chạy" — danh sách gọn, khác hẳn lưới card */
-.bestsellers { position: sticky; top: 12px; }
-.bs-sub { margin: 2px 0 10px; color: #067647; font-size: 13px; }
-.bs-list { list-style: none; margin: 0; padding: 0; }
-.bs-list li + li { border-top: 1px solid var(--border); }
-.bs-item { display: flex; gap: 10px; align-items: center; padding: 10px 0; color: var(--text); }
-.bs-item:hover { text-decoration: none; }
-.bs-item:hover .bs-name { color: var(--primary); }
-.bs-item img { flex: none; width: 56px; height: 56px; object-fit: contain; }
-.bs-body { display: flex; flex-direction: column; min-width: 0; }
-.bs-name { font-size: 14px; line-height: 1.35; }
-.bs-price { color: var(--price); font-weight: 700; font-variant-numeric: tabular-nums; }
-.bs-old { font-size: 12px; color: var(--muted); }
-.bs-old s { margin-right: 2px; }
-.bs-all { display: flex; align-items: center; justify-content: center; gap: 4px; min-height: 40px; margin-top: 6px;
-  border: 1px solid var(--chip-border); border-radius: var(--radius-chip); color: var(--title); }
-.bs-all:hover { border-color: var(--primary); text-decoration: none; }
 
 /* Bảng (trang mục lục) */
 .table-wrap { overflow-x: auto; }
@@ -232,19 +238,14 @@ body.modal-open { overflow: hidden; }
 
 /* Responsive */
 @media (max-width: 1100px) {
-  .hub { grid-template-columns: minmax(0, 1fr) 260px; }
-  .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .header-actions .location { display: none; }
 }
 @media (max-width: 900px) {
-  /* Sidebar xuống ngay sau lưới card */
-  .hub { display: flex; flex-direction: column; }
-  .hub-main { display: contents; }
-  .summary { order: 1; } .listing { order: 2; } .bestsellers { order: 3; } .news { order: 4; } .infobox { order: 5; }
-  .hub > *, .hub-main > * { min-width: 0; max-width: 100%; }
-  .bestsellers { position: static; }
-  .bs-list { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 4px; }
-  .bs-list li { flex: 0 0 220px; scroll-snap-align: start; border: 1px solid var(--border) !important; border-radius: var(--radius-card); padding: 0 10px; }
+  .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  /* Dải "đang bán" thành băng cuộn ngang, card sau ló một nửa để báo còn nữa */
+  .pb-list { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 2px; }
+  .pb-list li { flex: 0 0 30%; scroll-snap-align: start; }
   .footer-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 767px) {
@@ -256,12 +257,16 @@ body.modal-open { overflow: hidden; }
   .search { order: 3; flex-basis: 100%; max-width: none; }
   .header-nav ul { gap: 16px; }
   .panel { padding: 12px; }
-  .summary { padding: 16px; }
-  .summary h1 { font-size: 22px; }
-  .summary-lead { font-size: 15px; }
   .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
   .pcard { padding: 8px; }
-  .chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .promo { margin: 4px 0; padding: 12px; }
+  .promo h2 { font-size: 18px; }
+  .pb-list li { flex-basis: 44%; }
+  .pb-head { align-items: center; }
+  .pb-eyebrow { font-size: 12px; white-space: nowrap; }
+  .pb-all { min-height: 36px; padding: 0 10px; font-size: 13px; }
+  .pb-card { padding: 8px 8px 10px; }
+  .cnkd-note { font-size: 12px; }
   .news-list { grid-template-columns: 1fr; }
   .fpanel { width: calc(100vw - 24px); }
   .opts--brand { grid-template-columns: repeat(2, minmax(0, 1fr)); }

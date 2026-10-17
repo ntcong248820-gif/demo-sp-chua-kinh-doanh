@@ -110,9 +110,11 @@
       });
       box.append(b);
     });
+    // Như web thật: có chip đã chọn (từ URL hoặc lọc tại chỗ) thì phễu trên nút Lọc có chấm cam
     const n = nSelected(applied);
-    const badge = $('.filter-count');
-    if (badge) { badge.hidden = !n; badge.textContent = n; $('.clear-all').hidden = !n; }
+    $('[data-open-filter]')?.classList.toggle('has-filter', n > 0 || !!$('a.picked'));
+    const clr = $('.clear-all');
+    if (clr) clr.hidden = !n;
   };
 
   const apply = () => {

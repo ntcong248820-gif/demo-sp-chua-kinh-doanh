@@ -69,21 +69,28 @@ main > * { min-width: 0; }
 .btn-outline-red { background: #fff; color: var(--price); border-color: var(--price); }
 
 /* Khối lọc — nút Lọc + chip đã chọn như danh mục đang bán; popup chỉ Thương hiệu / Loại sản phẩm */
-.filter-top { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 8px; }
+.filter-top { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 10px; }
 .btn-filter { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 14px; background: #fff;
   border: 1px solid var(--primary); color: var(--title); border-radius: var(--radius-chip); }
 .btn-filter svg { color: #F79009; }
-.filter-count { background: var(--primary); color: #fff; border-radius: 999px; font-size: 12px; min-width: 20px; padding: 0 6px; }
+.filter-ico { position: relative; display: inline-flex; }
+.has-filter .filter-ico::after { content: ""; position: absolute; top: -3px; right: -4px; width: 8px; height: 8px;
+  border-radius: 50%; background: #F79009; box-shadow: 0 0 0 1.5px #fff; }
 .picked-dyn { display: contents; }
 .picked { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 10px; background: var(--tag-bg);
   color: var(--title); border: 0; border-radius: var(--radius-chip); }
-.picked:hover { background: #EAECF0; }
+.picked:hover { background: #EAECF0; text-decoration: none; }
+a.picked { font-size: 13px; }
+.clear-all-link { font-size: 13px; color: var(--primary); white-space: nowrap; }
+.filter-lines { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 10px; }
+.fpicked { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 16px; }
+.fempty { margin: 0; font-size: 14px; color: #475467; }
 .clear-all { padding: 0 4px; min-height: 36px; }
 .chips { display: contents; }
 .chip { display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border: 1px solid var(--chip-border);
   border-radius: var(--radius-chip); color: var(--title); background: #fff; font-size: 15px; white-space: nowrap; }
 .chip:hover { border-color: var(--primary); text-decoration: none; }
-.chip.is-active { border-color: var(--primary); color: var(--primary); background: var(--primary-50); }
+.chip.is-active { border-color: var(--primary); color: var(--primary); background: #fff; }
 .sort-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0 16px; margin-bottom: 8px; }
 .sort { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; color: var(--title); }
 .cnkd-note { display: inline-flex; align-items: center; gap: 6px; margin: 0; font-size: 13px; color: #475467; }
@@ -153,10 +160,9 @@ main > * { min-width: 0; }
 /* Dải "đang bán": section riêng nằm ngang sau khung lưới. Theo card danh mục đang bán của TGDĐ (panel trắng,
    viền mảnh, giá đỏ đậm); vàng thương hiệu chỉ là vạch nhấn ở tiêu đề. */
 .promo { scroll-margin-top: 12px; }
-.pb-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.pb-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
 .promo h2 { display: flex; align-items: center; gap: 8px; font-size: 18px; font-weight: 700; color: var(--title); }
 .promo h2::before { content: ""; flex: none; width: 4px; height: 20px; border-radius: 2px; background: var(--yellow); }
-.pb-sub { margin: 2px 0 0 12px; font-size: 13px; color: #475467; }
 .pb-all { display: inline-flex; flex: none; align-items: center; gap: 2px; min-height: 40px; color: var(--primary); font-size: 14px; }
 .pb-list { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; list-style: none; margin: 0; padding: 0; }
 .pb-list li { display: flex; min-width: 0; }
@@ -320,6 +326,10 @@ body.modal-open { overflow: hidden; }
   .footer-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 767px) {
+  /* Hàng chip dòng cuộn ngang 1 hàng như danh mục đang bán trên mobile */
+  .filter-lines { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-right: -12px; padding-right: 12px; }
+  .filter-lines::-webkit-scrollbar { display: none; }
+  .filter-lines .chip { flex: none; }
   .header-top { flex-wrap: wrap; gap: 10px; }
   .logo img { width: 170px; }
   .header-actions { gap: 8px; }

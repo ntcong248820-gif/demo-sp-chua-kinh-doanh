@@ -92,34 +92,55 @@ main > * { min-width: 0; }
 .sort-btn { border: 0; background: none; color: var(--muted); padding: 8px 0; min-height: 36px; }
 .sort-btn.is-active { color: var(--primary); font-weight: 500; }
 
-/* Lưới card */
+/* Banner chiến dịch — như danh mục đang bán (đo /dtdd 17/10/2026): ngoài panel trắng, ảnh 3:1 bo 8px,
+   desktop 2 tấm cách 10px + mũi tên tròn, mobile 1 tấm ló mép tấm kế. Không có banner thì khối không render. */
+.banner { position: relative; }
+.bn-track { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
+  list-style: none; margin: 0; padding: 0; }
+.bn-track::-webkit-scrollbar { display: none; }
+.bn-item { flex: 0 0 calc((100% - 10px) / 2); scroll-snap-align: start; }
+.bn-item a { display: block; border-radius: 8px; overflow: hidden; }
+.bn-item img { width: 100%; height: auto; aspect-ratio: 3 / 1; object-fit: cover; background: #E4E7EC; }
+.bn-arrow { position: absolute; top: 50%; transform: translateY(-50%); display: flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%; background: rgb(255 255 255 / .92);
+  color: var(--title); box-shadow: 0 2px 8px rgb(16 24 40 / .2); }
+.bn-arrow:hover { background: #fff; }
+.bn-prev { left: 12px; }
+.bn-next { right: 12px; }
+
+/* Lưới card — cùng khổ card danh mục đang bán (đo /dtdd 17/10/2026): 5 cột × 226px, gap 10, card p-10,
+   viền 1px, bo 6px, ảnh vuông tràn sát viền (224px; mobile 178px / ảnh 176px). Mỗi khe dưới ảnh có chiều cao
+   cố định, khe trống vẫn giữ chỗ → mọi card trên mọi trang cao bằng nhau. */
 .grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
-.pcard { display: flex; flex-direction: column; gap: 6px; background: #fff; border: 1px solid var(--border);
-  border-radius: var(--radius-card); padding: 10px 12px 12px; transition: box-shadow .2s; }
+.pcard { display: flex; flex-direction: column; gap: 8px; background: #fff; border: 1px solid var(--border);
+  border-radius: var(--radius-card); padding: 10px; overflow: hidden; transition: box-shadow .2s; }
 .pcard:hover { box-shadow: 0 4px 16px rgb(16 24 40 / .1); }
-.pcard-main { display: flex; flex-direction: column; gap: 6px; color: inherit; }
+.pcard-main { display: flex; flex-direction: column; gap: 8px; color: inherit; }
 .pcard-main:hover { text-decoration: none; }
 .pcard-main:hover .pcard-name { color: var(--primary); }
-.pcard-img { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; }
+.pcard-img { aspect-ratio: 1; margin: -10px -10px 0; display: flex; align-items: center; justify-content: center; }
 .pcard-img img { width: 100%; height: 100%; object-fit: contain; }
-.pcard-img--news img { border-radius: 4px; object-fit: cover; }
-.pcard-img--blank { flex-direction: column; gap: 10px; background: linear-gradient(160deg, #F9FAFB, #EAECF0); border-radius: 4px; text-align: center; }
+/* Ảnh bài tin 16:9 đặt trọn trong ô vuông trên nền xám, không cắt — ô ảnh nào cũng cùng một khối vuông */
+.pcard-img--news { background: var(--tag-bg); }
+.pcard-img--blank { flex-direction: column; gap: 10px; background: linear-gradient(160deg, #F9FAFB, #EAECF0); text-align: center; }
 .pcard-img--blank img { width: auto; height: 24px; max-width: 70%; }
 .pcard-img--blank b { font-size: 20px; color: #344054; }
 .pcard-img--blank small { font-size: 12px; color: #475467; }
-.pcard-name { font-size: 15px; font-weight: 600; }
-.spec-chips { display: flex; flex-wrap: wrap; gap: 4px; list-style: none; margin: 0; padding: 0; }
+.pcard-name { font-size: 15px; font-weight: 600; line-height: 1.3; min-height: 2.6em; display: -webkit-box;
+  -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.spec-chips { display: flex; flex-wrap: wrap; gap: 4px; height: 22px; overflow: hidden; list-style: none; margin: 0; padding: 0; }
 .spec-chips li { font-size: 12px; background: var(--tag-bg); color: #344054; border-radius: 4px; padding: 2px 6px; }
-.release { display: flex; align-items: center; gap: 4px; margin: 0; font-size: 13px; color: #475467; }
+.release { display: flex; align-items: center; gap: 4px; height: 20px; margin: 0; font-size: 13px; color: #475467; white-space: nowrap; overflow: hidden; }
 .release svg { flex: none; }
 .release.is-official { color: #067647; font-weight: 500; }
 .release.is-unknown { color: #667085; }
-.card-news { display: block; margin-top: auto; padding-top: 8px; border-top: 1px dashed var(--border); font-size: 13px; color: var(--text); }
+.card-news { display: block; height: 66px; overflow: hidden; padding-top: 8px; border-top: 1px dashed var(--border); font-size: 13px; color: var(--text); }
+.card-news--empty { border-top-color: transparent; }
 .card-news:hover { text-decoration: none; }
 .card-news:hover .card-news-title { color: var(--primary); }
 .card-news-label { display: block; font-size: 12px; font-weight: 600; color: #B54708; }
-.card-news-title { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-.news-more { color: var(--muted); font-size: 12px; }
+.card-news-title { line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.news-more { color: var(--muted); font-weight: 400; }
 .empty { color: var(--muted); text-align: center; padding: 24px; }
 .pcard.is-folded { display: none; }
 .btn-more { display: flex; align-items: center; justify-content: center; gap: 4px; min-height: 44px; margin: 14px auto 2px;
@@ -139,11 +160,12 @@ main > * { min-width: 0; }
 .pb-all { display: inline-flex; flex: none; align-items: center; gap: 2px; min-height: 40px; color: var(--primary); font-size: 14px; }
 .pb-list { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; list-style: none; margin: 0; padding: 0; }
 .pb-list li { display: flex; min-width: 0; }
-.pb-card { display: flex; flex: 1; flex-direction: column; gap: 4px; padding: 10px 12px 12px; background: #fff;
+.pb-card { display: flex; flex: 1; flex-direction: column; gap: 4px; padding: 10px; background: #fff; overflow: hidden;
   border: 1px solid var(--border); border-radius: var(--radius-card); color: var(--text); transition: box-shadow .2s; }
 .pb-card:hover { text-decoration: none; box-shadow: 0 4px 16px rgb(16 24 40 / .1); }
 .pb-card:hover .pb-name { color: var(--primary); }
-.pb-card img { width: 100%; height: auto; aspect-ratio: 1; max-height: 160px; object-fit: contain; margin-bottom: 4px; }
+/* Cùng khổ card lưới: ảnh vuông tràn viền, nhãn nằm dưới ảnh như card thật */
+.pb-card img { width: calc(100% + 20px); max-width: none; height: auto; aspect-ratio: 1; object-fit: contain; margin: -10px -10px 4px; }
 .pb-name { font-size: 14px; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
   overflow: hidden; min-height: 2.7em; }
 .pb-price { color: var(--price); font-size: 16px; font-weight: 700; font-variant-numeric: tabular-nums; }
@@ -304,12 +326,19 @@ body.modal-open { overflow: hidden; }
   .header-actions a { min-width: 44px; justify-content: center; }
   .search { order: 3; flex-basis: 100%; max-width: none; }
   .header-nav ul { gap: 16px; }
+  /* Như danh mục mobile: panel gần sát mép (lề 12px) → card 178px, ảnh 176px trên màn 390px */
+  main.container { padding: 0; }
+  .bn-track { padding: 0 12px; scroll-padding: 0 12px; }
+  .bn-item { flex-basis: calc(100% - 24px); }
+  .bn-arrow { width: 40px; height: 40px; }
+  .bn-prev { left: 20px; }
+  .bn-next { right: 20px; }
   .panel { padding: 12px; }
-  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
-  .pcard { padding: 8px; }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .pcard-name { font-size: 14px; }
+  .release { font-size: 12px; }
 
-  .pb-list li { flex-basis: 44%; }
-  .pb-card { padding: 8px 8px 10px; }
+  .pb-list li { flex-basis: 46%; }
   .pb-rate, .pb-old, .pb-gift { font-size: 12px; }
   .cnkd-note { font-size: 12px; }
   .fpanel { width: calc(100vw - 24px); }

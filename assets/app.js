@@ -37,6 +37,30 @@
     }
   }
 
+  // Banner đầu trang: mũi tên cuộn đúng 1 tấm, ẩn mũi tên ở hai đầu (như danh mục đang bán). Không tự chạy.
+  const bn = $('[data-banner]');
+  if (bn) {
+    const track = $('[data-bn-track]', bn);
+    const prev = $('[data-bn-prev]', bn);
+    const next = $('[data-bn-next]', bn);
+    const smooth = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+    const step = () => track.firstElementChild.getBoundingClientRect().width + 10;
+    const sync = () => {
+      const max = track.scrollWidth - track.clientWidth - 2;
+      const atStart = track.scrollLeft <= 2;
+      const atEnd = track.scrollLeft >= max;
+      // Mũi tên đang được focus mà sắp ẩn thì chuyển focus sang mũi tên còn lại, không rơi về đầu trang
+      if (atStart && document.activeElement === prev && !atEnd) next.focus();
+      if (atEnd && document.activeElement === next && !atStart) prev.focus();
+      prev.hidden = atStart; next.hidden = atEnd;
+    };
+    prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: smooth }));
+    next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: smooth }));
+    track.addEventListener('scroll', sync, { passive: true });
+    addEventListener('resize', sync);
+    sync();
+  }
+
   const grid = $('[data-grid]');
   if (!grid) return;
   const empty = $('.empty', grid.parentElement);

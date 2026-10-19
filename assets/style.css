@@ -267,7 +267,7 @@ a.picked { font-size: 13px; }
 .idx-card { display: flex; flex-direction: column; gap: 4px; border: 1px solid var(--border); border-radius: var(--radius-panel); padding: 16px; color: var(--title); height: 100%; }
 .idx-card:hover { border-color: var(--primary); text-decoration: none; }
 .idx-card b { font-size: 17px; }
-.idx-card span:last-child { color: var(--muted); font-size: 13px; }
+.idx-card > span:last-child { color: var(--muted); font-size: 13px; }
 .idx-kind { align-self: flex-start; font-size: 12px; font-weight: 600; color: #0567DA; background: var(--primary-50); border-radius: 4px; padding: 2px 8px; }
 .notes h2:not(:first-child) { margin-top: 24px; }
 .plain { margin: 0; padding-left: 20px; }
@@ -305,6 +305,19 @@ body.modal-open { overflow: hidden; }
 .fpanel-foot .btn { min-width: 160px; white-space: nowrap; }
 
 /* Responsive */
+/* Trang đang bán có công tắc (A2): lưới đang bán + khối SP chưa KD + nút công tắc demo */
+.sold-grid { margin-top: 12px; }
+.unsold-block .cnkd-note { margin: 0 0 12px; }
+.unsold-block h2 { display: flex; align-items: center; gap: 8px; font-size: 18px; font-weight: 700; }
+.unsold-block h2::before { content: ""; flex: none; width: 4px; height: 20px; border-radius: 2px; background: var(--primary); }
+.demo-toggle { position: fixed; right: 16px; bottom: 16px; z-index: 40; display: inline-flex; align-items: center; gap: 10px;
+  min-height: 44px; padding: 0 14px; border: 1px solid var(--title); border-radius: 22px; background: #fff; color: var(--title);
+  font-size: 14px; box-shadow: 0 4px 16px rgb(16 24 40 / .15); }
+.demo-toggle b { min-width: 34px; padding: 2px 8px; border-radius: 10px; background: var(--primary); color: #fff; font-size: 13px; }
+.demo-toggle[aria-pressed="false"] b { background: var(--muted); }
+.idx-why { color: var(--text) !important; font-size: 14px !important; line-height: 1.45; }
+.idx-why strong { color: var(--title); }
+
 @media (max-width: 1100px) {
   .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .header-actions .location { display: none; }
@@ -357,5 +370,13 @@ body.modal-open { overflow: hidden; }
   .fpanel-foot .btn { min-width: 0; flex: 1; }
   .idx-list { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
+}
+/* Lưới đang bán của trang A2 là lưới thật (không cuộn ngang như dải "… đang bán") */
+@media (max-width: 900px) {
+  .pb-list.sold-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); overflow: visible; }
+}
+@media (max-width: 767px) {
+  .pb-list.sold-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .demo-toggle { right: 12px; bottom: 12px; font-size: 13px; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }

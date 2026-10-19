@@ -61,6 +61,23 @@
     sync();
   }
 
+  // Trang đang bán (A2): nút nổi mô phỏng cờ khai báo "Hiện khối SP chưa KD". Trạng thái ghi lên URL (?khoi=tat)
+  // để gửi link xem đúng trạng thái. Tắt JS thì khối luôn hiện. Bật/tắt không đổi số SP trên breadcrumb.
+  const tBlock = $('[data-toggle-block]');
+  const tBtn = $('[data-toggle-btn]');
+  if (tBlock && tBtn) {
+    const setBlock = (on) => {
+      tBlock.hidden = !on;
+      tBtn.setAttribute('aria-pressed', String(on));
+      tBtn.querySelector('b').textContent = on ? 'Bật' : 'Tắt';
+      const u = new URL(location.href);
+      if (on) u.searchParams.delete('khoi'); else u.searchParams.set('khoi', 'tat');
+      history.replaceState(null, '', u);
+    };
+    setBlock(new URLSearchParams(location.search).get('khoi') !== 'tat');
+    tBtn.addEventListener('click', () => setBlock(tBlock.hidden));
+  }
+
   const grid = $('[data-grid]');
   if (!grid) return;
   const empty = $('.empty', grid.parentElement);

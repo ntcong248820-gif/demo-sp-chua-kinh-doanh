@@ -267,9 +267,10 @@ a.picked { font-size: 13px; }
 .idx-card { display: flex; flex-direction: column; gap: 4px; border: 1px solid var(--border); border-radius: var(--radius-panel); padding: 16px; color: var(--title); height: 100%; }
 .idx-card:hover { border-color: var(--primary); text-decoration: none; }
 .idx-card b { font-size: 17px; }
-.idx-card > span:last-child { color: var(--muted); font-size: 13px; }
 .idx-kind { align-self: flex-start; font-size: 12px; font-weight: 600; color: #0567DA; background: var(--primary-50); border-radius: 4px; padding: 2px 8px; }
 .notes h2:not(:first-child) { margin-top: 24px; }
+.idx-lead { margin: 8px 0 8px; font-size: 16px; line-height: 1.55; max-width: 760px; }
+.idx-problems { margin: 0 0 8px; padding-left: 20px; line-height: 1.6; }
 .plain { margin: 0; padding-left: 20px; }
 .plain li { margin-bottom: 6px; }
 
@@ -315,8 +316,7 @@ body.modal-open { overflow: hidden; }
   font-size: 14px; box-shadow: 0 4px 16px rgb(16 24 40 / .15); }
 .demo-toggle b { min-width: 34px; padding: 2px 8px; border-radius: 10px; background: var(--primary); color: #fff; font-size: 13px; }
 .demo-toggle[aria-pressed="false"] b { background: var(--muted); }
-.idx-why { color: var(--text) !important; font-size: 14px !important; line-height: 1.45; }
-.idx-why strong { color: var(--title); }
+.idx-why { color: var(--muted); font-size: 14px; line-height: 1.45; }
 
 @media (max-width: 1100px) {
   .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }

@@ -412,4 +412,84 @@ body.modal-open { overflow: hidden; }
   .pb-list.sold-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .demo-toggle { right: 12px; bottom: 12px; font-size: 13px; }
 }
+/* Trang đang bán A2 dựng y trang live /may-tinh-de-ban-msi (đo 19/10/2026, desktop 1440 + iPhone 14) */
+.lv-crumb ol { display: flex; flex-wrap: wrap; align-items: center; list-style: none; margin: 0; padding: 20px 0 16px;
+  font-size: 14px; line-height: 21px; }
+.lv-crumb li { display: flex; align-items: center; color: #344054; }
+.lv-crumb a { color: #98A2B3; }
+.lv-crumb .sep { margin: 0 6px; color: #98A2B3; }
+.lv-main { display: flex; flex-direction: column; gap: 16px; padding-bottom: 20px; }
+.lv-main > .panel { margin: 0; border-radius: 8px; padding: 16px; }
+.lv-panel { display: flex; flex-direction: column; gap: 16px; }
+.lv-panel .filter-top { margin: 0; }
+.lv-sort { display: flex; align-items: center; gap: 6px; color: #667085; white-space: nowrap; overflow-x: auto; scrollbar-width: none; }
+.lv-sort::-webkit-scrollbar { display: none; }
+.lv-sort-label { padding: 16px 8px 16px 0; color: #475467; }
+.lv-sort-item { padding: 0 2px; }
+.lv-sort-item.is-active { color: var(--primary); }
+.lv-dot { flex: none; width: 6px; height: 6px; margin: 0 8px; border-radius: 50%; background: #EAECF0; }
+.lv-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; list-style: none; margin: 0; padding: 0; }
+.lv-card { position: relative; display: flex; flex-direction: column; gap: 8px; min-width: 0; padding: 10px; background: #fff;
+  border: 1px solid var(--border); border-radius: 6px; overflow: hidden; transition: box-shadow .2s; }
+.lv-card:hover { box-shadow: 0 4px 16px rgb(16 24 40 / .1); }
+.lv-card a:hover { text-decoration: none; }
+.lv-img { position: relative; display: block; margin: -10px -10px 0; }
+.lv-img > img:first-child { width: 100%; aspect-ratio: 1; object-fit: contain; padding: 8px; }
+.lv-sticker { position: absolute; left: 0; right: 0; bottom: 8px; width: auto; max-width: 100%; margin: 0 auto; }
+.lv-info { display: flex; flex: 1; flex-direction: column; gap: 5px; font-size: 12px; }
+.lv-tag { align-self: flex-start; max-width: 100%; padding: 4px; border-radius: 4px; background: var(--tag-bg); color: #667085;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.lv-name { font-size: 14px; line-height: 20px; color: var(--title); display: -webkit-box; -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical; overflow: hidden; }
+.lv-card:hover .lv-name { color: var(--primary); }
+.lv-specs { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px; }
+.lv-spec { padding: 4px 5px; border-radius: 2px; background: var(--tag-bg); color: #667085; font-size: 12px; white-space: nowrap; }
+.lv-price { color: var(--price); font-size: 16px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.lv-old { display: flex; align-items: center; font-size: 14px; font-variant-numeric: tabular-nums; }
+.lv-old del { color: #98A2B3; }
+.lv-old b { margin-left: 4px; color: var(--price); font-size: 13px; font-weight: 400; }
+.lv-rate { display: flex; align-items: center; gap: 4px; font-size: 12px; line-height: 12px; color: #667085; }
+.lv-star { color: #F79009; }
+.lv-compare { display: flex; align-items: center; justify-content: flex-end; gap: 4px; color: var(--primary); line-height: 24px; }
+/* Thông tin hãng: cột 800px giữa trang, nằm trên nền trang (không panel) */
+.bi { width: 100%; max-width: 800px; margin: 15px auto 0; padding-top: 16px; scroll-margin-top: 12px; }
+.bi-title { display: table; margin: 0 auto 16px; padding: 8px 16px; border: 1px solid var(--primary); border-radius: 8px;
+  background: #fff; color: var(--primary); font-size: 16px; font-weight: 700; line-height: 24px; text-transform: uppercase; }
+.bi-frame { position: relative; }
+.bi-frame.is-collapsed { max-height: 200px; overflow: hidden; }
+.bi-content { padding-bottom: 20px; color: #222; font-size: 14px; line-height: 24px; }
+.bi-lead h2 { margin: 0 0 15px; color: #333; font-size: 16px; font-weight: 700; line-height: 24px; }
+.bi-toc { margin: 0 0 16px; padding: 12px 16px; border-radius: 8px; background: #F1F8FE; }
+.bi-toc-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; width: 100%; padding: 0;
+  border: 0; background: none; color: #222; font-size: 14px; line-height: 24px; text-align: left; }
+.bi-toc-head svg { transform: rotate(-90deg); transition: transform .2s; }
+.bi-toc-head[aria-expanded="false"] svg { transform: rotate(90deg); }
+.bi-toc-list { list-style: none; margin: 12px 0 0; padding: 0; }
+.bi-toc-list a { display: flex; gap: 8px; color: var(--primary); line-height: 24px; }
+.bi-toc-list .is-sub a { padding-left: 8px; }
+.bi-body h3 { margin: 0 0 15px; color: #222; font-size: 22px; font-weight: 700; line-height: 1.3; scroll-margin-top: 12px; }
+.bi-body h4 { margin: 0 0 15px; color: #222; font-size: 18px; font-weight: 700; line-height: 24px; scroll-margin-top: 12px; }
+.bi-body p { margin: 0 0 10px; font-size: 16px; line-height: 24px; }
+.bi-body img { width: 100%; height: auto; }
+.bi-more { position: absolute; left: 0; right: 0; bottom: 0; z-index: 1; padding: 10px; border: 0;
+  background: linear-gradient(rgb(255 255 255 / 0) -100%, #fff); }
+.bi-more span { display: flex; align-items: center; width: fit-content; margin: 0 auto; color: var(--primary); font-weight: 700; }
+.bi-more svg { transform: rotate(90deg); }
+.bi-more[aria-expanded="true"] { position: static; background: none; }
+.bi-more[aria-expanded="true"] svg { transform: rotate(-90deg); }
+@media (max-width: 1100px) { .lv-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 900px) { .lv-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 767px) {
+  .lv-crumb ol { padding: 10px 0; }
+  .lv-main { gap: 12px; }
+  .lv-main > .panel { border-radius: 0; padding: 12px; }
+  .lv-panel { gap: 12px; }
+  .lv-sort { border-top: 1px solid var(--border); padding-top: 4px; }
+  .lv-sort-label { display: none; }
+  .lv-sort-item { padding: 12px 2px; }
+  .lv-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .bi { width: auto; margin: 15px 16px 0; }
+  .bi-lead h2, .bi-body p { font-size: 14px; }
+  .bi-body h3 { font-size: 18px; }
+}
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }

@@ -37,6 +37,31 @@
     }
   }
 
+  // "Thông tin hãng" trang đang bán (A2), như live: gập còn 200px + "Xem thêm"; bấm mục lục thì mở bài rồi nhảy tới.
+  const bi = $('[data-bi]');
+  const biMore = $('[data-bi-more]');
+  if (bi && biMore) {
+    const setBi = (open) => {
+      bi.classList.toggle('is-collapsed', !open);
+      biMore.setAttribute('aria-expanded', String(open));
+      biMore.firstElementChild.firstChild.textContent = open ? 'Thu gọn' : 'Xem thêm';
+    };
+    setBi(false);
+    biMore.hidden = false;
+    biMore.addEventListener('click', () => {
+      const open = bi.classList.contains('is-collapsed');
+      setBi(open);
+      if (!open) bi.closest('section').scrollIntoView({ block: 'start' });
+    });
+    $$('[data-toc-link]').forEach((a) => a.addEventListener('click', () => setBi(true)));
+    const tocBtn = $('[data-toc-btn]');
+    if (tocBtn) tocBtn.addEventListener('click', () => {
+      const open = tocBtn.getAttribute('aria-expanded') !== 'true';
+      tocBtn.setAttribute('aria-expanded', String(open));
+      $('#bi-toc-list').hidden = !open;
+    });
+  }
+
   // Banner đầu trang: mũi tên cuộn đúng 1 tấm, ẩn mũi tên ở hai đầu (như danh mục đang bán). Không tự chạy.
   const bn = $('[data-banner]');
   if (bn) {

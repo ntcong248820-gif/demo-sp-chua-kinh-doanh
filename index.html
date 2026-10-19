@@ -42,43 +42,67 @@
   <ol class="flow" aria-label="Ý tưởng trong 3 bước"><li class="flow-step"><span class="flow-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span><b>Khách tìm trên Google</b><span>Một máy, hãng hay loại hàng TGDĐ chưa bán</span></li><li class="flow-step"><span class="flow-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></span><b>Vào trang của TGDĐ</b><span>Thấy thông số, ngày ra mắt, tin mới của máy chưa bán</span></li><li class="flow-step"><span class="flow-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2 2h3l2.7 12.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg></span><b>Được dẫn sang hàng đang bán</b><span>Máy tương đương có giá, trả chậm, bảo hành chính hãng</span></li></ol>
 </section>
 <section class="panel block">
-  <h2>4 tình huống đang demo</h2>
-  <p class="block-sub">Mỗi tình huống: vấn đề → cách làm → bấm vào trang demo để xem.</p>
-  <div class="sc-list"><article class="sc">
-  <header class="sc-head"><span class="sc-no">1</span><div><span class="idx-kind">Ngành đang bán</span>
-    <h3>Trang đang bán có quá ít máy</h3></div></header>
+  <h2>Bắt đầu từ loại trang</h2>
+  <p class="block-sub">Đi theo cây danh mục của TGDĐ: Ngành hàng → Hãng → Filter → Dòng Filter. Mỗi loại trang có
+  vài trường hợp, mỗi trường hợp có 1 trang demo.</p>
+  <ol class="map" aria-label="Các loại trang"><li class="map-tile"><a href="#nganh-hang"><span class="map-no">1</span><b>Ngành hàng</b><code>/may-tinh-de-ban</code><small>2 trường hợp</small></a></li><li class="map-tile"><a href="#hang"><span class="map-no">2</span><b>Hãng</b><code>/may-tinh-de-ban-dell</code><small>2 trường hợp</small></a></li><li class="map-tile is-off"><a href="#filter"><span class="map-no">3</span><b>Filter</b><code>/may-tinh-de-ban-pc-gaming</code><small>Không làm</small></a></li><li class="map-tile"><a href="#dong"><span class="map-no">4</span><b>Dòng Filter</b><code>/may-tinh-de-ban-asus-rog</code><small>2 trường hợp</small></a></li><li class="map-tile is-extra"><a href="#rule-them"><span class="map-no">+</span><b>Rule thêm</b><code>Trang đang bán ít SP</code><small>1 trường hợp</small></a></li></ol>
+  <section class="pt" id="nganh-hang"><header class="pt-head"><span class="pt-no">1</span><div><h3>Trang Ngành hàng</h3><p>Trang của cả một loại hàng. URL mẫu: <code>/may-tinh-de-ban</code></p></div></header><div class="sc-list"><article class="sc">
+  <header class="sc-head"><span class="sc-no">1.1</span><h4>Ngành đang bán, có máy mới TGDĐ chưa bán</h4></header>
   <dl class="sc-body">
-    <div><dt>Vấn đề</dt><dd>Trang Máy tính để bàn MSI của TGDĐ chỉ có 2 máy, trang đối thủ có nhiều hơn hẳn. Trang mỏng thì khó cạnh tranh trên Google.</dd></div>
-    <div><dt>Cách làm</dt><dd>Bật thêm một khối <b>“Mẫu PC MSI khác, chưa bán tại TGDĐ”</b> ngay dưới 2 máy đang bán. Trang nào mỏng thì bật, không cần thì tắt. Trong demo có nút ở góc dưới để bật / tắt và so sánh.</dd></div>
+    <div><dt>Khi nào gặp</dt><dd>TGDĐ bán 54 mẫu PC, CellphoneS bán 122. Khách tìm mẫu PC mới khác thì sang đối thủ.</dd></div>
+    <div><dt>Trang làm gì</dt><dd>Trang tổng hợp PC mới chưa bán tại TGDĐ: thông số, ngày ra mắt, tin mới. Dẫn sang máy đang bán tương đương.</dd></div>
   </dl>
-  <div class="sc-demo"><span>Xem demo</span><ul><li><a class="sc-link" href="may-tinh-de-ban-msi.html"><small>Trang đang bán</small><b>Máy tính để bàn MSI</b><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></li></ul></div>
+  <div class="sc-demo"><span>Xem demo</span><ul><li><a class="sc-link" href="may-tinh-de-ban-chua-kinh-doanh.html"><b>PC mới, chưa bán tại Thế Giới Di Động</b><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></li></ul></div>
 </article><article class="sc">
-  <header class="sc-head"><span class="sc-no">2</span><div><span class="idx-kind">Ngành đang bán</span>
-    <h3>Khách tìm máy mới mà TGDĐ chưa bán</h3></div></header>
+  <header class="sc-head"><span class="sc-no">1.2</span><h4>Ngành TGDĐ chưa bán</h4></header>
   <dl class="sc-body">
-    <div><dt>Vấn đề</dt><dd>TGDĐ bán 54 mẫu PC, CellphoneS bán 122. Khách tìm các mẫu PC mới khác sẽ sang trang đối thủ.</dd></div>
-    <div><dt>Cách làm</dt><dd>Một trang tổng hợp PC mới chưa bán tại TGDĐ: thông số, ngày ra mắt, tin mới. Cuối trang dẫn sang máy đang bán tương đương.</dd></div>
+    <div><dt>Khi nào gặp</dt><dd>RAM và linh kiện PC: đối thủ bán, TGDĐ chưa bán. Khách tìm linh kiện không vào TGDĐ.</dd></div>
+    <div><dt>Trang làm gì</dt><dd>Trang ngành hàng mới cho loại hàng đó. Dẫn sang hàng đang bán gần nhất: PC có sẵn RAM 16 GB.</dd></div>
   </dl>
-  <div class="sc-demo"><span>Xem demo</span><ul><li><a class="sc-link" href="may-tinh-de-ban-chua-kinh-doanh.html"><small>Ngành hàng</small><b>PC mới, chưa bán tại Thế Giới Di Động</b><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></li></ul></div>
+  <div class="sc-demo"><span>Xem demo</span><ul><li><a class="sc-link" href="ram-may-tinh.html"><b>RAM máy tính</b><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></li></ul></div>
+</article></div></section><section class="pt" id="hang"><header class="pt-head"><span class="pt-no">2</span><div><h3>Trang Hãng</h3><p>Ngành hàng + một hãng. URL mẫu: <code>/may-tinh-de-ban-dell</code></p></div></header><div class="sc-list"><article class="sc">
+  <header class="sc-head"><span class="sc-no">2.1</span><h4>Hãng TGDĐ chưa bán, trong ngành đang bán</h4></header>
+  <dl class="sc-body">
+    <div><dt>Khi nào gặp</dt><dd>Khách tìm “PC Dell” nhưng TGDĐ không có trang này, bị đưa về trang PC chung.</dd></div>
+    <div><dt>Trang làm gì</dt><dd>Trang riêng cho hãng: các dòng máy của hãng. Dẫn sang PC văn phòng đang bán.</dd></div>
+  </dl>
+  <div class="sc-demo"><span>Xem demo</span><ul><li><a class="sc-link" href="may-tinh-de-ban-dell.html"><b>Máy tính để bàn Dell</b><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></li></ul></div>
 </article><article class="sc">
-  <header class="sc-head"><span class="sc-no">3</span><div><span class="idx-kind">Ngành đang bán</span>
-    <h3>Khách tìm hãng, dòng máy TGDĐ chưa có</h3></div></header>
+  <header class="sc-head"><span class="sc-no">2.2</span><h4>Hãng thuộc ngành TGDĐ chưa bán</h4></header>
   <dl class="sc-body">
-    <div><dt>Vấn đề</dt><dd>Khách tìm “PC Dell”, “PC ROG” nhưng TGDĐ chưa có trang này, khách bị đưa về trang PC chung.</dd></div>
-    <div><dt>Cách làm</dt><dd>Trang riêng cho hãng / dòng đó, rồi dẫn sang PC đang bán cùng nhu cầu (văn phòng, chơi game).</dd></div>
+    <div><dt>Khi nào gặp</dt><dd>TGDĐ bán ổ cứng, thẻ nhớ Kingston, nhưng chưa bán RAM Kingston.</dd></div>
+    <div><dt>Trang làm gì</dt><dd>Trang hãng nằm dưới ngành RAM. Dẫn sang hàng Kingston đang bán.</dd></div>
   </dl>
-  <div class="sc-demo"><span>Xem demo</span><ul><li><a class="sc-link" href="may-tinh-de-ban-dell.html"><small>Hãng</small><b>Máy tính để bàn Dell</b><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></li><li><a class="sc-link" href="may-tinh-de-ban-asus-rog.html"><small>Dòng</small><b>PC Asus ROG</b><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></li></ul></div>
+  <div class="sc-demo"><span>Xem demo</span><ul><li><a class="sc-link" href="ram-kingston.html"><b>RAM Kingston</b><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></li></ul></div>
+</article></div></section><section class="pt is-off" id="filter"><header class="pt-head"><span class="pt-no">3</span><div><h3>Trang Filter <em>Không làm</em></h3><p>Ngành hàng + một tiêu chí lọc, VD “PC gaming”, “RAM 16 GB”. URL mẫu: <code>/may-tinh-de-ban-pc-gaming</code></p></div></header><p class="pt-off">Không làm trang riêng. Máy chưa bán chỉ lọc bằng nút Lọc ngay trên trang Ngành hàng / Hãng / Dòng. Tách trang theo từng tiêu chí sẽ sinh rất nhiều trang mỏng, trùng nhau.</p></section><section class="pt" id="dong"><header class="pt-head"><span class="pt-no">4</span><div><h3>Trang Dòng Filter</h3><p>Hãng + một dòng máy của hãng. URL mẫu: <code>/may-tinh-de-ban-asus-rog</code></p></div></header><div class="sc-list"><article class="sc">
+  <header class="sc-head"><span class="sc-no">4.1</span><h4>Dòng TGDĐ chưa bán, của hãng đang bán</h4></header>
+  <dl class="sc-body">
+    <div><dt>Khi nào gặp</dt><dd>TGDĐ bán PC Asus dòng văn phòng, chưa bán dòng ROG. Khách tìm “PC ROG” không có trang.</dd></div>
+    <div><dt>Trang làm gì</dt><dd>Trang riêng cho dòng: các mẫu trong dòng. Dẫn sang PC gaming đang bán.</dd></div>
+  </dl>
+  <div class="sc-demo"><span>Xem demo</span><ul><li><a class="sc-link" href="may-tinh-de-ban-asus-rog.html"><b>PC Asus ROG</b><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></li></ul></div>
 </article><article class="sc">
-  <header class="sc-head"><span class="sc-no">4</span><div><span class="idx-kind">Ngành chưa bán</span>
-    <h3>Khách tìm loại hàng TGDĐ chưa bán</h3></div></header>
+  <header class="sc-head"><span class="sc-no">4.2</span><h4>Dòng thuộc ngành TGDĐ chưa bán</h4></header>
   <dl class="sc-body">
-    <div><dt>Vấn đề</dt><dd>RAM và các linh kiện PC khác: đối thủ bán, TGDĐ chưa bán. Khách tìm linh kiện để nâng cấp PC không vào TGDĐ.</dd></div>
-    <div><dt>Cách làm</dt><dd>Trang cho loại hàng đó (ngành hàng → hãng → dòng), dẫn sang hàng đang bán gần nhất: PC có sẵn RAM 16 GB, hàng Kingston đang bán.</dd></div>
+    <div><dt>Khi nào gặp</dt><dd>Khách tìm đúng một dòng RAM, ví dụ Kingston FURY Beast.</dd></div>
+    <div><dt>Trang làm gì</dt><dd>Trang dòng nằm dưới RAM Kingston: các bản DDR5, DDR4, RGB. Dẫn sang máy lắp sẵn đang bán.</dd></div>
   </dl>
-  <div class="sc-demo"><span>Xem demo</span><ul><li><a class="sc-link" href="ram-may-tinh.html"><small>Ngành hàng</small><b>RAM máy tính</b><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></li><li><a class="sc-link" href="ram-kingston.html"><small>Hãng</small><b>RAM Kingston</b><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></li><li><a class="sc-link" href="kingston-fury-beast.html"><small>Dòng</small><b>Kingston FURY Beast</b><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></li></ul></div>
+  <div class="sc-demo"><span>Xem demo</span><ul><li><a class="sc-link" href="kingston-fury-beast.html"><b>Kingston FURY Beast</b><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></li></ul></div>
+</article></div></section>
+</section>
+<section class="panel block" id="rule-them">
+  <h2>Rule thêm: Trang đang bán quá ít sản phẩm</h2>
+  <p class="block-sub">Không phải trang mới, mà là trang đang bán được phép hiện thêm máy chưa bán.</p>
+  <div class="sc-list sc-list--one"><article class="sc">
+  <header class="sc-head"><span class="sc-no">+</span><h4>Trang đang bán quá ít sản phẩm</h4></header>
+  <dl class="sc-body">
+    <div><dt>Khi nào gặp</dt><dd>Trang Máy tính để bàn MSI chỉ có 2 máy, trang đối thủ có nhiều hơn hẳn. Trang mỏng khó cạnh tranh trên Google.</dd></div>
+    <div><dt>Trang làm gì</dt><dd>Cho phép bật thêm khối <b>“Mẫu PC MSI khác, chưa bán tại TGDĐ”</b> ngay dưới máy đang bán. Trang nào mỏng thì bật, không cần thì tắt. Áp dụng được cho trang đang bán ở mọi loại (Ngành hàng, Hãng, Filter, Dòng). Trong demo có nút ở góc dưới để bật / tắt và so sánh.</dd></div>
+  </dl>
+  <div class="sc-demo"><span>Xem demo</span><ul><li><a class="sc-link" href="may-tinh-de-ban-msi.html"><b>Máy tính để bàn MSI</b><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></li></ul></div>
 </article></div>
 </section>
-<section class="panel block"><h2>Nguyên tắc</h2><ul class="plain"><li>Chỉ đưa máy đã ra mắt thật, không đưa tin đồn.</li><li>Máy chưa bán không tính vào số sản phẩm của trang đang bán.</li><li>Chỉ làm trang Ngành hàng / Hãng / Dòng, không làm trang Filter.</li></ul></section>
+<section class="panel block"><h2>Nguyên tắc</h2><ul class="plain"><li>Chỉ đưa máy đã ra mắt thật, không đưa tin đồn.</li><li>Máy chưa bán không tính vào số sản phẩm của trang đang bán.</li><li>Mỗi trường hợp chỉ demo 1 trang.</li></ul></section>
 </main>
 <footer class="site-footer">
   <div class="container footer-grid">

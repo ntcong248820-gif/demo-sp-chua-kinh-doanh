@@ -1,0 +1,242 @@
+[
+ {
+  "name": "Kingston FURY Renegade DDR5",
+  "file": "assets/sp/kingston-fury-renegade-ddr5.jpg",
+  "image_url": "https://media.kingston.com/kingston/product/FURY_Renegade_Silver_Black_DDR5_1_angle-zm-lg.jpg",
+  "page_url": "https://www.kingston.com/en/memory/gaming/fury-renegade-ddr5"
+ },
+ {
+  "name": "Kingston FURY Renegade DDR5 RGB",
+  "file": "assets/sp/kingston-fury-renegade-ddr5-rgb.jpg",
+  "image_url": "https://media.kingston.com/kingston/product/FURY_Renegade_Silver_Black_RGB_DDR5_1_angle-zm-lg.jpg",
+  "page_url": "https://www.kingston.com/en/memory/gaming/fury-renegade-ddr5-rgb"
+ },
+ {
+  "name": "Kingston FURY Renegade DDR5 CUDIMM",
+  "file": "assets/sp/kingston-fury-renegade-ddr5-cudimm.jpg",
+  "image_url": "https://media.kingston.com/kingston/product/FURY_Renegade_Silver_Black_CUDIMM_DDR5_1_angle-zm-lg.jpg",
+  "page_url": "https://www.kingston.com/en/memory/gaming/fury-renegade-ddr5"
+ },
+ {
+  "name": "Kingston FURY Renegade DDR4",
+  "file": "assets/sp/kingston-fury-renegade-ddr4.jpg",
+  "image_url": "https://media.kingston.com/kingston/product/FURY_Renegade_Black_DDR4_1_angle-zm-lg.jpg",
+  "page_url": "https://www.kingston.com/en/memory/gaming/kingston-fury-renegade-ddr4-memory"
+ },
+ {
+  "name": "Kingston FURY Renegade DDR4 RGB",
+  "file": "assets/sp/kingston-fury-renegade-ddr4-rgb.jpg",
+  "image_url": "https://media.kingston.com/kingston/product/FURY_Renegade_RGB_Black_DDR4_1_angle-zm-lg.jpg",
+  "page_url": "https://www.kingston.com/en/memory/gaming/kingston-fury-renegade-ddr4-rgb-memory"
+ },
+ {
+  "name": "Kingston FURY Beast DDR5",
+  "file": "assets/sp/kingston-fury-beast-ddr5.jpg",
+  "image_url": "https://media.kingston.com/kingston/product/FURY_Beast_Black_DDR5_1_angle-zm-lg.jpg",
+  "page_url": "https://www.kingston.com/en/memory/gaming/kingston-fury-beast-ddr5-memory"
+ },
+ {
+  "name": "Kingston FURY Beast DDR5 RGB",
+  "file": "assets/sp/kingston-fury-beast-ddr5-rgb.jpg",
+  "image_url": "https://media.kingston.com/kingston/product/FURY_Beast_Black_RGB_DDR5_1_angle-zm-lg.jpg",
+  "page_url": "https://www.kingston.com/en/memory/gaming/kingston-fury-beast-ddr5-rgb-memory"
+ },
+ {
+  "name": "Kingston FURY Beast DDR5 White",
+  "file": "assets/sp/kingston-fury-beast-ddr5-white.jpg",
+  "image_url": "https://media.kingston.com/kingston/product/FURY_Beast_White_DDR5_1_angle-zm-lg.jpg",
+  "page_url": "https://www.kingston.com/en/memory/gaming/kingston-fury-beast-ddr5-memory"
+ },
+ {
+  "name": "Kingston FURY Beast DDR5 RGB White",
+  "file": "assets/sp/kingston-fury-beast-ddr5-rgb-white.jpg",
+  "image_url": "https://media.kingston.com/kingston/product/FURY_Beast_White_RGB_DDR5_1_angle-zm-lg.jpg",
+  "page_url": "https://www.kingston.com/en/memory/gaming/kingston-fury-beast-ddr5-rgb-memory"
+ },
+ {
+  "name": "Kingston FURY Beast DDR4",
+  "file": "assets/sp/kingston-fury-beast-ddr4.jpg",
+  "image_url": "https://media.kingston.com/kingston/product/FURY_Beast_Black_DDR4_1_angle-zm-lg.jpg",
+  "page_url": "https://www.kingston.com/en/memory/gaming/kingston-fury-beast-ddr4-memory"
+ },
+ {
+  "name": "MSI MPG Infinite X3 AI 2nd",
+  "file": "assets/sp/msi-mpg-infinite-x3-ai-2nd.jpg",
+  "image_url": "https://storage-asset.msi.com/global/picture/product/product_17376833337c78c773daf9e00f1b1c278fac1966fe.webp",
+  "page_url": "https://www.msi.com/Desktop/MPG-Infinite-X3-AI-2nd/Gallery"
+ },
+ {
+  "name": "MSI MEG Vision X AI 2nd",
+  "file": "assets/sp/msi-meg-vision-x-ai-2nd.jpg",
+  "image_url": "https://storage-asset.msi.com/global/picture/product/product_17376986217568536d9f1d8bf97193c57b2a0c6945.webp",
+  "page_url": "https://www.msi.com/Desktop/MEG-Vision-X-AI-2nd/Gallery"
+ },
+ {
+  "name": "MSI MPG Trident AS AI 2nd",
+  "file": "assets/sp/msi-mpg-trident-as-ai-2nd.jpg",
+  "image_url": "https://storage-asset.msi.com/global/picture/product/product_1743414564890b7d8e933bbd2caf132a881b5dae3f.webp",
+  "page_url": "https://www.msi.com/Desktop/MPG-Trident-AS-AI-2nd/Gallery"
+ },
+ {
+  "name": "MSI MPG Infinite Z3 9th",
+  "file": "assets/sp/msi-mpg-infinite-z3-9th.jpg",
+  "image_url": "https://storage-asset.msi.com/global/picture/product/product_174236326700c57b7626e6a7d4b69792dc7270b372.webp",
+  "page_url": "https://www.msi.com/Desktop/MPG-Infinite-Z3-9th/Gallery"
+ },
+ {
+  "name": "MSI Cubi NUC AI+ 2MG",
+  "file": "assets/sp/msi-cubi-nuc-ai-2mg.jpg",
+  "image_url": "https://storage-asset.msi.com/global/picture/product/product_174952553700cfff21fec0b6f6cfef479d70802707.webp",
+  "page_url": "https://www.msi.com/Business-Productivity-PC/Cubi-NUC-AI-Plus-2MX/Gallery"
+ },
+ {
+  "name": "MSI MEG Trident X2 14th",
+  "file": "assets/sp/msi-meg-trident-x2-14th.jpg",
+  "image_url": "https://storage-asset.msi.com/global/picture/product/product_169716800051f0fc24b084d95ba2aab922164b16c8.webp",
+  "page_url": "https://www.msi.com/Desktop/MEG-Trident-X2-14th/Gallery"
+ },
+ {
+  "name": "Asus ROG G700 (2025)",
+  "file": "assets/sp/asus-rog-g700-2025.jpg",
+  "image_url": "https://dlcdnwebimgs.asus.com/gain/20CA1C75-8ACE-4D13-BD1C-545B37D3C989/w1000",
+  "page_url": "https://rog.asus.com/desktops/full-tower/rog-g700-2025-g700/gallery/"
+ },
+ {
+  "name": "Asus ROG G1000",
+  "file": "assets/sp/asus-rog-g1000.jpg",
+  "image_url": "https://dlcdnwebimgs.asus.com/gain/EFDF3971-5E2D-422D-9D7B-EB1EEF566BB3/w1000",
+  "page_url": "https://rog.asus.com/desktops/full-tower/rog-g1000-2026-gm1000/gallery/"
+ },
+ {
+  "name": "Asus ROG NUC (2025)",
+  "file": "assets/sp/asus-rog-nuc-2025.jpg",
+  "image_url": "https://dlcdnwebimgs.asus.com/gain/378BDC73-54F3-4265-9FD3-90A29BCB4423/w1000",
+  "page_url": "https://rog.asus.com/desktops/mini-pc/rog-nuc-2025/gallery/"
+ },
+ {
+  "name": "Asus ROG NUC 16",
+  "file": "assets/sp/asus-rog-nuc-16.jpg",
+  "image_url": "https://dlcdnwebimgs.asus.com/gain/A3C9E202-9B44-460D-A007-9792804856BA/w1000",
+  "page_url": "https://rog.asus.com/desktops/mini-pc/rog-nuc-16/gallery/"
+ },
+ {
+  "name": "Asus ROG Strix G16CH",
+  "file": "assets/sp/asus-rog-strix-g16ch.jpg",
+  "image_url": "https://dlcdnwebimgs.asus.com/gain/6C55724B-80CE-49EB-8AF6-09D9321CBB10/w1000",
+  "page_url": "https://rog.asus.com/desktops/mid-tower/rog-strix-g16ch-series/gallery/"
+ },
+ {
+  "name": "Lenovo Legion Tower 7i (34L, 10)",
+  "file": "assets/sp/lenovo-legion-tower-7i-34l-10.jpg",
+  "image_url": "https://psrefstuff.lenovo.com/syspool/Sys/Image/Legion/Legion_T7_34IAS10/Compressedimage/Legion_T7_34IAS10_CT1_02.png",
+  "page_url": "https://psref.lenovo.com/Product/Legion/Legion_T7_34IAS10"
+ },
+ {
+  "name": "Lenovo Legion Tower 5i (30L, 10)",
+  "file": "assets/sp/lenovo-legion-tower-5i-30l-10.jpg",
+  "image_url": "https://psrefstuff.lenovo.com/syspool/Sys/Image/Legion/Legion_T5_30IAS10/Compressedimage/Legion_T5_30IAS10_CT1_03.jpg",
+  "page_url": "https://psref.lenovo.com/Product/Legion/Legion_T5_30IAS10"
+ },
+ {
+  "name": "Lenovo ThinkCentre M90a Pro Gen 6",
+  "file": "assets/sp/lenovo-thinkcentre-m90a-pro-gen-6.jpg",
+  "image_url": "https://psrefstuff.lenovo.com/syspool/Sys/Image/ThinkCentre/ThinkCentre_M90a_Pro_Gen_6/Compressedimage/ThinkCentre_M90a_Pro_Gen_6_CT1_01.png",
+  "page_url": "https://psref.lenovo.com/Product/ThinkCentre/ThinkCentre_M90a_Pro_Gen_6"
+ },
+ {
+  "name": "Lenovo ThinkCentre neo 50q QC",
+  "file": "assets/sp/lenovo-thinkcentre-neo-50q-qc.jpg",
+  "image_url": "https://psrefstuff.lenovo.com/syspool/Sys/Image/ThinkCentre/ThinkCentre_neo_50q_QC/Compressedimage/ThinkCentre_neo_50q_QC_CT1_01.png",
+  "page_url": "https://psref.lenovo.com/Product/ThinkCentre/ThinkCentre_neo_50q_QC"
+ },
+ {
+  "name": "Lenovo IdeaCentre Tower (17L, 10)",
+  "file": "assets/sp/lenovo-ideacentre-tower-17l-10.jpg",
+  "image_url": "https://psrefstuff.lenovo.com/syspool/Sys/Image/IdeaCentre/IdeaCentre_Tower_17IAS10/Compressedimage/IdeaCentre_Tower_17IAS10_CT1_02.png",
+  "page_url": "https://psref.lenovo.com/Product/IdeaCentre/IdeaCentre_Tower_17IAS10"
+ },
+ {
+  "name": "Alienware Area-51 Gaming Desktop",
+  "file": "assets/sp/alienware-area-51-gaming-desktop.jpg",
+  "image_url": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/desktops/alienware-desktops/area-51-r8/media-gallery/360mm/desktop-alienware-area51-r8-360-silver-gallery-2.psd?fmt=png-alpha&wid=1000&hei=1000",
+  "page_url": "https://www.dell.com/en-us/shop/desktop-computers/alienware-area-51-gaming-desktop/spd/alienware-area-51-aat2250-gaming-desktop/useaat2250wcto01"
+ },
+ {
+  "name": "Alienware Aurora Gaming Desktop",
+  "file": "assets/sp/alienware-aurora-gaming-desktop.jpg",
+  "image_url": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/desktops/alienware-aurora-r16-arl/media-gallery/240mm/desktop-alienware-act1250-240mm-bk-gallery-3.psd?fmt=png-alpha&wid=1000&hei=1000",
+  "page_url": "https://www.dell.com/en-us/shop/desktop-computers/spd/alienwareauroraact1250"
+ },
+ {
+  "name": "Dell Pro Max Tower T2",
+  "file": "assets/sp/dell-pro-max-tower-t2.jpg",
+  "image_url": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/desktops/dell-pro-max/fcst2250/media-gallery/desktop-dell-pro-max-fct2250-tower-bk-lockable-hdd-slim-odd-gallery-1.psd?fmt=png-alpha&wid=1000&hei=1000",
+  "page_url": "https://www.dell.com/en-us/shop/desktop-computers/spd/dellpromaxtowert2fct2250"
+ },
+ {
+  "name": "HP OMEN MAX 45L",
+  "file": "assets/sp/hp-omen-max-45l.jpg",
+  "image_url": "https://hp.widen.net/content/zndpfncxn2/png/zndpfncxn2.png?w=1000&h=1000&dpi=72&color=ffffff00",
+  "page_url": "https://www.hp.com/us-en/shop/pdp/omen-max-45l-gaming-desktop-pc-gt23-0000t-bq3v9av-1"
+ },
+ {
+  "name": "HP OMEN 35L",
+  "file": "assets/sp/hp-omen-35l.jpg",
+  "image_url": "https://hp.widen.net/content/fnmotz81pg/png/fnmotz81pg.png?w=1000&h=1000&dpi=72&color=ffffff00",
+  "page_url": "https://www.hp.com/us-en/shop/pdp/omen-35l-gaming-desktop-gt17-0098m-pc"
+ },
+ {
+  "name": "Acer Predator Orion 7000",
+  "file": "assets/sp/acer-predator-orion-7000.jpg",
+  "image_url": "https://images.acer.com/is/image/acer/predator-orion-7000-po7-667-z890-light-on-black-02?wid=1000&hei=1000&fmt=png-alpha",
+  "page_url": "https://www.acer.com/gb-en/predator/desktops-and-all-in-ones/predator-orion/orion-7000/pdp/DG.E5XEK.002"
+ },
+ {
+  "name": "Acer Predator Orion 5000",
+  "file": "assets/sp/acer-predator-orion-5000.jpg",
+  "image_url": "https://images.acer.com/is/image/acer/predator-orion-5000-po5-667-b860-light-on-black-06-1?wid=1000&hei=1000&fmt=png-alpha",
+  "page_url": "https://www.acer.com/gb-en/predator/desktops-and-all-in-ones/predator-orion/orion-5000/pdp/DG.E5WEK.002"
+ },
+ {
+  "name": "G.Skill Trident Z5 CK",
+  "file": "assets/sp/g-skill-trident-z5-ck.jpg",
+  "image_url": "https://www.gskill.com/_upload/images/2410291640090.png",
+  "page_url": "https://www.gskill.com/product/165/434/1730699580/F5-9000C4256H24GX2-TZ5CK"
+ },
+ {
+  "name": "Corsair Vengeance RGB DDR5 CUDIMM",
+  "file": "assets/sp/corsair-vengeance-rgb-ddr5-cudimm.jpg",
+  "image_url": "https://assets.corsair.com/image/upload/c_pad,q_85,h_1000,w_1000/products/Memory/vengeance-rgb-ddr5-cudimm/Gallery/S0375_CUDIMM_VENGEANCE_RGB_BLACK_HERO_1_LEAN.png",
+  "page_url": "https://www.corsair.com/us/en/p/memory/cmhc48gx5m2x8400c40/vengeance-rgb-48gb-2x24gb-ddr5-cudimm-8400mts-cl40-memory-kit-cmhc48gx5m2x8400c40"
+ },
+ {
+  "name": "TeamGroup T-Force Xtreem ARGB CKD DDR5",
+  "file": "assets/sp/teamgroup-t-force-xtreem-argb-ckd-ddr5.jpg",
+  "image_url": "https://images.teamgroupinc.com/products/memory/cu-dimm/ddr5/xtreem-argb-ckd/black/03.jpg",
+  "page_url": "https://www.teamgroupinc.com/en/product-detail/memory/T-FORCE/xtreem-argb-ckd-ddr5-black/xtreem-argb-ckd-ddr5-black-FF9D548G8400HC42BDC-CU01/"
+ },
+ {
+  "name": "Lexar ARES RGB DDR5",
+  "file": "assets/sp/lexar-ares-rgb-ddr5.jpg",
+  "image_url": "https://americas.lexar.com/wp-content/uploads/2023/11/ARES_RGB_DDR5_32GB_Photo1.png",
+  "page_url": "https://americas.lexar.com/product/lexar-ares-rgb-ddr5-desktop-memory/"
+ },
+ {
+  "name": "Lexar ARES RGB DDR4",
+  "file": "assets/sp/lexar-ares-rgb-ddr4.jpg",
+  "image_url": "https://www-oss.lexar.com/uploads/product_images/aresddr4_slider_16GB_3.png",
+  "page_url": "https://www.lexar.com/global/products/Lexar-ARES-RGB-DDR4-Desktop-Memory/"
+ },
+ {
+  "name": "Dell 24 All-in-One (EC24250)",
+  "file": "assets/sp/dell-24-all-in-one-ec24250.jpg",
+  "image_url": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/desktops/dell/ec24250/media-gallery/white/touch/dell-ec24250t-aio-gy-mldspk-gallery-9.psd?fmt=png-alpha&wid=1000&hei=1000",
+  "page_url": "https://www.dell.com/en-ca/shop/dell-desktops-workstations/spd/dell24allinoneec24250"
+ },
+ {
+  "name": "Dell Pro Max Micro",
+  "file": "assets/sp/dell-pro-max-micro.jpg",
+  "image_url": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/desktops/dell-pro-max/fcm2250/media-gallery/desktop-dell-pro-max-fcm2250-micro-bk-gallery-1.psd?fmt=png-alpha&wid=1000&hei=1000",
+  "page_url": "https://www.dell.com/en-us/shop/desktop-computers/dell-pro-max-micro-desktop/spd/dell-pro-max-fcm2250-micro"
+ }
+]

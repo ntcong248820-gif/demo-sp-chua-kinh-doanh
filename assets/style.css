@@ -539,15 +539,3 @@ body.modal-open { overflow: hidden; }
 .lv-status { font-size: 12px; color: #667085; }
 .pt-note { margin-top: 12px; }
 
-/* Mục lục: Trang hết hàng */
-.oos-h { margin: 18px 0 8px; font-size: 16px; }
-.oos-rule { padding: 12px 14px; border: 1px solid var(--line, #EAECF0); border-radius: 8px; }
-.oos-p { margin: 0 0 8px; font-size: 15px; line-height: 1.5; }
-.oos-live { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 4px; padding: 0; list-style: none; }
-.oos-live code { display: inline-block; padding: 2px 8px; border-radius: 6px; background: #F2F4F7; font-size: 13px; }
-.oos-steps { margin: 6px 0 0; padding-left: 20px; }
-.oos-steps li + li { margin-top: 4px; }
-.oos-live li { display: inline-flex; align-items: center; gap: 6px; }
-.oos-live span { font-size: 12px; color: var(--muted); }
-.oos-nodemo { margin: 12px 0 0; padding-top: 12px; border-top: 1px dashed var(--chip-border); font-size: 14px; color: var(--muted); line-height: 1.5; }
-.sc-head code { margin-left: auto; font-size: 12px; color: #475467; background: var(--tag-bg); padding: 1px 6px; border-radius: 4px; }

@@ -110,45 +110,27 @@
 </article></div>
 </section>
 <section class="panel block" id="trang-het-hang">
-  <h2>Trang hết hàng: danh mục mà mọi sản phẩm đã ngừng kinh doanh</h2>
-  <p class="block-sub">Không phải trang mới, mà là trang danh mục đang có bị hết sản phẩm. Câu hỏi: giữ lại để lấy
-  traffic được không, và giữ thì dùng giao diện nào.</p>
-  <h3 class="oos-h">Rule hiện hành</h3>
-  <dl class="sc-body oos-rule"><div><dt>Trang danh mục (Ngành hàng, Hãng, Filter, Dòng Filter) hết sản phẩm</dt><dd>Chuyển hướng lên trang cấp trên (VD trang hãng về trang ngành hàng), hoặc đặt noindex, nofollow.</dd></div><div><dt>Trang sản phẩm ngừng kinh doanh</dt><dd>Vẫn hoạt động bình thường (200, tự canonical, index, follow), giao diện đổi trạng thái sang “Ngưng kinh doanh”.</dd></div></dl>
-  <h3 class="oos-h">Thực tế trên web (kiểm 20/10/2026)</h3>
-  <p class="oos-p">Quét các trang danh mục có lượt hiển thị trên Google trong 3 tháng: <b>54 trang không còn
-  sản phẩm nhưng vẫn hoạt động và cho Google index</b>, không chuyển hướng, không noindex, tổng 438.516 lượt
-  hiển thị. Tiêu đề trang nhiều chỗ hiện “undefined”. Các trang nhiều lượt hiển thị nhất (lượt hiển thị 3 tháng):</p>
-  <ul class="oos-live"><li><code>/dtdd-xiaomi-redmi-note-17</code><span>321.485</span></li><li><code>/laptop-dell-latitude</code><span>66.160</span></li><li><code>/camera-giam-sat-xiaomi</code><span>2.616</span></li><li><code>/dong-ho-deo-tay-orient-star</code><span>1.440</span></li><li><code>/laptop-dell-vostro</code><span>914</span></li><li><code>/laptop-samsung</code><span>200</span></li><li><code>/may-in-scan</code><span>176</span></li><li><code>/laptop-rtx-20-series</code><span>33</span></li></ul>
-  <h3 class="oos-h">Đề xuất: thêm nhánh thứ 3 vào rule, xét theo thứ tự</h3>
-  <ol class="oos-steps"><li>Có trang đang bán khớp nhu cầu người tìm: chuyển hướng về đó.</li><li>Không có, nhưng trang còn lượt hiển thị trên Google và còn từ 4 trang sản phẩm ngừng kinh doanh: giữ trang, dùng chung giao diện trang SP chưa KD. Card ghi “Ngừng kinh doanh”, bấm vào ra trang sản phẩm thật; bên dưới dẫn sang hàng đang bán tương đương.</li><li>Còn lại: áp rule hiện hành.</li></ol>
-  <h3 class="oos-h">Áp vào từng loại trang</h3>
+  <h2>Trang hết hàng</h2>
+  <p class="block-sub">Trang danh mục vẫn còn, nhưng mọi sản phẩm trong đó đã ngừng kinh doanh. Giữ lại để đón khách đang tìm tên đó, rồi dẫn sang hàng đang bán.</p>
   <div class="sc-list"><article class="sc">
-  <header class="sc-head"><h4>Trang Ngành hàng</h4><code>/may-chup-anh-lay-lien</code></header>
+  <header class="sc-head"><span class="sc-no">1</span><h4>Trang Hãng</h4></header>
   <dl class="sc-body">
-    <div><dt>Thực tế trên web</dt><dd>0 SP, vẫn index, có người tìm (“máy chụp ảnh lấy liền” 1.374 lượt hiển thị trong 6 tháng). Nhưng SP không ngừng kinh doanh mà đã chuyển sang ngành Máy ảnh.</dd></div>
-    <div><dt>Xét theo đề xuất</dt><dd>Bước 1: /may-anh-lay-lien đang bán 19 máy, cùng nhu cầu → chuyển hướng về đó.</dd></div>
-  </dl>
-  <p class="oos-nodemo">Không dựng trang: ngành bỏ hẳn (máy nghe nhạc, máy quay phim, kính thực tế ảo…) thì cả trang ngành lẫn trang SP đều đã 404, không còn trang SP ngừng KD nào để liệt kê.</p>
-</article><article class="sc">
-  <header class="sc-head"><h4>Trang Hãng</h4><code>/laptop-samsung</code></header>
-  <dl class="sc-body">
-    <div><dt>Thực tế trên web</dt><dd>0 SP, H1 “Laptop undefined”, 200 lượt hiển thị trong 3 tháng. Còn 6 trang SP ngừng KD, Chromebook Go vẫn có click.</dd></div>
-    <div><dt>Xét theo đề xuất</dt><dd>Bước 2: không còn laptop Samsung nào đang bán để chuyển hướng, còn người tìm, đủ 6 trang SP → giữ trang.</dd></div>
+    <div><dt>Khi nào gặp</dt><dd>Hãng TGDĐ từng bán, nay không còn máy nào. Khách vẫn tìm “laptop Samsung”.</dd></div>
+    <div><dt>Trang làm gì</dt><dd>Giữ trang hãng, hiện các máy từng bán (ghi “Ngừng kinh doanh”, bấm vào ra trang sản phẩm). Dẫn sang laptop học tập, văn phòng đang bán.</dd></div>
   </dl>
   <div class="sc-demo"><span>Xem demo</span><ul><li><a class="sc-link" href="laptop-samsung.html"><b>Laptop Samsung</b><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></li></ul></div>
 </article><article class="sc">
-  <header class="sc-head"><h4>Trang Filter</h4><code>/laptop-rtx-20-series</code></header>
+  <header class="sc-head"><span class="sc-no">2</span><h4>Trang Filter</h4></header>
   <dl class="sc-body">
-    <div><dt>Thực tế trên web</dt><dd>0 SP, 33 lượt hiển thị trong 3 tháng. Còn 10 trang SP ngừng KD (RTX 2050), nhiều trang vẫn có click.</dd></div>
-    <div><dt>Xét theo đề xuất</dt><dd>Bước 2: không có trang đang bán khớp nhu cầu. /laptop-rtx-30-series đang bán nhưng là đời card khác, không tính là khớp (owner chốt 20/10). Còn người tìm, đủ 10 trang SP → giữ trang, dẫn sang RTX 30 series.</dd></div>
+    <div><dt>Khi nào gặp</dt><dd>Tiêu chí lọc mà mọi máy đã ngừng bán, ví dụ card RTX 20 series. Khách vẫn tìm “laptop RTX 2050”.</dd></div>
+    <div><dt>Trang làm gì</dt><dd>Giữ trang, hiện các máy từng bán. Dẫn sang laptop RTX 30 series đang bán.</dd></div>
   </dl>
   <div class="sc-demo"><span>Xem demo</span><ul><li><a class="sc-link" href="laptop-rtx-20-series.html"><b>Laptop RTX 20 series</b><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></li></ul></div>
 </article><article class="sc">
-  <header class="sc-head"><h4>Trang Dòng Filter</h4><code>/laptop-dell-latitude</code></header>
+  <header class="sc-head"><span class="sc-no">3</span><h4>Trang Dòng Filter</h4></header>
   <dl class="sc-body">
-    <div><dt>Thực tế trên web</dt><dd>0 SP nhưng vẫn đứng vị trí 2 cho “dell latitude”: 90.222 lượt hiển thị, 9.680 click trong 6 tháng. Còn 15 trang SP ngừng KD, nhiều trang vẫn có click.</dd></div>
-    <div><dt>Xét theo đề xuất</dt><dd>Bước 2: Dell Pro / Pro Plus đang bán 9 máy nhưng là dòng kế nhiệm (Dell đổi tên từ 2025), không phải chính Latitude, không tính là khớp (owner chốt 20/10) → giữ trang, dẫn sang Dell Pro.</dd></div>
+    <div><dt>Khi nào gặp</dt><dd>Dòng máy đã ngừng bán, ví dụ Dell Latitude. Khách vẫn tìm “dell latitude”.</dd></div>
+    <div><dt>Trang làm gì</dt><dd>Giữ trang dòng, hiện các máy từng bán. Dẫn sang Dell Pro, dòng kế nhiệm đang bán.</dd></div>
   </dl>
   <div class="sc-demo"><span>Xem demo</span><ul><li><a class="sc-link" href="laptop-dell-latitude.html"><b>Laptop Dell Latitude</b><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></li></ul></div>
 </article></div>

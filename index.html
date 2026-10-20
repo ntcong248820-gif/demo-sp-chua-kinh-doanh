@@ -45,7 +45,7 @@
   <h2>Bắt đầu từ loại trang</h2>
   <p class="block-sub">Đi theo cây danh mục của TGDĐ: Ngành hàng → Hãng → Filter → Dòng Filter. Mỗi loại trang có
   vài trường hợp, mỗi trường hợp có 1 trang demo.</p>
-  <ol class="map" aria-label="Các loại trang"><li class="map-tile"><a href="#nganh-hang"><span class="map-no">1</span><b>Ngành hàng</b><code>/may-tinh-de-ban</code><small>2 trường hợp</small></a></li><li class="map-tile"><a href="#hang"><span class="map-no">2</span><b>Hãng</b><code>/may-tinh-de-ban-dell</code><small>2 trường hợp</small></a></li><li class="map-tile"><a href="#filter"><span class="map-no">3</span><b>Filter</b><code>/ram-ddr5</code><small>1 trường hợp</small></a></li><li class="map-tile"><a href="#dong"><span class="map-no">4</span><b>Dòng Filter</b><code>/may-tinh-de-ban-asus-rog</code><small>2 trường hợp</small></a></li><li class="map-tile is-extra"><a href="#rule-them"><span class="map-no">+</span><b>Rule thêm</b><code>Trang đang bán ít SP</code><small>2 trang demo</small></a></li><li class="map-tile is-extra"><a href="#trang-het-hang"><span class="map-no">!</span><b>Trang hết hàng</b><code>Mọi SP ngừng KD</code><small>1 trang demo</small></a></li></ol>
+  <ol class="map" aria-label="Các loại trang"><li class="map-tile"><a href="#nganh-hang"><span class="map-no">1</span><b>Ngành hàng</b><code>/may-tinh-de-ban</code><small>2 trường hợp</small></a></li><li class="map-tile"><a href="#hang"><span class="map-no">2</span><b>Hãng</b><code>/may-tinh-de-ban-dell</code><small>2 trường hợp</small></a></li><li class="map-tile"><a href="#filter"><span class="map-no">3</span><b>Filter</b><code>/ram-ddr5</code><small>1 trường hợp</small></a></li><li class="map-tile"><a href="#dong"><span class="map-no">4</span><b>Dòng Filter</b><code>/may-tinh-de-ban-asus-rog</code><small>2 trường hợp</small></a></li><li class="map-tile is-extra"><a href="#rule-them"><span class="map-no">+</span><b>Rule thêm</b><code>Trang đang bán ít SP</code><small>2 trang demo</small></a></li><li class="map-tile is-extra"><a href="#trang-het-hang"><span class="map-no">!</span><b>Trang hết hàng</b><code>Mọi SP ngừng KD</code><small>3 trang demo</small></a></li></ol>
   <section class="pt" id="nganh-hang"><header class="pt-head"><span class="pt-no">1</span><div><h3>Trang Ngành hàng</h3><p>Trang của cả một loại hàng. URL mẫu: <code>/may-tinh-de-ban</code></p></div></header><div class="sc-list"><article class="sc">
   <header class="sc-head"><span class="sc-no">1.1</span><h4>Ngành đang bán, có máy mới TGDĐ chưa bán</h4></header>
   <dl class="sc-body">
@@ -116,19 +116,42 @@
   <h3 class="oos-h">Rule hiện hành</h3>
   <dl class="sc-body oos-rule"><div><dt>Trang danh mục (Ngành hàng, Hãng, Filter, Dòng Filter) hết sản phẩm</dt><dd>Chuyển hướng lên trang cấp trên (VD trang hãng về trang ngành hàng), hoặc đặt noindex, nofollow.</dd></div><div><dt>Trang sản phẩm ngừng kinh doanh</dt><dd>Vẫn hoạt động bình thường (200, tự canonical, index, follow), giao diện đổi trạng thái sang “Ngưng kinh doanh”.</dd></div></dl>
   <h3 class="oos-h">Thực tế trên web (kiểm 20/10/2026)</h3>
-  <p class="oos-p">7 trang không còn sản phẩm nhưng vẫn hoạt động và cho Google index, không chuyển
-  hướng, không noindex. Tiêu đề trang hiện “Laptop undefined” hoặc tiêu đề của trang cha:</p>
-  <ul class="oos-live"><li><code>/laptop-samsung</code></li><li><code>/laptop-lg</code></li><li><code>/laptop-lg-gram</code></li><li><code>/laptop-dell-vostro</code></li><li><code>/laptop-msi-titan</code></li><li><code>/laptop-acer-travelmate</code></li><li><code>/dtdd-samsung-galaxy-m</code></li></ul>
-  <h3 class="oos-h">Đề xuất</h3>
-  <div class="sc-list sc-list--one"><article class="sc">
-  <header class="sc-head"><span class="sc-no">!</span><h4>Danh mục hết hàng nhưng còn người tìm</h4></header>
+  <p class="oos-p">Quét các trang danh mục có lượt hiển thị trên Google trong 3 tháng: <b>54 trang không còn
+  sản phẩm nhưng vẫn hoạt động và cho Google index</b>, không chuyển hướng, không noindex, tổng 438.516 lượt
+  hiển thị. Tiêu đề trang nhiều chỗ hiện “undefined”. Các trang nhiều lượt hiển thị nhất (lượt hiển thị 3 tháng):</p>
+  <ul class="oos-live"><li><code>/dtdd-xiaomi-redmi-note-17</code><span>321.485</span></li><li><code>/laptop-dell-latitude</code><span>66.160</span></li><li><code>/camera-giam-sat-xiaomi</code><span>2.616</span></li><li><code>/dong-ho-deo-tay-orient-star</code><span>1.440</span></li><li><code>/laptop-dell-vostro</code><span>914</span></li><li><code>/laptop-samsung</code><span>200</span></li><li><code>/may-in-scan</code><span>176</span></li><li><code>/laptop-rtx-20-series</code><span>33</span></li></ul>
+  <h3 class="oos-h">Đề xuất: thêm nhánh thứ 3 vào rule, xét theo thứ tự</h3>
+  <ol class="oos-steps"><li>Có trang đang bán khớp nhu cầu người tìm: chuyển hướng về đó.</li><li>Không có, nhưng trang còn lượt hiển thị trên Google và còn từ 4 trang sản phẩm ngừng kinh doanh: giữ trang, dùng chung giao diện trang SP chưa KD. Card ghi “Ngừng kinh doanh”, bấm vào ra trang sản phẩm thật; bên dưới dẫn sang hàng đang bán tương đương.</li><li>Còn lại: áp rule hiện hành.</li></ol>
+  <h3 class="oos-h">Áp vào từng loại trang</h3>
+  <div class="sc-list"><article class="sc">
+  <header class="sc-head"><h4>Trang Ngành hàng</h4><code>/may-chup-anh-lay-lien</code></header>
   <dl class="sc-body">
-    <div><dt>Khi nào gặp</dt><dd>Trang LG Gram không còn máy nào đang bán, nhưng 5 trang máy LG Gram ngừng kinh doanh vẫn còn và vẫn có người tìm (“lg gram 14”).</dd></div>
-    <div><dt>Trang làm gì</dt><dd>Thêm nhánh thứ 3 vào rule, xét theo thứ tự:<ol class="oos-steps"><li>Có trang đang bán khớp nhu cầu người tìm: chuyển hướng về đó.</li><li>Không có, nhưng trang còn lượt hiển thị trên Google và còn từ 4 trang sản phẩm ngừng kinh doanh: <b>giữ trang</b>, dùng chung giao diện trang SP chưa KD. Card ghi “Ngừng kinh doanh”, bấm vào ra trang sản phẩm thật; bên dưới dẫn sang hàng đang bán tương đương.</li><li>Còn lại: áp rule hiện hành.</li></ol></dd></div>
+    <div><dt>Thực tế trên web</dt><dd>0 SP, vẫn index, có người tìm (“máy chụp ảnh lấy liền” 1.374 lượt hiển thị trong 6 tháng). Nhưng SP không ngừng kinh doanh mà đã chuyển sang ngành Máy ảnh.</dd></div>
+    <div><dt>Xét theo đề xuất</dt><dd>Bước 1: /may-anh-lay-lien đang bán 19 máy, cùng nhu cầu → chuyển hướng về đó.</dd></div>
   </dl>
-  <div class="sc-demo"><span>Xem demo</span><ul><li><a class="sc-link" href="laptop-lg-gram.html"><b>Laptop LG Gram (trang Hãng, hết hàng)</b><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></li></ul></div>
+  <p class="oos-nodemo">Không dựng trang: ngành bỏ hẳn (máy nghe nhạc, máy quay phim, kính thực tế ảo…) thì cả trang ngành lẫn trang SP đều đã 404, không còn trang SP ngừng KD nào để liệt kê.</p>
+</article><article class="sc">
+  <header class="sc-head"><h4>Trang Hãng</h4><code>/laptop-samsung</code></header>
+  <dl class="sc-body">
+    <div><dt>Thực tế trên web</dt><dd>0 SP, H1 “Laptop undefined”, 200 lượt hiển thị trong 3 tháng. Còn 6 trang SP ngừng KD, Chromebook Go vẫn có click.</dd></div>
+    <div><dt>Xét theo đề xuất</dt><dd>Bước 2: không còn laptop Samsung nào đang bán để chuyển hướng, còn người tìm, đủ 6 trang SP → giữ trang.</dd></div>
+  </dl>
+  <div class="sc-demo"><span>Xem demo</span><ul><li><a class="sc-link" href="laptop-samsung.html"><b>Laptop Samsung</b><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></li></ul></div>
+</article><article class="sc">
+  <header class="sc-head"><h4>Trang Filter</h4><code>/laptop-rtx-20-series</code></header>
+  <dl class="sc-body">
+    <div><dt>Thực tế trên web</dt><dd>0 SP, 33 lượt hiển thị trong 3 tháng. Còn 10 trang SP ngừng KD (RTX 2050), nhiều trang vẫn có click.</dd></div>
+    <div><dt>Xét theo đề xuất</dt><dd>Cần chốt bước 1: /laptop-rtx-30-series đang bán 21 máy, cùng nhu cầu laptop gaming giá thấp. Tính là khớp thì chuyển hướng, không thì giữ trang (bước 2).</dd></div>
+  </dl>
+  <div class="sc-demo"><span>Xem demo</span><ul><li><a class="sc-link" href="laptop-rtx-20-series.html"><b>Laptop RTX 20 series</b><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></li></ul></div>
+</article><article class="sc">
+  <header class="sc-head"><h4>Trang Dòng Filter</h4><code>/laptop-lg-gram</code></header>
+  <dl class="sc-body">
+    <div><dt>Thực tế trên web</dt><dd>0 SP, H1 “Laptop undefined”, 0 lượt hiển thị trong 6 tháng. Còn 5 trang SP ngừng KD có người tìm (“lg gram 14”).</dd></div>
+    <div><dt>Xét theo đề xuất</dt><dd>Bước 3: trang không có lượt hiển thị → áp rule hiện hành. Demo chỉ để xem giao diện loại Dòng Filter.</dd></div>
+  </dl>
+  <div class="sc-demo"><span>Xem demo</span><ul><li><a class="sc-link" href="laptop-lg-gram.html"><b>Laptop LG Gram</b><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></li></ul></div>
 </article></div>
-  <p class="pt-off pt-note">Demo chọn LG Gram để minh hoạ giao diện. Bản thân /laptop-lg-gram không có lượt hiển thị nào trên Google trong 6 tháng (17/04 - 17/10/2026), nên theo điều kiện ở bước 2 thì thực tế trang này vẫn áp rule hiện hành.</p>
 </section>
 <section class="panel block"><h2>Nguyên tắc</h2><ul class="plain"><li>Chỉ đưa máy đã ra mắt thật, không đưa tin đồn.</li><li>Máy chưa bán không tính vào số sản phẩm của trang đang bán.</li><li>Trang Filter chỉ làm cho ngành chưa bán, chỉ với tiêu chí có người tìm và đủ từ 4 máy.</li></ul></section>
 </main>

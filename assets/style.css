@@ -543,3 +543,19 @@ body.modal-open { overflow: hidden; }
 /* Trang ví dụ minh hoạ (ngành hết hàng): nhãn nói rõ dữ liệu giả định */
 .demo-notice { margin: 0 0 12px; padding: 10px 14px; border: 1px dashed #F79009; border-radius: 8px; background: #FFFAEB;
   color: #93370D; font-size: 14px; line-height: 1.5; }
+
+/* Trang hết hàng, dải đầu trang: tóm tắt + nút sang hàng đang bán | 3 bài tin. Mobile xếp chồng, tin cuộn ngang */
+.top-band { display: grid; gap: 24px; margin-bottom: 12px; }
+.top-band.has-news { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
+.tb-lead p { margin: 0 0 14px; font-size: 16px; line-height: 1.6; color: var(--title); }
+.tb-cta { display: inline-flex; align-items: center; gap: 4px; min-height: 44px; padding: 0 18px; border-radius: 8px;
+  background: var(--primary); color: #fff; font-weight: 600; font-size: 15px; }
+.tb-cta:hover { text-decoration: none; opacity: .92; }
+.tb-news { padding-left: 24px; border-left: 1px solid var(--border); }
+.tb-h { margin: 0 0 2px; font-size: 16px; font-weight: 700; color: var(--title); }
+.tb-news .ibn-item { padding: 8px 0; }
+@media (max-width: 767px) {
+  .top-band.has-news { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .tb-news { padding: 16px 0 0; border-left: 0; border-top: 1px solid var(--border); }
+  .tb-cta { width: 100%; justify-content: center; }
+}

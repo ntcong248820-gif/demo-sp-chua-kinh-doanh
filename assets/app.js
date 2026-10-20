@@ -17,6 +17,13 @@
     e.preventDefault();
     toast(`Demo: trang sản phẩm "${pdp.dataset.pdp}" do Chí Hiếu làm, chưa nối link.`);
   });
+  // Trang ví dụ minh hoạ (ngành hết hàng): máy giả định, không có trang sản phẩm thật
+  document.addEventListener('click', (e) => {
+    const ex = e.target.closest('[data-pdp-example]');
+    if (!ex) return;
+    e.preventDefault();
+    toast(`Ví dụ minh hoạ: "${ex.dataset.pdpExample}" chỉ để xem giao diện, trên web thật card mở trang sản phẩm ngừng kinh doanh.`);
+  });
 
   // Infobox dài: gập còn phần đầu + "Xem thêm" như danh mục đang bán. Chỉ gập khi bài dài hơn khung đủ đáng kể;
   // tắt JS thì bài hiện đủ. Thu gọn lại thì cuộn về đầu bài để không lạc chỗ đọc.

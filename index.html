@@ -45,7 +45,7 @@
   <h2>Bắt đầu từ loại trang</h2>
   <p class="block-sub">Đi theo cây danh mục của TGDĐ: Ngành hàng → Hãng → Filter → Dòng Filter. Mỗi loại trang có
   vài trường hợp, mỗi trường hợp có 1 trang demo.</p>
-  <ol class="map" aria-label="Các loại trang"><li class="map-tile"><a href="#nganh-hang"><span class="map-no">1</span><b>Ngành hàng</b><code>/may-tinh-de-ban</code><small>2 trường hợp</small></a></li><li class="map-tile"><a href="#hang"><span class="map-no">2</span><b>Hãng</b><code>/may-tinh-de-ban-dell</code><small>2 trường hợp</small></a></li><li class="map-tile"><a href="#filter"><span class="map-no">3</span><b>Filter</b><code>/ram-ddr5</code><small>1 trường hợp</small></a></li><li class="map-tile"><a href="#dong"><span class="map-no">4</span><b>Dòng Filter</b><code>/may-tinh-de-ban-asus-rog</code><small>2 trường hợp</small></a></li><li class="map-tile is-extra"><a href="#rule-them"><span class="map-no">+</span><b>Rule thêm</b><code>Trang đang bán ít SP</code><small>2 trang demo</small></a></li><li class="map-tile is-extra"><a href="#trang-het-hang"><span class="map-no">!</span><b>Trang hết hàng</b><code>Mọi SP ngừng KD</code><small>3 trang demo</small></a></li></ol>
+  <ol class="map" aria-label="Các loại trang"><li class="map-tile"><a href="#nganh-hang"><span class="map-no">1</span><b>Ngành hàng</b><code>/may-tinh-de-ban</code><small>2 trường hợp</small></a></li><li class="map-tile"><a href="#hang"><span class="map-no">2</span><b>Hãng</b><code>/may-tinh-de-ban-dell</code><small>2 trường hợp</small></a></li><li class="map-tile"><a href="#filter"><span class="map-no">3</span><b>Filter</b><code>/ram-ddr5</code><small>1 trường hợp</small></a></li><li class="map-tile"><a href="#dong"><span class="map-no">4</span><b>Dòng Filter</b><code>/may-tinh-de-ban-asus-rog</code><small>2 trường hợp</small></a></li><li class="map-tile is-extra"><a href="#rule-them"><span class="map-no">+</span><b>Rule thêm</b><code>Trang đang bán ít SP</code><small>2 trang demo</small></a></li><li class="map-tile is-extra"><a href="#trang-het-hang"><span class="map-no">!</span><b>Trang hết hàng</b><code>Mọi SP ngừng KD</code><small>4 trang demo</small></a></li></ol>
   <section class="pt" id="nganh-hang"><header class="pt-head"><span class="pt-no">1</span><div><h3>Trang Ngành hàng</h3><p>Trang của cả một loại hàng. URL mẫu: <code>/may-tinh-de-ban</code></p></div></header><div class="sc-list"><article class="sc">
   <header class="sc-head"><span class="sc-no">1.1</span><h4>Ngành đang bán, có máy mới TGDĐ chưa bán</h4></header>
   <dl class="sc-body">
@@ -113,28 +113,34 @@
   <h2>Trang hết hàng</h2>
   <p class="block-sub">Trang danh mục vẫn còn, nhưng mọi sản phẩm trong đó đã ngừng kinh doanh. Giữ lại để đón khách đang tìm tên đó, rồi dẫn sang hàng đang bán.</p>
   <div class="sc-list"><article class="sc">
-  <header class="sc-head"><span class="sc-no">1</span><h4>Trang Hãng</h4></header>
+  <header class="sc-head"><span class="sc-no">1</span><h4>Trang Ngành hàng</h4></header>
+  <dl class="sc-body">
+    <div><dt>Khi nào gặp</dt><dd>TGDĐ ngừng bán cả ngành, ví dụ máy nghe nhạc. Khách vẫn tìm “máy nghe nhạc”, từ khoá ngành có lượng tìm rất lớn.</dd></div>
+    <div><dt>Trang làm gì</dt><dd>Giữ trang ngành, hiện các máy từng bán. Dẫn sang tai nghe đang bán.</dd></div>
+  </dl>
+  <div class="sc-demo"><span>Xem demo</span><ul><li><a class="sc-link" href="may-nghe-nhac.html"><b>Máy nghe nhạc (ví dụ minh hoạ)</b><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></li></ul></div>
+</article><article class="sc">
+  <header class="sc-head"><span class="sc-no">2</span><h4>Trang Hãng</h4></header>
   <dl class="sc-body">
     <div><dt>Khi nào gặp</dt><dd>Hãng TGDĐ từng bán, nay không còn máy nào. Khách vẫn tìm “laptop Samsung”.</dd></div>
     <div><dt>Trang làm gì</dt><dd>Giữ trang hãng, hiện các máy từng bán (ghi “Ngừng kinh doanh”, bấm vào ra trang sản phẩm). Dẫn sang laptop học tập, văn phòng đang bán.</dd></div>
   </dl>
   <div class="sc-demo"><span>Xem demo</span><ul><li><a class="sc-link" href="laptop-samsung.html"><b>Laptop Samsung</b><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></li></ul></div>
 </article><article class="sc">
-  <header class="sc-head"><span class="sc-no">2</span><h4>Trang Filter</h4></header>
+  <header class="sc-head"><span class="sc-no">3</span><h4>Trang Filter</h4></header>
   <dl class="sc-body">
     <div><dt>Khi nào gặp</dt><dd>Tiêu chí lọc mà mọi máy đã ngừng bán, ví dụ card RTX 20 series. Khách vẫn tìm “laptop RTX 2050”.</dd></div>
     <div><dt>Trang làm gì</dt><dd>Giữ trang, hiện các máy từng bán. Dẫn sang laptop RTX 30 series đang bán.</dd></div>
   </dl>
   <div class="sc-demo"><span>Xem demo</span><ul><li><a class="sc-link" href="laptop-rtx-20-series.html"><b>Laptop RTX 20 series</b><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></li></ul></div>
 </article><article class="sc">
-  <header class="sc-head"><span class="sc-no">3</span><h4>Trang Dòng Filter</h4></header>
+  <header class="sc-head"><span class="sc-no">4</span><h4>Trang Dòng Filter</h4></header>
   <dl class="sc-body">
     <div><dt>Khi nào gặp</dt><dd>Dòng máy đã ngừng bán, ví dụ Dell Latitude. Khách vẫn tìm “dell latitude”.</dd></div>
     <div><dt>Trang làm gì</dt><dd>Giữ trang dòng, hiện các máy từng bán. Dẫn sang Dell Pro, dòng kế nhiệm đang bán.</dd></div>
   </dl>
   <div class="sc-demo"><span>Xem demo</span><ul><li><a class="sc-link" href="laptop-dell-latitude.html"><b>Laptop Dell Latitude</b><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></li></ul></div>
 </article></div>
-  <p class="pt-off pt-note">Trang Ngành hàng: không làm. Ngành hết hàng thì trang sản phẩm cũng không còn, nên chuyển hướng về ngành đang bán gần nhất.</p>
 </section>
 <section class="panel block"><h2>Nguyên tắc</h2><ul class="plain"><li>Chỉ đưa máy đã ra mắt thật, không đưa tin đồn.</li><li>Máy chưa bán không tính vào số sản phẩm của trang đang bán.</li><li>Trang Filter chỉ làm cho ngành chưa bán, chỉ với tiêu chí có người tìm và đủ từ 4 máy.</li></ul></section>
 </main>

@@ -174,10 +174,6 @@ a.step.is-demo { border-width: 2px; font-weight: 600; text-decoration: underline
 .dc-open:hover { text-decoration: underline; }
 .dc-alt { font-size: 13px; color: var(--text-dim) !important; }
 
-/* 04 · Còn mở */
-.open-list { margin: 0; padding: 16px 20px 16px 36px; border: 1px dashed var(--amber); border-radius: 8px;
-  background: var(--amber-dim); }
-.open-list li + li { margin-top: 6px; }
 .g-foot { margin-top: 48px; padding: 20px 0 32px; border-top: 1px solid var(--border); color: var(--text-dim); font-size: 14px; }
 
 @media (max-width: 960px) {

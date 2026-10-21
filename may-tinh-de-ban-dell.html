@@ -11,11 +11,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/hints.css">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Máy tính để bàn", "item": "https://www.thegioididong.com/may-tinh-de-ban"}, {"@type": "ListItem", "position": 2, "name": "Máy tính để bàn Dell", "item": "may-tinh-de-ban-dell.html"}]}</script>
 </head>
 <body>
 <a class="skip" href="#main">Bỏ qua tới nội dung chính</a>
-<div class="demo-ribbon" role="note"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span><b>Bản demo nội bộ SEO</b> · Trang không index · <a href="index.html">Mục lục demo</a></span></div>
+<div class="demo-ribbon" role="note"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span><span class="rb-full"><b>Bản demo nội bộ SEO</b> · Trang không index · </span><a href="index.html">Trang tổng demo</a></span><button type="button" class="rb-btn" data-hint-page hidden>Trang này là gì?</button><button type="button" class="rb-btn" data-hints-toggle aria-pressed="true" hidden>Giải thích: <b>Bật</b></button></div>
 <header class="site-header">
   <div class="container header-top">
     <a class="logo" href="index.html" aria-label="Thế Giới Di Động - về mục lục demo">
@@ -164,6 +165,7 @@ Alienware cho chơi game. Các dòng trên trang: Alienware, Dell Pro Max, Dell 
 </section>
 </main>
 <div class="f-overlay" data-close-filter hidden></div>
+<script type="application/json" id="demo-hints">{"page": {"title": "Hệ trang chưa kinh doanh · Hãng", "text": "Khi nào gặp: Khách tìm “PC Dell” nhưng TGDĐ không có trang này, bị đưa về trang PC chung.\nTrang làm gì: Trang riêng cho hãng: các dòng máy của hãng.\nDẫn khách sang: PC học tập, văn phòng đang bán."}, "items": [{"sel": ".breadcrumb", "title": "Đường dẫn + tiêu đề trang", "text": "Trang thuộc hệ chưa KD, chạy song song với trang đang bán. Số trong ngoặc là số máy chưa bán, không cộng vào trang đang bán. Kiểu URL riêng cho hệ này còn chờ chốt."}, {"sel": ".banner", "title": "Banner", "text": "Dùng lại banner chương trình của ngành đang bán, thêm một lối dẫn sang hàng mua được."}, {"sel": ".listing .filter-top", "title": "Lọc + chip", "text": "Lọc trong chính các máy trên trang. Chip dẫn sang trang con (hãng, dòng) cùng hệ."}, {"sel": ".listing .sort-row .cnkd-note", "title": "Câu dẫn trên lưới", "text": "Câu ngay trên lưới nói rõ đây là máy chưa bán, kèm link sang Máy tính để bàn học tập - văn phòng đang bán.", "mode": "after"}, {"sel": ".listing .grid > .pcard:first-child", "title": "Một thẻ sản phẩm", "text": "Máy chưa bán: ảnh, tên, trạng thái ra mắt, tin mới nếu có. Không có giá, không nút mua. Bấm vào ra trang sản phẩm chưa KD (phần Chí Hiếu)."}, {"sel": "#dang-ban", "title": "Dải đang bán", "text": "5 máy đầu của Máy tính để bàn học tập - văn phòng đang bán, theo thứ tự mặc định của trang đó. Đây là chỗ đổi khách từ trang không bán sang trang bán được."}, {"sel": "#thong-tin", "title": "Bài giới thiệu + bài viết liên quan", "text": "Bài viết về chủ đề trang (gập sẵn, có “Xem thêm”) và các bài tin TGDĐ liên quan. Phần này giữ trang có nội dung để Google xếp hạng khi trang không bán được gì."}, {"sel": ".faq-panel", "title": "Câu hỏi thường gặp", "text": "Trả lời các câu khách hay hỏi ở tình huống này (còn bán không, mua ở đâu), mỗi câu dẫn về hàng đang bán."}]}</script>
 <footer class="site-footer">
   <div class="container footer-grid">
     <div><h3>Tổng đài hỗ trợ</h3><p>Gọi mua: <a href="#">1900 232 460</a> (8:00 - 21:30)</p>
@@ -176,5 +178,6 @@ Alienware cho chơi game. Các dòng trên trang: Alienware, Dell Pro Max, Dell 
 </footer>
 <div class="toast" role="status" aria-live="polite" hidden></div>
 <script src="assets/app.js" defer></script>
+<script src="assets/hints.js" defer></script>
 </body>
 </html>

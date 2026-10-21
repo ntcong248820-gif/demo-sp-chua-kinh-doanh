@@ -11,11 +11,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/hints.css">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Máy tính để bàn", "item": "https://www.thegioididong.com/may-tinh-de-ban"}, {"@type": "ListItem", "position": 2, "name": "Máy tính để bàn MSI", "item": "may-tinh-de-ban-msi.html"}]}</script>
 </head>
 <body>
 <a class="skip" href="#main">Bỏ qua tới nội dung chính</a>
-<div class="demo-ribbon" role="note"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span><b>Bản demo nội bộ SEO</b> · Trang không index · <a href="index.html">Mục lục demo</a></span></div>
+<div class="demo-ribbon" role="note"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span><span class="rb-full"><b>Bản demo nội bộ SEO</b> · Trang không index · </span><a href="index.html">Trang tổng demo</a></span><button type="button" class="rb-btn" data-hint-page hidden>Trang này là gì?</button><button type="button" class="rb-btn" data-hints-toggle aria-pressed="true" hidden>Giải thích: <b>Bật</b></button></div>
 <header class="site-header">
   <div class="container header-top">
     <a class="logo" href="index.html" aria-label="Thế Giới Di Động - về mục lục demo">
@@ -118,6 +119,7 @@
 </section>
 </main>
 <button type="button" class="demo-toggle" data-toggle-btn aria-pressed="true"><span>Khai báo: khối SP chưa KD</span><b>Bật</b></button>
+<script type="application/json" id="demo-hints">{"page": {"title": "Trang đang bán · Hãng", "text": "Khi nào gặp: Trang đang bán chỉ còn 2 máy, đối thủ có nhiều hơn hẳn.\nTrang làm gì: Bật khối “Mẫu PC MSI khác, chưa bán tại TGDĐ” dưới lưới. Không cộng vào số SP của trang.\nDẫn khách sang: Trang SP chưa KD (phần Chí Hiếu)."}, "items": [{"sel": ".lv-crumb", "title": "Giữ y trang đang bán thật", "text": "Tiêu đề, đường dẫn, thẻ sản phẩm, thông tin hãng chép từ trang live. Số trên đường dẫn chỉ đếm máy đang bán."}, {"sel": ".lv-grid > .lv-card:first-child", "title": "Lưới đang bán", "text": "Y trang live, không thêm bớt máy nào."}, {"sel": "#chua-ban", "title": "Khối máy chưa bán (bật / tắt được)", "text": "Bật khi trang đang bán quá mỏng so với đối thủ. Nằm dưới lưới, ghi rõ chưa bán tại TGDĐ, không cộng vào số máy của trang. Nút “Khai báo” ở góc dưới mô phỏng cờ bật / tắt cho từng trang."}, {"sel": ".bi", "title": "Thông tin hãng", "text": "Bài giới thiệu chép từ trang live."}]}</script>
 <footer class="site-footer">
   <div class="container footer-grid">
     <div><h3>Tổng đài hỗ trợ</h3><p>Gọi mua: <a href="#">1900 232 460</a> (8:00 - 21:30)</p>
@@ -130,5 +132,6 @@
 </footer>
 <div class="toast" role="status" aria-live="polite" hidden></div>
 <script src="assets/app.js" defer></script>
+<script src="assets/hints.js" defer></script>
 </body>
 </html>

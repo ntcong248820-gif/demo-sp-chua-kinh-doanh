@@ -137,8 +137,6 @@ a.picked { font-size: 13px; }
   -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .release { display: flex; align-items: center; gap: 4px; height: 20px; margin: 0; font-size: 13px; color: #475467; white-space: nowrap; overflow: hidden; }
 .release svg { flex: none; }
-.release.is-official { color: #067647; font-weight: 500; }
-.release.is-unknown { color: #667085; }
 .release.is-stopped { color: #B42318; font-weight: 500; }
 .card-news { display: block; height: 66px; overflow: hidden; padding-top: 8px; border-top: 1px dashed var(--border); font-size: 13px; color: var(--text); }
 .card-news--empty { border-top-color: transparent; }
@@ -612,10 +610,8 @@ button.lv-sort-item:hover { color: var(--primary); }
   .lv-states { flex-basis: 100%; margin: 0; padding: 8px 0 4px; border-left: 0; border-top: 1px dashed #EAECF0; }
 }
 
-/* Nhãn trạng thái SP chưa KD (owner 21/10): đè góc trên trái ảnh card */
-.pcard { position: relative; }
-.stage { position: absolute; top: 8px; left: 8px; z-index: 2; padding: 3px 8px; border-radius: 4px; font-size: 12px;
-  font-weight: 600; line-height: 16px; pointer-events: none; }
+/* Nhãn trạng thái SP chưa KD (owner 21/10): nằm đúng khe dòng trạng thái dưới tên, thay ngày ra mắt */
+.stage { display: inline-flex; align-items: center; height: 20px; padding: 0 8px; border-radius: 4px; font-size: 12px;
+  font-weight: 600; line-height: 1; }
 .stage--unsold { background: #E0F2FE; color: #075985; }
-.stage--rumor { background: #F2F4F7; color: #344054; border: 1px dashed #98A2B3; }
-.release.is-expected { color: #475467; font-style: italic; }
+.stage--rumor { background: #F2F4F7; color: #344054; box-shadow: inset 0 0 0 1px #98A2B3; }

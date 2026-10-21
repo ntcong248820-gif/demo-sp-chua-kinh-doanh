@@ -560,7 +560,28 @@ body.modal-open { overflow: hidden; }
   .tb-cta { width: 100%; justify-content: center; }
 }
 
-/* Dải máy cũ (/may-doi-tra) trên trang hết hàng: cùng khổ dải đang bán */
+/* Card máy cũ (/may-doi-tra) trong tab "Máy cũ giá rẻ": cùng khổ card đang bán */
 .pb-from { font-size: 12px; font-weight: 500; color: var(--muted); }
-.promo--used .pb-old { flex-wrap: wrap; column-gap: 6px; row-gap: 0; }
-.promo--used .pb-old span { display: inline-flex; gap: 4px; white-space: nowrap; }
+.pt-panel-used .pb-old { flex-wrap: wrap; column-gap: 6px; row-gap: 0; }
+.pt-panel-used .pb-old span { display: inline-flex; gap: 4px; white-space: nowrap; }
+
+/* Trang hết hàng: 1 khung 2 tab "… đang bán" | "Máy cũ giá rẻ" thay 2 dải liền nhau */
+.pt-tabs { display: flex; gap: 4px; min-width: 0; overflow-x: auto; scrollbar-width: none; }
+.pt-tab { flex: none; min-height: 40px; padding: 0 14px; border: 0; border-bottom: 3px solid transparent; background: none;
+  font: inherit; font-size: 16px; font-weight: 600; color: var(--muted); cursor: pointer; white-space: nowrap; }
+.pt-tab:hover { color: var(--title); }
+.pt-tab.is-active { color: var(--title); border-bottom-color: var(--yellow); }
+.pt-tab:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.promo--tabs .pb-head { border-bottom: 1px solid var(--border); margin-bottom: 14px; }
+.js .pt-nojs { display: none; }
+.pt-nojs { margin: 16px 0 10px; font-size: 16px; font-weight: 700; color: var(--title); }
+.pt-short { display: none; }
+/* Mobile: 2 tab chia đôi chiều ngang, nhãn ngắn, để tab "Máy cũ" luôn thấy được; "Xem tất cả" xuống dòng riêng */
+@media (max-width: 767px) {
+  .promo--tabs .pb-head { flex-wrap: wrap; row-gap: 0; }
+  .pt-tabs { flex: 1 0 100%; overflow: visible; }
+  .pt-tab { flex: 1 1 0; padding: 0 6px; font-size: 15px; }
+  .pt-long { display: none; }
+  .pt-short { display: inline; }
+  .promo--tabs .pb-all { order: 2; margin-left: auto; }
+}

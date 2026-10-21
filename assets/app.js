@@ -213,4 +213,26 @@
     b.classList.add('is-active'); sort = b.dataset.sort; apply();
   }));
   fold();
+  // Khung 2 tab trên trang hết hàng: máy mới đang bán | máy cũ giá rẻ; "Xem tất cả" đổi theo tab
+  document.documentElement.classList.add('js');
+  $$('.promo--tabs').forEach((box) => {
+    const tabs = $$('.pt-tab', box);
+    const all = $('.pb-all', box);
+    const show = (t) => {
+      tabs.forEach((x) => {
+        const on = x === t;
+        x.classList.toggle('is-active', on); x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1;
+        $('#' + x.getAttribute('aria-controls')).hidden = !on;
+      });
+      all.href = t.dataset.href;
+    };
+    tabs.forEach((t) => t.addEventListener('click', () => show(t)));
+    box.addEventListener('keydown', (e) => {
+      const i = tabs.indexOf(document.activeElement);
+      if (i < 0 || !['ArrowLeft', 'ArrowRight'].includes(e.key)) return;
+      const n = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
+      n.focus(); show(n);
+    });
+    show(tabs[0]);
+  });
 })();

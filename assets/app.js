@@ -110,6 +110,24 @@
     tBtn.addEventListener('click', () => setBlock(tBlock.hidden));
   }
 
+  // Trang đang bán: "Đã ngưng kinh doanh" / "Chờ hàng về" cuối hàng sắp xếp đổi lưới sang SP ở trạng thái đó.
+  // 5 kiểu sắp xếp đưa về lưới đang bán (demo không sắp xếp thật). Trạng thái ghi lên URL (?xem=…) để gửi link.
+  const views = $$('[data-view-panel]');
+  if (views.length) {
+    const btns = $$('[data-view]');
+    const setView = (key, btn) => {
+      views.forEach((v) => { v.hidden = v.dataset.viewPanel !== key; });
+      btns.forEach((b) => { const on = b === btn; b.classList.toggle('is-active', on); b.setAttribute('aria-pressed', on); });
+      const u = new URL(location.href);
+      if (key === 'sold') u.searchParams.delete('xem'); else u.searchParams.set('xem', key);
+      history.replaceState(null, '', u);
+    };
+    btns.forEach((b) => b.addEventListener('click', () => setView(b.dataset.view, b)));
+    const want = new URLSearchParams(location.search).get('xem');
+    const start = btns.find((b) => b.dataset.view === want);
+    if (start) setView(want, start);
+  }
+
   const grid = $('[data-grid]');
   if (!grid) return;
   const empty = $('.empty', grid.parentElement);

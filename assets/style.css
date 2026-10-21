@@ -542,22 +542,6 @@ body.modal-open { overflow: hidden; }
 .demo-notice { margin: 0 0 12px; padding: 10px 14px; border: 1px dashed #F79009; border-radius: 8px; background: #FFFAEB;
   color: #93370D; font-size: 14px; line-height: 1.5; }
 
-/* Trang hết hàng, dải đầu trang: tóm tắt + nút sang hàng đang bán | 3 bài tin. Mobile xếp chồng, tin cuộn ngang */
-.top-band { display: grid; gap: 24px; margin-bottom: 12px; }
-.top-band.has-news { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
-.tb-lead p { margin: 0 0 14px; font-size: 16px; line-height: 1.6; color: var(--title); }
-.tb-cta { display: inline-flex; align-items: center; gap: 4px; min-height: 44px; padding: 0 18px; border-radius: 8px;
-  background: var(--primary); color: #fff; font-weight: 600; font-size: 15px; }
-.tb-cta:hover { text-decoration: none; opacity: .92; }
-.tb-news { padding-left: 24px; border-left: 1px solid var(--border); }
-.tb-h { margin: 0 0 2px; font-size: 16px; font-weight: 700; color: var(--title); }
-.tb-news .ibn-item { padding: 8px 0; }
-@media (max-width: 767px) {
-  .top-band.has-news { grid-template-columns: minmax(0, 1fr); gap: 16px; }
-  .tb-news { padding: 16px 0 0; border-left: 0; border-top: 1px solid var(--border); }
-  .tb-cta { width: 100%; justify-content: center; }
-}
-
 /* Card máy cũ (/may-doi-tra) trong tab "Máy cũ giá rẻ": cùng khổ card đang bán */
 .pb-from { font-size: 12px; font-weight: 500; color: var(--muted); }
 .pt-panel-used .pb-old { flex-wrap: wrap; column-gap: 6px; row-gap: 0; }
@@ -584,31 +568,6 @@ body.modal-open { overflow: hidden; }
   .promo--tabs .pb-all { order: 2; margin-left: auto; }
 }
 .pt-intro { margin: 0 0 12px; font-size: 14px; line-height: 1.5; color: #475467; }
-
-/* Trang đang bán: lựa chọn trạng thái SP cuối hàng sắp xếp (owner 21/10) */
-button.lv-sort-item { padding: 0 2px; border: 0; background: none; color: inherit; font: inherit; cursor: pointer; }
-button.lv-sort-item:hover { color: var(--primary); }
-.lv-sorts { display: flex; align-items: center; gap: 6px; min-width: 0; }
-.lv-states { display: flex; align-items: center; gap: 8px; margin-left: 12px; padding-left: 12px; border-left: 1px solid #EAECF0; }
-.lv-state { display: inline-flex; align-items: center; gap: 4px; min-height: 32px; padding: 0 10px !important;
-  border: 1px solid #EAECF0 !important; border-radius: 16px; }
-.lv-state small { color: #98A2B3; font-size: 12px; }
-.lv-state.is-active { border-color: var(--primary) !important; background: #F1F8FE; }
-.lv-state.is-active small { color: var(--primary); }
-.lv-view-note { display: flex; gap: 6px; align-items: flex-start; margin: 0 0 10px; color: #475467; font-size: 13px; line-height: 1.5; }
-.lv-view-note svg { flex: none; margin-top: 3px; color: #667085; }
-.lv-card.is-stopped .lv-img img { filter: grayscale(.35); opacity: .85; }
-.lv-noimg { display: flex; align-items: center; justify-content: center; aspect-ratio: 1; color: #98A2B3; font-size: 12px; }
-.lv-badge { align-self: flex-start; margin-top: 2px; padding: 3px 6px; border-radius: 4px; background: #F2F4F7; color: #475467;
-  font-size: 12px; font-weight: 600; }
-.lv-more { display: flex; align-items: center; justify-content: flex-end; gap: 2px; color: var(--primary); font-size: 13px; }
-[data-view-panel="restock"] .lv-status { align-self: flex-start; padding: 3px 6px; border-radius: 4px; background: #FEF3F2;
-  color: #B42318; font-weight: 600; }
-@media (max-width: 767px) {
-  .lv-sort:has(.lv-states) { flex-wrap: wrap; overflow: visible; }
-  .lv-sorts { flex-basis: 100%; overflow-x: auto; scrollbar-width: none; }
-  .lv-states { flex-basis: 100%; margin: 0; padding: 8px 0 4px; border-left: 0; border-top: 1px dashed #EAECF0; }
-}
 
 /* Nhãn trạng thái SP chưa KD (owner 21/10): nằm đúng khe dòng trạng thái dưới tên, thay ngày ra mắt */
 .stage { display: inline-flex; align-items: center; height: 20px; padding: 0 8px; border-radius: 4px; font-size: 12px;

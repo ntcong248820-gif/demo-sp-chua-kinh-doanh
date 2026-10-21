@@ -559,3 +559,8 @@ body.modal-open { overflow: hidden; }
   .tb-news { padding: 16px 0 0; border-left: 0; border-top: 1px solid var(--border); }
   .tb-cta { width: 100%; justify-content: center; }
 }
+
+/* Dải máy cũ (/may-doi-tra) trên trang hết hàng: cùng khổ dải đang bán */
+.pb-from { font-size: 12px; font-weight: 500; color: var(--muted); }
+.promo--used .pb-old { flex-wrap: wrap; column-gap: 6px; row-gap: 0; }
+.promo--used .pb-old span { display: inline-flex; gap: 4px; white-space: nowrap; }

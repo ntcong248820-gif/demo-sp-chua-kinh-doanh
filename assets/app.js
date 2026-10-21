@@ -235,4 +235,11 @@
     });
     show(tabs[0]);
   });
+  // Câu dẫn trên lưới "Xem laptop Samsung cũ": cuộn xuống khung và mở đúng tab
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('[data-open-tab]');
+    if (!a) return;
+    const t = document.getElementById(a.dataset.openTab);
+    if (t) t.click();
+  });
 })();

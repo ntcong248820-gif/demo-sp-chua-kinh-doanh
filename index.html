@@ -19,7 +19,7 @@
 <header class="g-top">
   <div class="g-wrap g-top-in">
     <p class="g-flag">Demo nội bộ SEO · không index</p>
-    <nav aria-label="Các phần"><ul class="g-nav"><li><a href="#trang-thai">Trạng thái → trang</a></li><li><a href="#luong">Luồng khách</a></li><li><a href="#cac-trang">Các trang demo</a></li><li><a href="#con-mo">Còn mở</a></li></ul></nav>
+    <nav aria-label="Các phần"><ul class="g-nav"><li><a href="#trang-thai">Trạng thái → trang</a></li><li><a href="#luong">Luồng khách</a></li><li><a href="#cac-trang">Các trang demo</a></li><li><a href="#loai-trang">Theo loại trang</a></li><li><a href="#con-mo">Còn mở</a></li></ul></nav>
   </div>
 </header>
 <main id="main" class="g-wrap">
@@ -29,7 +29,7 @@
   <p class="lead">Một sản phẩm đi qua nhiều trạng thái: tin đồn, chưa bán, đang bán, chờ hàng về, ngưng kinh doanh.
   Mỗi trạng thái hiện ở một loại trang khác nhau. Trang này cho thấy trang nào hiện gì, khách đi giữa chúng ra sao,
   và mở được từng trang demo.</p>
-  <ul class="facts"><li><b>17</b> trang demo</li><li><b>3</b> hệ trang</li>
+  <ul class="facts"><li><b>6</b> trang demo</li><li><b>3</b> hệ trang</li>
     <li><b>5</b> trạng thái sản phẩm</li></ul>
   <p class="how"><span class="hint-sample" aria-hidden="true">1</span><span>Trên mỗi trang demo có chấm số như thế này.
   Di chuột hoặc bấm vào để đọc giải thích từng khối. Muốn tắt chấm thì bấm “Giải thích” ở dải đen trên cùng.</span></p>
@@ -43,7 +43,7 @@
   <div class="lc-row">
     <ol class="lc-states" aria-label="Trạng thái"><li class="st st--rumor"><b>Tin đồn</b><span>Chưa chắc có, chỉ từ tin rò rỉ.</span></li><li class="st st--unsold"><b>Chưa bán</b><span>Đã ra mắt, TGDĐ chưa bán.</span></li></ol>
     <span class="lc-to"><svg class="arw" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-    <div class="lc-dest"><a class="sys sys--chua-kd" href="#he-chua-kd"><span class="sys-name">Hệ trang chưa kinh doanh</span><span class="sys-url">URL riêng, song song trang đang bán</span><span class="sys-line">Đón khách tìm máy, hãng, loại hàng TGDĐ chưa bán, rồi dẫn sang hàng đang bán tương đương.</span><span class="sys-more">7 trang demo <svg class="arw" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></div>
+    <div class="lc-dest"><a class="sys sys--chua-kd" href="#he-chua-kd"><span class="sys-name">Hệ trang chưa kinh doanh</span><span class="sys-url">URL riêng, song song trang đang bán</span><span class="sys-line">Đón khách tìm máy, hãng, loại hàng TGDĐ chưa bán, rồi dẫn sang hàng đang bán tương đương.</span><span class="sys-more">2 trang demo <svg class="arw" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></div>
   </div>
   <div class="lc-row">
     <ol class="lc-states" aria-label="Trạng thái"><li class="st st--selling"><b>Đang bán</b><span>Mua được ngay.</span></li><li class="st st--restock"><b>Chờ hàng về</b><span>Tạm hết, sẽ về lại.</span></li><li class="st st--stopped"><b>Ngưng KD</b><span>Từng bán, nay thôi.</span></li></ol>
@@ -51,8 +51,8 @@
     <div class="lc-dest lc-fork">
       <p class="lc-q">Trang danh mục đó còn máy đang bán không?</p>
       <div class="lc-branches">
-        <div class="br"><span class="br-label">Còn</span><a class="sys sys--dang-ban" href="#he-dang-ban"><span class="sys-name">Trang đang bán</span><span class="sys-url">URL hiện tại, không đổi</span><span class="sys-line">Lưới mặc định chỉ có máy đang bán. Máy chờ hàng về, ngưng KD nằm sau 2 nút trên hàng sắp xếp.</span><span class="sys-more">6 trang demo <svg class="arw" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></div>
-        <div class="br"><span class="br-label">Hết sạch</span><a class="sys sys--het-hang" href="#he-het-hang"><span class="sys-name">Trang hết hàng</span><span class="sys-url">Vẫn URL cũ, chỉ đổi giao diện</span><span class="sys-line">Khi mọi máy của trang đã ngưng KD. Giữ trang đón khách, dẫn sang máy mới đang bán và máy cũ.</span><span class="sys-more">4 trang demo <svg class="arw" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></div>
+        <div class="br"><span class="br-label">Còn</span><a class="sys sys--dang-ban" href="#he-dang-ban"><span class="sys-name">Trang đang bán</span><span class="sys-url">URL hiện tại, không đổi</span><span class="sys-line">Lưới mặc định chỉ có máy đang bán. Máy chờ hàng về, ngưng KD nằm sau 2 nút trên hàng sắp xếp.</span><span class="sys-more">2 trang demo <svg class="arw" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></div>
+        <div class="br"><span class="br-label">Hết sạch</span><a class="sys sys--het-hang" href="#he-het-hang"><span class="sys-name">Trang hết hàng</span><span class="sys-url">Vẫn URL cũ, chỉ đổi giao diện</span><span class="sys-line">Khi mọi máy của trang đã ngưng KD. Giữ trang đón khách, dẫn sang máy mới đang bán và máy cũ.</span><span class="sys-more">2 trang demo <svg class="arw" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></div>
       </div>
     </div>
   </div>
@@ -62,188 +62,103 @@
 <section class="sec" id="luong" aria-labelledby="luong-h">
   <p class="sec-no">02</p><h2 id="luong-h">Khách đi giữa các trang thế nào</h2>
   <p class="sec-sub">Trang nào cũng có lối dẫn khách về chỗ mua được. Bốn luồng tiêu biểu, đọc theo chiều mũi tên.</p>
-  <ol class="lanes"><li class="lane"><p class="lane-title">Máy TGDĐ chưa bán</p><ol class="lane-steps"><li><span class="step step--out">Google: “pc dell”</span></li><li><a class="step step--chua-kd is-demo" href="may-tinh-de-ban-dell.html">Máy tính để bàn Dell</a></li><li><span class="step step--chua-kd">Dải “đang bán” cuối lưới</span></li><li><span class="step step--dang-ban">PC văn phòng đang bán</span></li><li><span class="step step--dang-ban">Mua</span></li></ol></li><li class="lane"><p class="lane-title">Trang đang bán có máy ngưng KD</p><ol class="lane-steps"><li><span class="step step--out">Google: “laptop dell”</span></li><li><a class="step step--dang-ban is-demo" href="laptop-dell.html">Laptop Dell</a></li><li><span class="step step--dang-ban">Bấm “Đã ngưng kinh doanh”</span></li><li><span class="step step--het-hang">Trang SP Latitude ngưng KD</span></li><li><span class="step step--dang-ban">Máy thay thế đang bán</span></li></ol></li><li class="lane"><p class="lane-title">Trang đang bán quá mỏng</p><ol class="lane-steps"><li><span class="step step--out">Google: “pc msi”</span></li><li><a class="step step--dang-ban is-demo" href="may-tinh-de-ban-msi.html">Máy tính để bàn MSI</a></li><li><span class="step step--chua-kd">Khối máy chưa bán</span></li><li><span class="step step--chua-kd">Trang SP chưa KD</span></li></ol></li><li class="lane"><p class="lane-title">Cả trang đã ngưng KD</p><ol class="lane-steps"><li><span class="step step--out">Google: “laptop samsung”</span></li><li><a class="step step--het-hang is-demo" href="laptop-samsung.html">Laptop Samsung</a></li><li><span class="step step--het-hang">Tab “Laptop Samsung cũ”</span></li><li><span class="step step--dang-ban">Máy cũ /may-doi-tra</span></li></ol></li></ol>
+  <ol class="lanes"><li class="lane"><p class="lane-title">Máy TGDĐ chưa bán</p><ol class="lane-steps"><li><span class="step step--out">Google: tên PC mới</span></li><li><a class="step step--chua-kd is-demo" href="may-tinh-de-ban-chua-kinh-doanh.html">PC mới, chưa bán tại TGDĐ</a></li><li><span class="step step--chua-kd">Dải “đang bán” cuối lưới</span></li><li><span class="step step--dang-ban">Máy tính để bàn đang bán</span></li><li><span class="step step--dang-ban">Mua</span></li></ol></li><li class="lane"><p class="lane-title">Trang đang bán có máy ngưng KD</p><ol class="lane-steps"><li><span class="step step--out">Google: “laptop dell”</span></li><li><a class="step step--dang-ban is-demo" href="laptop-dell.html">Laptop Dell</a></li><li><span class="step step--dang-ban">Bấm “Đã ngưng kinh doanh”</span></li><li><span class="step step--het-hang">Trang SP Latitude ngưng KD</span></li><li><span class="step step--dang-ban">Máy thay thế đang bán</span></li></ol></li><li class="lane"><p class="lane-title">Trang đang bán quá mỏng</p><ol class="lane-steps"><li><span class="step step--out">Google: “pc msi”</span></li><li><a class="step step--dang-ban is-demo" href="may-tinh-de-ban-msi.html">Máy tính để bàn MSI</a></li><li><span class="step step--chua-kd">Khối máy chưa bán</span></li><li><span class="step step--chua-kd">Trang SP chưa KD</span></li></ol></li><li class="lane"><p class="lane-title">Cả trang đã ngưng KD</p><ol class="lane-steps"><li><span class="step step--out">Google: “laptop samsung”</span></li><li><a class="step step--het-hang is-demo" href="laptop-samsung.html">Laptop Samsung</a></li><li><span class="step step--het-hang">Tab “Laptop Samsung cũ”</span></li><li><span class="step step--dang-ban">Máy cũ /may-doi-tra</span></li></ol></li></ol>
 </section>
 
 <section class="sec" id="cac-trang" aria-labelledby="cac-trang-h">
   <p class="sec-no">03</p><h2 id="cac-trang-h">Các trang demo</h2>
-  <p class="sec-sub">Xếp theo 3 hệ trang. Mỗi thẻ: tình huống gặp, trang làm gì, dẫn khách sang đâu.</p>
-  <section class="grp grp--chua-kd" id="he-chua-kd" aria-labelledby="he-chua-kd-h">
+  <p class="sec-sub">6 trang, mỗi trang nói một ý riêng, xếp theo 3 hệ trang. Mỗi thẻ: tình huống gặp, trang làm gì,
+  dẫn khách sang đâu.</p>
+  <div class="gallery"><section class="grp grp--chua-kd" id="he-chua-kd" aria-labelledby="he-chua-kd-h">
   <header class="grp-head"><h3 id="he-chua-kd-h">Hệ trang chưa kinh doanh</h3><span class="grp-url">URL riêng, song song trang đang bán</span>
     <p>Đón khách tìm máy, hãng, loại hàng TGDĐ chưa bán, rồi dẫn sang hàng đang bán tương đương.</p></header>
   <ol class="dc-list"><li class="dc">
   <div class="dc-top"><span class="dc-type">Ngành hàng</span></div>
   <h4><a href="may-tinh-de-ban-chua-kinh-doanh.html">PC mới, chưa bán tại TGDĐ</a></h4>
+  <p class="dc-msg">Trang chưa KD chạy song song với ngành đang bán</p>
   <dl>
     <dt>Khi nào gặp</dt><dd>TGDĐ bán 54 mẫu PC, CellphoneS 122. Khách tìm mẫu PC khác thì sang đối thủ.</dd>
-    <dt>Trang làm gì</dt><dd>Tổng hợp PC mới chưa bán: thông số, ngày ra mắt, tin mới.</dd>
+    <dt>Trang làm gì</dt><dd>URL riêng, liệt kê PC mới chưa bán: thông số, ngày ra mắt, tin mới. Trang /may-tinh-de-ban giữ nguyên.</dd>
     <dt>Dẫn khách sang</dt><dd class="dc-to">Máy tính để bàn đang bán</dd>
   </dl>
   <div class="dc-foot"><a class="dc-open" href="may-tinh-de-ban-chua-kinh-doanh.html">Mở demo <svg class="arw" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
 </li><li class="dc">
   <div class="dc-top"><span class="dc-type">Ngành hàng</span></div>
   <h4><a href="ram-may-tinh.html">RAM máy tính</a></h4>
+  <p class="dc-msg">Ngành TGDĐ chưa bán: dẫn khách sang ngành gần nhất</p>
   <dl>
-    <dt>Khi nào gặp</dt><dd>Ngành TGDĐ chưa bán (linh kiện PC). Khách tìm linh kiện không vào TGDĐ.</dd>
-    <dt>Trang làm gì</dt><dd>Trang ngành mới cho loại hàng đó.</dd>
+    <dt>Khi nào gặp</dt><dd>Linh kiện PC đối thủ bán, TGDĐ chưa bán. Khách tìm linh kiện không vào TGDĐ.</dd>
+    <dt>Trang làm gì</dt><dd>Trang ngành mới cho loại hàng đó. Không có hàng cùng loại để dẫn, nên dẫn sang hàng khác ngành gần nhu cầu nhất.</dd>
     <dt>Dẫn khách sang</dt><dd class="dc-to">PC có sẵn RAM 16 GB đang bán</dd>
   </dl>
   <div class="dc-foot"><a class="dc-open" href="ram-may-tinh.html">Mở demo <svg class="arw" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-</li><li class="dc">
-  <div class="dc-top"><span class="dc-type">Hãng</span></div>
-  <h4><a href="may-tinh-de-ban-dell.html">Máy tính để bàn Dell</a></h4>
-  <dl>
-    <dt>Khi nào gặp</dt><dd>Khách tìm “PC Dell” nhưng TGDĐ không có trang này, bị đưa về trang PC chung.</dd>
-    <dt>Trang làm gì</dt><dd>Trang riêng cho hãng: các dòng máy của hãng.</dd>
-    <dt>Dẫn khách sang</dt><dd class="dc-to">PC học tập, văn phòng đang bán</dd>
-  </dl>
-  <div class="dc-foot"><a class="dc-open" href="may-tinh-de-ban-dell.html">Mở demo <svg class="arw" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-</li><li class="dc">
-  <div class="dc-top"><span class="dc-type">Hãng</span></div>
-  <h4><a href="ram-kingston.html">RAM Kingston</a></h4>
-  <dl>
-    <dt>Khi nào gặp</dt><dd>TGDĐ bán ổ cứng, thẻ nhớ Kingston nhưng chưa bán RAM Kingston.</dd>
-    <dt>Trang làm gì</dt><dd>Trang hãng nằm dưới ngành RAM.</dd>
-    <dt>Dẫn khách sang</dt><dd class="dc-to">Ổ cứng di động Kingston đang bán</dd>
-  </dl>
-  <div class="dc-foot"><a class="dc-open" href="ram-kingston.html">Mở demo <svg class="arw" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-</li><li class="dc">
-  <div class="dc-top"><span class="dc-type">Filter</span></div>
-  <h4><a href="ram-ddr5.html">RAM DDR5</a></h4>
-  <dl>
-    <dt>Khi nào gặp</dt><dd>Ngành chưa bán thì khách tìm theo tiêu chí là chính: “ram ddr5”, “ram 16gb”.</dd>
-    <dt>Trang làm gì</dt><dd>Trang Filter dưới ngành RAM, chỉ mở khi tiêu chí có người tìm và đủ 4 máy.</dd>
-    <dt>Dẫn khách sang</dt><dd class="dc-to">PC gaming đang bán</dd>
-  </dl><p class="dc-note">Ngành đang bán không làm Filter riêng cho máy chưa bán (giành keyword với Filter đang bán), mà bật khối máy chưa bán ngay trên trang đang bán.</p>
-  <div class="dc-foot"><a class="dc-open" href="ram-ddr5.html">Mở demo <svg class="arw" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-</li><li class="dc">
-  <div class="dc-top"><span class="dc-type">Dòng Filter</span></div>
-  <h4><a href="may-tinh-de-ban-asus-rog.html">PC Asus ROG</a></h4>
-  <dl>
-    <dt>Khi nào gặp</dt><dd>TGDĐ bán PC Asus văn phòng, chưa bán dòng ROG. Khách tìm “PC ROG” không có trang.</dd>
-    <dt>Trang làm gì</dt><dd>Trang riêng cho dòng: các mẫu trong dòng.</dd>
-    <dt>Dẫn khách sang</dt><dd class="dc-to">PC gaming đang bán</dd>
-  </dl>
-  <div class="dc-foot"><a class="dc-open" href="may-tinh-de-ban-asus-rog.html">Mở demo <svg class="arw" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-</li><li class="dc">
-  <div class="dc-top"><span class="dc-type">Dòng Filter</span></div>
-  <h4><a href="kingston-fury-beast.html">Kingston FURY Beast</a></h4>
-  <dl>
-    <dt>Khi nào gặp</dt><dd>Khách tìm đúng một dòng RAM.</dd>
-    <dt>Trang làm gì</dt><dd>Trang dòng dưới RAM Kingston: bản DDR5, DDR4, RGB.</dd>
-    <dt>Dẫn khách sang</dt><dd class="dc-to">Ổ cứng di động Kingston đang bán</dd>
-  </dl>
-  <div class="dc-foot"><a class="dc-open" href="kingston-fury-beast.html">Mở demo <svg class="arw" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
 </li></ol>
 </section><section class="grp grp--dang-ban" id="he-dang-ban" aria-labelledby="he-dang-ban-h">
   <header class="grp-head"><h3 id="he-dang-ban-h">Trang đang bán</h3><span class="grp-url">URL hiện tại, không đổi</span>
     <p>Lưới mặc định chỉ có máy đang bán. Máy chờ hàng về, ngưng KD nằm sau 2 nút trên hàng sắp xếp.</p></header>
   <ol class="dc-list"><li class="dc">
-  <div class="dc-top"><span class="dc-type">Ngành hàng</span><span class="dc-tag">Ngưng KD / Chờ hàng về</span></div>
-  <h4><a href="laptop.html">Laptop</a></h4>
-  <dl>
-    <dt>Khi nào gặp</dt><dd>Ngành đang bán, rải rác nhiều hãng có máy ngưng KD hoặc tạm hết hàng.</dd>
-    <dt>Trang làm gì</dt><dd>Lưới mặc định chỉ có máy đang bán. Bấm “Đã ngưng kinh doanh” / “Chờ hàng về” mới hiện máy đó của cả ngành.</dd>
-    <dt>Dẫn khách sang</dt><dd class="dc-to">Trang SP ngưng KD (còn mở được, có máy thay thế)</dd>
-  </dl>
-  <div class="dc-foot"><a class="dc-open" href="laptop.html">Mở demo <svg class="arw" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-</li><li class="dc">
   <div class="dc-top"><span class="dc-type">Hãng</span><span class="dc-tag">Ngưng KD / Chờ hàng về</span></div>
   <h4><a href="laptop-dell.html">Laptop Dell</a></h4>
+  <p class="dc-msg">Máy ngưng KD, chờ hàng về nằm sau 2 nút, không lẫn vào lưới</p>
   <dl>
-    <dt>Khi nào gặp</dt><dd>Hãng đang bán, một số máy Dell đã ngưng KD hoặc tạm hết hàng.</dd>
-    <dt>Trang làm gì</dt><dd>Như trang ngành, nhưng chỉ hiện máy ngưng KD / chờ hàng của hãng Dell.</dd>
+    <dt>Khi nào gặp</dt><dd>Trang đang bán, một số máy đã ngưng KD hoặc tạm hết hàng.</dd>
+    <dt>Trang làm gì</dt><dd>Lưới mặc định chỉ có máy đang bán. Bấm “Đã ngưng kinh doanh” / “Chờ hàng về” mới hiện máy đó.</dd>
     <dt>Dẫn khách sang</dt><dd class="dc-to">Trang SP ngưng KD (còn mở được, có máy thay thế)</dd>
   </dl>
   <div class="dc-foot"><a class="dc-open" href="laptop-dell.html">Mở demo <svg class="arw" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
 </li><li class="dc">
-  <div class="dc-top"><span class="dc-type">Filter</span><span class="dc-tag">Ngưng KD / Chờ hàng về</span></div>
-  <h4><a href="laptop-hoc-tap-van-phong.html">Laptop học tập, văn phòng</a></h4>
-  <dl>
-    <dt>Khi nào gặp</dt><dd>Tiêu chí lọc đang bán, có máy cùng tiêu chí đã ngưng KD hoặc tạm hết hàng.</dd>
-    <dt>Trang làm gì</dt><dd>Chỉ hiện máy ngưng KD / chờ hàng thoả đúng tiêu chí “học tập, văn phòng”.</dd>
-    <dt>Dẫn khách sang</dt><dd class="dc-to">Trang SP ngưng KD (còn mở được, có máy thay thế)</dd>
-  </dl>
-  <div class="dc-foot"><a class="dc-open" href="laptop-hoc-tap-van-phong.html">Mở demo <svg class="arw" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-</li><li class="dc">
-  <div class="dc-top"><span class="dc-type">Dòng Filter</span><span class="dc-tag">Ngưng KD / Chờ hàng về</span></div>
-  <h4><a href="laptop-dell-pro-pro-plus.html">Laptop Dell Pro, Pro Plus</a></h4>
-  <dl>
-    <dt>Khi nào gặp</dt><dd>Dòng đang bán, có bản cũ của dòng đã ngưng KD hoặc tạm hết hàng.</dd>
-    <dt>Trang làm gì</dt><dd>Chỉ hiện máy ngưng KD / chờ hàng thuộc dòng đó. Demo mượn máy Latitude để minh hoạ.</dd>
-    <dt>Dẫn khách sang</dt><dd class="dc-to">Trang SP ngưng KD (còn mở được, có máy thay thế)</dd>
-  </dl>
-  <div class="dc-foot"><a class="dc-open" href="laptop-dell-pro-pro-plus.html">Mở demo <svg class="arw" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-</li><li class="dc">
   <div class="dc-top"><span class="dc-type">Hãng</span><span class="dc-tag">Trang mỏng</span></div>
   <h4><a href="may-tinh-de-ban-msi.html">Máy tính để bàn MSI</a></h4>
+  <p class="dc-msg">Trang đang bán quá mỏng thì bật khối máy chưa bán</p>
   <dl>
     <dt>Khi nào gặp</dt><dd>Trang đang bán chỉ còn 2 máy, đối thủ có nhiều hơn hẳn.</dd>
     <dt>Trang làm gì</dt><dd>Bật khối “Mẫu PC MSI khác, chưa bán tại TGDĐ” dưới lưới. Không cộng vào số SP của trang.</dd>
     <dt>Dẫn khách sang</dt><dd class="dc-to">Trang SP chưa KD (phần Chí Hiếu)</dd>
   </dl>
   <div class="dc-foot"><a class="dc-open" href="may-tinh-de-ban-msi.html">Mở demo <svg class="arw" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-</li><li class="dc">
-  <div class="dc-top"><span class="dc-type">Filter</span><span class="dc-tag">Trang mỏng</span></div>
-  <h4><a href="may-tinh-de-ban-pc-gaming.html">PC gaming</a></h4>
-  <dl>
-    <dt>Khi nào gặp</dt><dd>7 máy mà gánh 81 keyword KPI, chưa keyword nào lên Top 1-2.</dd>
-    <dt>Trang làm gì</dt><dd>Bật khối PC gaming chưa bán dưới lưới để làm dày trang.</dd>
-    <dt>Dẫn khách sang</dt><dd class="dc-to">Trang SP chưa KD (phần Chí Hiếu)</dd>
-  </dl>
-  <div class="dc-foot"><a class="dc-open" href="may-tinh-de-ban-pc-gaming.html">Mở demo <svg class="arw" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
 </li></ol>
 </section><section class="grp grp--het-hang" id="he-het-hang" aria-labelledby="he-het-hang-h">
   <header class="grp-head"><h3 id="he-het-hang-h">Trang hết hàng</h3><span class="grp-url">Vẫn URL cũ, chỉ đổi giao diện</span>
     <p>Khi mọi máy của trang đã ngưng KD. Giữ trang đón khách, dẫn sang máy mới đang bán và máy cũ.</p></header>
   <ol class="dc-list"><li class="dc">
-  <div class="dc-top"><span class="dc-type">Ngành hàng</span><span class="dc-tag">Minh hoạ</span></div>
-  <h4><a href="may-nghe-nhac.html">Máy nghe nhạc</a></h4>
-  <dl>
-    <dt>Khi nào gặp</dt><dd>TGDĐ ngừng bán cả ngành, khách vẫn tìm “máy nghe nhạc”.</dd>
-    <dt>Trang làm gì</dt><dd>Giữ trang ngành, hiện các máy từng bán.</dd>
-    <dt>Dẫn khách sang</dt><dd class="dc-to">Tai nghe đang bán · tai nghe cũ</dd>
-  </dl>
-  <div class="dc-foot"><a class="dc-open" href="may-nghe-nhac.html">Mở demo <svg class="arw" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-</li><li class="dc">
   <div class="dc-top"><span class="dc-type">Hãng</span></div>
   <h4><a href="laptop-samsung.html">Laptop Samsung</a></h4>
+  <p class="dc-msg">Hết hàng nhưng còn máy cũ đúng hãng: dẫn sang máy cũ trước</p>
   <dl>
     <dt>Khi nào gặp</dt><dd>Hãng từng bán, nay không còn máy nào. Khách vẫn tìm “laptop Samsung”.</dd>
-    <dt>Trang làm gì</dt><dd>Hiện máy từng bán. Còn máy cũ đúng hãng nên mở sẵn tab “Laptop Samsung cũ”.</dd>
+    <dt>Trang làm gì</dt><dd>Giữ URL, hiện máy từng bán. Mở sẵn tab “Laptop Samsung cũ” trên /may-doi-tra.</dd>
     <dt>Dẫn khách sang</dt><dd class="dc-to">Laptop Samsung cũ · laptop học tập, văn phòng đang bán</dd>
   </dl>
   <div class="dc-foot"><a class="dc-open" href="laptop-samsung.html">Mở demo <svg class="arw" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
 </li><li class="dc">
-  <div class="dc-top"><span class="dc-type">Filter</span></div>
-  <h4><a href="laptop-rtx-20-series.html">Laptop RTX 20 series</a></h4>
-  <dl>
-    <dt>Khi nào gặp</dt><dd>Mọi máy RTX 20 đã ngừng bán. Khách vẫn tìm “laptop RTX 2050”.</dd>
-    <dt>Trang làm gì</dt><dd>Giữ trang, hiện các máy từng bán.</dd>
-    <dt>Dẫn khách sang</dt><dd class="dc-to">Laptop RTX 30 series đang bán · card rời cũ</dd>
-  </dl>
-  <div class="dc-foot"><a class="dc-open" href="laptop-rtx-20-series.html">Mở demo <svg class="arw" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-</li><li class="dc">
   <div class="dc-top"><span class="dc-type">Dòng Filter</span></div>
   <h4><a href="laptop-dell-latitude.html">Laptop Dell Latitude</a></h4>
+  <p class="dc-msg">Hết hàng, không còn máy cũ đúng dòng: dẫn sang dòng kế nhiệm</p>
   <dl>
     <dt>Khi nào gặp</dt><dd>Dòng đã ngừng bán mà “dell latitude” vẫn 9.680 click / 6 tháng.</dd>
-    <dt>Trang làm gì</dt><dd>Giữ trang dòng, hiện các máy từng bán.</dd>
+    <dt>Trang làm gì</dt><dd>Giữ URL, hiện máy từng bán. Máy mới đứng trước, máy cũ ghi rõ là “Dell văn phòng cũ”.</dd>
     <dt>Dẫn khách sang</dt><dd class="dc-to">Dell Pro đang bán · Dell văn phòng cũ</dd>
   </dl>
   <div class="dc-foot"><a class="dc-open" href="laptop-dell-latitude.html">Mở demo <svg class="arw" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="dc-alt" href="laptop-dell-latitude-dai-tom-tat.html">Bản thử: thêm dải tóm tắt + bài tin đầu trang</a></div>
 </li></ol>
+</section></div>
 </section>
+
+<section class="sec" id="loai-trang" aria-labelledby="loai-trang-h">
+  <p class="sec-no">04</p><h2 id="loai-trang-h">Áp dụng cho loại trang nào</h2>
+  <p class="sec-sub">Ngành hàng, Hãng, Filter, Dòng Filter dùng chung khung trang. Khác nhau chỉ ở phạm vi máy và vài
+  rule dưới đây, nên mỗi ý chỉ cần một trang demo.</p>
+  <div class="rt-wrap"><table class="rt"><thead><tr><th scope="col">Loại trang</th><th scope="col" class="rt-chua-kd">Hệ trang chưa kinh doanh</th><th scope="col" class="rt-dang-ban">Trang đang bán</th><th scope="col" class="rt-het-hang">Trang hết hàng</th></tr></thead><tbody><tr><th scope="row">Ngành hàng<code>/laptop</code></th><td data-label="Hệ trang chưa kinh doanh" class="rt-chua-kd">Ngành đang bán: trang song song liệt kê máy chưa bán. Ngành chưa bán: trang ngành mới, dẫn sang ngành gần nhất.<a class="rt-demo" href="may-tinh-de-ban-chua-kinh-doanh.html">PC mới chưa bán<svg class="arw" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="rt-demo" href="ram-may-tinh.html">RAM máy tính<svg class="arw" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></td><td data-label="Trang đang bán" class="rt-dang-ban">2 nút hiện máy ngưng KD / chờ hàng của cả ngành.</td><td data-label="Trang hết hàng" class="rt-het-hang">Vẫn giữ trang ngành, không chuyển hướng (VD máy nghe nhạc).</td></tr><tr><th scope="row">Hãng<code>/laptop-dell</code></th><td data-label="Hệ trang chưa kinh doanh" class="rt-chua-kd">Khi hãng chưa có trang, trong ngành đang bán hoặc chưa bán.</td><td data-label="Trang đang bán" class="rt-dang-ban">2 nút chỉ hiện máy của hãng. Trang quá mỏng thì bật thêm khối máy chưa bán.<a class="rt-demo" href="laptop-dell.html">Laptop Dell<svg class="arw" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="rt-demo" href="may-tinh-de-ban-msi.html">MSI<svg class="arw" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></td><td data-label="Trang hết hàng" class="rt-het-hang">Còn máy cũ đúng hãng thì mở tab máy cũ trước.<a class="rt-demo" href="laptop-samsung.html">Laptop Samsung<svg class="arw" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></td></tr><tr><th scope="row">Filter<code>/laptop?g=…</code></th><td data-label="Hệ trang chưa kinh doanh" class="rt-chua-kd">Chỉ cho ngành TGDĐ chưa bán, tiêu chí có người tìm và đủ 4 máy. Ngành đang bán thì bật khối máy chưa bán trên Filter đang bán, không làm trang riêng.</td><td data-label="Trang đang bán" class="rt-dang-ban">2 nút chỉ hiện máy đúng tiêu chí.</td><td data-label="Trang hết hàng" class="rt-het-hang">Giữ trang, dẫn sang tiêu chí đang bán gần nhất (VD RTX 20 → RTX 30).</td></tr><tr><th scope="row">Dòng Filter<code>/laptop-dell-latitude</code></th><td data-label="Hệ trang chưa kinh doanh" class="rt-chua-kd">Khi dòng chưa có trang.</td><td data-label="Trang đang bán" class="rt-dang-ban">2 nút chỉ hiện máy của dòng.</td><td data-label="Trang hết hàng" class="rt-het-hang">Không có máy cũ đúng dòng thì máy mới đứng trước, dẫn sang dòng kế nhiệm.<a class="rt-demo" href="laptop-dell-latitude.html">Dell Latitude<svg class="arw" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></td></tr></tbody></table></div>
 </section>
 
 <section class="sec sec--open" id="con-mo" aria-labelledby="con-mo-h">
-  <p class="sec-no">04</p><h2 id="con-mo-h">Còn mở</h2>
-  <ul class="open-list"><li>Card trang chưa KD chưa có nhãn phân biệt “Chưa bán” / “Tin đồn”.</li><li>Kiểu URL riêng cho hệ trang chưa KD còn chờ chốt; demo đang tạm dùng URL giống trang đang bán.</li><li>Máy “Chờ hàng về” trên 4 trang đang bán (Laptop, Laptop Dell, học tập văn phòng, Dell Pro) là ví dụ minh hoạ, chưa phải máy tạm hết hàng thật; máy ngừng KD trên trang Dell Pro mượn từ Dell Latitude.</li></ul>
+  <p class="sec-no">05</p><h2 id="con-mo-h">Còn mở</h2>
+  <ul class="open-list"><li>Card trang chưa KD chưa có nhãn phân biệt “Chưa bán” / “Tin đồn”.</li><li>Kiểu URL riêng cho hệ trang chưa KD còn chờ chốt; demo đang tạm dùng URL giống trang đang bán.</li><li>Máy “Chờ hàng về” trên trang Laptop Dell là ví dụ minh hoạ, chưa phải máy tạm hết hàng thật.</li></ul>
 </section>
 </main>
 <footer class="g-foot"><div class="g-wrap">Bản dựng thử giao diện cho team SEO. Dữ liệu sản phẩm lấy từ TGDĐ ngày
 19–21/10/2026, chỗ nào là ví dụ minh hoạ đều đã ghi trên trang.</div></footer>
-<script type="application/json" id="demo-hints">{"page": null, "items": [{"sel": "#trang-thai .lc", "title": "Đọc sơ đồ thế nào", "text": "Bên trái là trạng thái của một sản phẩm, bên phải là trang hiện nó. Màu trạng thái trùng màu hệ trang. Bấm vào ô hệ trang để nhảy tới các trang demo của hệ đó."}, {"sel": "#luong .lanes", "title": "Ô nào bấm được", "text": "Ô viền đậm, chữ gạch chân là trang demo, bấm để mở. Ô còn lại là trang thật trên TGDĐ hoặc một bước khách bấm trên trang."}, {"sel": "#he-chua-kd .dc-list", "title": "Cách đọc thẻ demo", "text": "Nhãn trên cùng là loại trang theo cây danh mục TGDĐ: Ngành hàng → Hãng → Filter → Dòng Filter."}]}</script>
+<script type="application/json" id="demo-hints">{"page": null, "items": [{"sel": "#trang-thai .lc", "title": "Đọc sơ đồ thế nào", "text": "Bên trái là trạng thái của một sản phẩm, bên phải là trang hiện nó. Màu trạng thái trùng màu hệ trang. Bấm vào ô hệ trang để nhảy tới các trang demo của hệ đó."}, {"sel": "#luong .lanes", "title": "Ô nào bấm được", "text": "Ô viền đậm, chữ gạch chân là trang demo, bấm để mở. Ô còn lại là trang thật trên TGDĐ hoặc một bước khách bấm trên trang."}, {"sel": "#he-chua-kd .dc-list", "title": "Cách đọc thẻ demo", "text": "Dòng in đậm dưới tên là thông điệp riêng của trang, mỗi trang một ý. Nhãn trên cùng là loại trang của ví dụ; rule áp dụng cho loại trang khác xem ở bảng phần 04."}, {"sel": "#loai-trang .rt-wrap", "title": "Vì sao không demo mỗi loại trang một trang", "text": "Ngành hàng, Hãng, Filter, Dòng Filter dùng chung một khung, chỉ khác phạm vi máy và một vài rule. Bảng này ghi rule đó; ô có “Xem demo” là ô đã có trang ví dụ."}]}</script>
 <script src="assets/guide.js" defer></script>
 <script src="assets/hints.js" defer></script>
 </body>

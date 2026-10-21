@@ -201,3 +201,50 @@ a.step.is-demo { border-width: 2px; font-weight: 600; text-decoration: underline
   .grp { padding-left: 12px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+
+/* Thông điệp riêng của thẻ demo */
+.dc-msg { margin: 0; padding-left: 10px; border-left: 3px solid var(--border-bright); font-weight: 600; font-size: 15px; line-height: 1.45; }
+.grp--chua-kd .dc-msg { border-color: var(--chua-kd); }
+.grp--dang-ban .dc-msg { border-color: var(--dang-ban); }
+.grp--het-hang .dc-msg { border-color: var(--het-hang); }
+
+/* 04 · Bảng loại trang × hệ trang */
+.rt-wrap { border: 1px solid var(--border); border-radius: 10px; background: var(--surface); overflow: hidden; }
+.rt { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.5; }
+.rt th, .rt td { padding: 12px 14px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--border); }
+.rt tbody tr:last-child > * { border-bottom: 0; }
+.rt thead th { font: 500 12px/1.4 var(--font-mono); text-transform: uppercase; letter-spacing: .05em; color: var(--text-dim);
+  background: var(--surface2); border-top: 3px solid transparent; }
+.rt thead th.rt-chua-kd { border-top-color: var(--chua-kd); }
+.rt thead th.rt-dang-ban { border-top-color: var(--dang-ban); }
+.rt thead th.rt-het-hang { border-top-color: var(--het-hang); }
+.rt tbody th { width: 15%; font-size: 15px; }
+.rt tbody th code { display: block; margin-top: 2px; font: 400 12px/1.4 var(--font-mono); color: var(--text-dim); }
+.rt td { width: 28%; }
+.rt-demo { display: flex; align-items: center; gap: 2px; width: fit-content; margin-top: 4px; font-weight: 600; white-space: nowrap;
+  text-decoration: none; }
+.rt-demo:hover { text-decoration: underline; }
+@media (max-width: 760px) {
+  .rt thead { display: none; }
+  .rt, .rt tbody, .rt tr, .rt th, .rt td { display: block; width: auto; }
+  .rt tbody tr { border-bottom: 1px solid var(--border-bright); }
+  .rt tbody tr:last-child { border-bottom: 0; }
+  .rt tbody th { width: auto; padding-bottom: 4px; border-bottom: 0; }
+  .rt td { padding-top: 6px; border-bottom: 0; border-left: 3px solid; margin: 0 14px 10px; padding: 4px 0 4px 10px; }
+  .rt td::before { content: attr(data-label); display: block; font: 500 11px/1.4 var(--font-mono); text-transform: uppercase;
+    letter-spacing: .05em; color: var(--text-dim); }
+  .rt td.rt-chua-kd { border-color: var(--chua-kd); }
+  .rt td.rt-dang-ban { border-color: var(--dang-ban); }
+  .rt td.rt-het-hang { border-color: var(--het-hang); }
+}
+
+/* 6 trang chính: 3 hệ thành 3 cột, mỗi cột 2 thẻ */
+.gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 8px; }
+.gallery .grp { margin-top: 0; display: flex; flex-direction: column; min-width: 0; }
+.gallery .grp-head { min-height: 92px; align-content: flex-start; }
+.gallery .dc-list { grid-template-columns: minmax(0, 1fr); flex: 1; }
+@media (max-width: 960px) {
+  .gallery { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .gallery .grp-head { min-height: 0; }
+  .gallery .dc-list { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+}

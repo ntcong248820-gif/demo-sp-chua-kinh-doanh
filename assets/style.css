@@ -31,8 +31,8 @@ h1, h2, h3 { color: var(--title); margin: 0; line-height: 1.3; }
 .skip:focus { left: 8px; }
 
 /* Dải DEMO */
-.demo-ribbon { display: flex; gap: 8px; align-items: center; justify-content: center; padding: 6px 16px;
-  background: #101828; color: #F2F4F7; font-size: 12px; text-align: center; }
+.demo-ribbon { position: sticky; top: 0; z-index: 70; display: flex; gap: 8px; align-items: center; justify-content: center;
+  padding: 6px 16px; background: #101828; color: #F2F4F7; font-size: 12px; text-align: center; }
 .demo-ribbon a { color: #FFE14C; }
 
 /* Header vàng */
@@ -199,7 +199,7 @@ a.picked { font-size: 13px; }
 .ib-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
 .ib-toggle[hidden] { display: none; }
 /* Bài viết liên quan dính theo khi cuộn trong lúc bài infobox mở dài */
-.ib-news { position: sticky; top: 12px; padding-left: 24px; border-left: 1px solid var(--border); }
+.ib-news { position: sticky; top: 48px; padding-left: 24px; border-left: 1px solid var(--border); }
 .ib-news h3 { margin: 0 0 4px; font-size: 16px; font-weight: 700; color: var(--title); }
 .faq-panel h2 { margin-bottom: 8px; font-size: 18px; }
 .ibn-list { list-style: none; margin: 0; padding: 0; }
@@ -241,7 +241,7 @@ a.picked { font-size: 13px; }
 
 /* Footer */
 .site-footer { background: #fff; border-top: 1px solid var(--border); padding-top: 24px; }
-.footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .footer-grid h3 { font-size: 15px; margin-bottom: 8px; }
 .footer-grid p { margin: 0 0 6px; color: #344054; }
 .footer-legal { border-top: 1px solid var(--border); margin-top: 16px; padding: 14px 16px; color: var(--muted); font-size: 12px; }
@@ -536,11 +536,6 @@ body.modal-open { overflow: hidden; }
 .lv-stage { align-self: flex-start; display: inline-flex; align-items: center; height: 22px; margin-top: 2px; padding: 0 8px;
   border-radius: 4px; background: #E0F2FE; color: #075985; font-size: 13px; font-weight: 600; }
 .lv-stage.is-coming { background: #FEF0C7; color: #93370D; }
-.lv-notify { display: flex; align-items: center; justify-content: center; gap: 6px; min-height: 32px; border: 1px solid var(--primary);
-  border-radius: 6px; color: var(--primary); font-size: 13px; line-height: 1.2; text-align: center; white-space: nowrap; }
-/* Card mobile hẹp: rút nhãn nút cho khỏi xuống dòng */
-.lv-notify-short { display: none; }
-@media (max-width: 600px) { .lv-notify-long { display: none; } .lv-notify-short { display: inline; } }
 
 
 /* Nhãn trạng thái SP chưa KD (owner 21/10): nằm đúng khe dòng trạng thái dưới tên, thay ngày ra mắt */

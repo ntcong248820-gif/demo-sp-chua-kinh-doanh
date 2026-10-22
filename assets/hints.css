@@ -37,7 +37,6 @@
 
 /* Xem giao diện mobile (view-toggle.js): trang thật ẩn đi, chính trang đó hiện trong khung 390px giữa màn hình */
 .view-mobile body > :not(.demo-ribbon):not(.view-stage):not(script):not(.hint-pop) { display: none !important; }
-.view-mobile .demo-ribbon { position: sticky; top: 0; z-index: 20; }
 .view-stage { display: flex; justify-content: center; min-height: calc(100vh - 34px); padding: 20px 16px 32px; background: #E4E7EC; }
 .view-device { width: 410px; max-width: 100%; height: min(844px, calc(100vh - 90px)); overflow: hidden; border: 10px solid #101828;
   border-radius: 36px; background: #fff; box-shadow: 0 12px 32px rgb(16 24 40 / .25); }
@@ -45,3 +44,15 @@
 .in-view-frame [data-view-toggle] { display: none !important; }
 /* Màn hẹp vốn đã là mobile: không cần nút */
 @media (max-width: 640px) { [data-view-toggle] { display: none !important; } }
+
+/* Nút chuyển case (case-switch.js): khung nét đứt cho thấy đây là điều khiển của demo, không phải giao diện TGDĐ */
+.case-switch { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 12px 0 8px; padding: 8px 10px;
+  border: 1px dashed #98A2B3; border-radius: 8px; background: #F9FAFB; font-size: 12px; }
+.cs-label { color: #475467; font-weight: 600; }
+.cs-btn { padding: 3px 10px; border: 1px solid #D0D5DD; border-radius: 12px; background: #fff; color: #344054;
+  font: inherit; cursor: pointer; }
+.cs-btn:hover { border-color: #101828; }
+.cs-btn[aria-pressed="true"] { background: #101828; border-color: #101828; color: #fff; }
+.case-empty { margin: 0 0 12px; padding: 16px; border: 1px dashed #D0D5DD; border-radius: 8px; color: #667085;
+  font-size: 13px; text-align: center; }
+.case-empty[hidden], [data-case-part][hidden], [data-case-ext][hidden] { display: none !important; }

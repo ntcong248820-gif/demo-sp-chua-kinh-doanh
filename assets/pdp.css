@@ -45,7 +45,6 @@
 
 /* Vùng promote cột phải: danh sách gọn (ảnh 64px, tên 2 dòng, giá) */
 .pdp-side .case-box { display: flex; flex-direction: column; gap: 12px; }
-.pdp-side .case-switch { margin: 0; }
 .pdp-side [data-case-part="new-nganh"] { order: 1; }
 .pdp-side [data-case-part="used"] { order: 2; }
 .pdp-side [data-case-part="used-nganh"] { order: 3; }

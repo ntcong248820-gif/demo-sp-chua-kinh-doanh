@@ -30,8 +30,12 @@
 .rb-btn[hidden] { display: none; }
 .rb-btn b { color: #FFE14C; }
 @media (max-width: 640px) {
-  .demo-ribbon:has(.rb-btn:not([hidden])) .rb-full { display: none; }
+  /* Màn hẹp: logo TGDĐ đã dẫn về trang tổng, dải DEMO chỉ giữ các nút để vừa 1 dòng */
+  .demo-ribbon:has(.rb-btn:not([hidden])) > :not(.rb-btn) { display: none; }
   .demo-ribbon:has(.rb-btn:not([hidden])) { gap: 6px; padding: 6px 8px; }
+  /* Màn hẹp: dải DEMO giữ 1 dòng, vuốt ngang để thấy hết nút, không đẩy trang xuống */
+  .demo-ribbon { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
+  .demo-ribbon > * { flex: none; }
 }
 @media (prefers-reduced-motion: reduce) { .hint-dot { transition: none; } }
 
@@ -45,14 +49,26 @@
 /* Màn hẹp vốn đã là mobile: không cần nút */
 @media (max-width: 640px) { [data-view-toggle] { display: none !important; } }
 
-/* Nút chuyển case (case-switch.js): khung nét đứt cho thấy đây là điều khiển của demo, không phải giao diện TGDĐ */
-.case-switch { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 12px 0 8px; padding: 8px 10px;
-  border: 1px dashed #98A2B3; border-radius: 8px; background: #F9FAFB; font-size: 12px; }
-.cs-label { color: #475467; font-weight: 600; }
-.cs-btn { padding: 3px 10px; border: 1px solid #D0D5DD; border-radius: 12px; background: #fff; color: #344054;
-  font: inherit; cursor: pointer; }
+/* Đổi case (case-switch.js): ngăn kéo cố định bên phải, mở từ nút trên dải DEMO, không chen vào giao diện trang */
+.case-drawer { position: fixed; top: 34px; right: 0; bottom: 0; z-index: 900; width: min(320px, 100%); overflow-y: auto;
+  padding: 12px 14px 20px; border-left: 1px solid #D0D5DD; background: #fff; box-shadow: -8px 0 24px rgb(16 24 40 / .12);
+  font-size: 13px; }
+.case-drawer[hidden] { display: none; }
+.cd-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 15px; color: #101828; }
+.cd-close { width: 28px; height: 28px; border: 0; border-radius: 6px; background: #F2F4F7; font-size: 18px; line-height: 1;
+  cursor: pointer; }
+.cd-lead { margin: 6px 0 4px; color: #667085; }
+.cd-group { padding: 10px 0; border-top: 1px solid #EAECF0; }
+.cd-group h3 { margin: 0 0 8px; font-size: 13px; font-weight: 700; color: #344054; }
+.cs-btn { display: block; width: 100%; margin-top: 6px; padding: 6px 10px; border: 1px solid #D0D5DD; border-radius: 8px;
+  background: #fff; color: #344054; font: inherit; text-align: left; cursor: pointer; }
 .cs-btn:hover { border-color: #101828; }
 .cs-btn[aria-pressed="true"] { background: #101828; border-color: #101828; color: #fff; }
+.case-flash { animation: case-flash 1.2s ease-out; }
+@keyframes case-flash { 0%, 40% { outline: 3px solid #FFB020; outline-offset: 4px; } 100% { outline: 3px solid transparent; outline-offset: 4px; } }
+@media (prefers-reduced-motion: reduce) { .case-flash { animation: none; } }
 .case-empty { margin: 0 0 12px; padding: 16px; border: 1px dashed #D0D5DD; border-radius: 8px; color: #667085;
   font-size: 13px; text-align: center; }
 .case-empty[hidden], [data-case-part][hidden], [data-case-ext][hidden] { display: none !important; }
+/* Xem mobile: trang ngoài bị ẩn, nút đổi case của trang ngoài vô nghĩa, dùng nút trong khung */
+.view-mobile body > .demo-ribbon [data-case-open] { display: none; }

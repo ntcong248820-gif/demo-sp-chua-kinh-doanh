@@ -125,3 +125,9 @@
   .t-bar [role=tab] { font-size: 14px; }
   .rv-sum { gap: 12px; }
 }
+
+/* Trang SP chưa kinh doanh (pdp_page_chua_kd.py): gallery 1 ảnh, nhãn Chưa bán cạnh tên (class .stage của card),
+   khe tab Thông tin sản phẩm (hiện khi đã khai báo bài viết), khối đánh giá 0 */
+.pdp-info-slot { grid-area: tabs; }
+.pdp-info-slot .case-empty { margin: 0; }
+.rv-none { font-size: 16px; font-weight: 600; color: var(--title); }

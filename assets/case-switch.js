@@ -7,7 +7,8 @@
 (function () {
   var TITLES = {
     promo: 'Dải máy mới / máy cũ', news: 'Bài viết liên quan', unsold: 'SP khai báo thêm',
-    'pdp-promo': 'Cột phải: SP đang bán / máy cũ'
+    'pdp-promo': 'Cột phải: SP đang bán / máy cũ', 'pdp-promo-new': 'Cột phải: SP đang bán',
+    'pdp-info': 'Tab Thông tin sản phẩm'
   };
   var boxes = Array.prototype.slice.call(document.querySelectorAll('[data-case-box]'));
   var groups = [];
@@ -43,7 +44,9 @@
       var allParts = Array.prototype.every.call(box.children, function (el) {
         return el.hasAttribute('data-case-part') || el.classList.contains('hint-dot');
       });
-      empty.hidden = !(allParts && !visible);
+      // Case thật giữ trang y như thật (không chèn ghi chú); case giả định ẩn hết vùng thì ghi chú tại chỗ
+      var isReal = c.real === undefined ? c === g.cases[0] : c.real;
+      empty.hidden = !(allParts && !visible && !isReal);
       g.buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-case') === c.id)); });
     };
     groups.push(g);

@@ -53,7 +53,7 @@
       b.type = 'button';
       b.className = 'cs-btn';
       b.setAttribute('data-case', c.id);
-      b.textContent = c.label + (i === 0 ? ' (case thật)' : '');
+      b.textContent = c.label + ((c.real === undefined ? i === 0 : c.real) ? ' (case thật)' : '');
       b.addEventListener('click', function () { pick(c); });
       bar.appendChild(b);
     });

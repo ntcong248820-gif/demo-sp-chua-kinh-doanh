@@ -212,3 +212,11 @@ a.step.is-demo { border-width: 2px; font-weight: 600; text-decoration: underline
   .rule-steps span { grid-column: 2; }
   .rt--rule td { border-left-color: var(--border-bright); }
 }
+
+/* Trang tổng 1 bảng (owner 22/10): tiêu đề cột có 1 dòng phụ, ô chỉ có link demo */
+.hero--short { padding: 32px 0 20px; }
+.rt thead th small { display: block; margin-top: 4px; font: 400 12px/1.4 var(--font-body); text-transform: none;
+  letter-spacing: 0; color: var(--text-dim); }
+.rt--index .rt-demos { margin: 0; padding: 0; border-top: 0; gap: 8px; }
+.rt--index tbody th { vertical-align: middle; }
+.rt-none { color: var(--text-dim); }

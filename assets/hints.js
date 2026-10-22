@@ -15,7 +15,7 @@
   pop.id = 'hint-pop';
   pop.setAttribute('role', 'dialog');
   pop.hidden = true;
-  pop.innerHTML = '<p class="hint-pop-title"><span class="hint-pop-no"></span><b></b></p><p class="hint-pop-text"></p>' +
+  pop.innerHTML = '<p class="hint-pop-title"><span class="hint-pop-no"></span><b></b></p><div class="hint-pop-text"></div>' +
     '<button type="button" class="hint-pop-close" aria-label="Đóng giải thích">&times;</button>';
   document.body.appendChild(pop);
   var current = null, pinned = false, timer;
@@ -41,7 +41,16 @@
     pop.querySelector('.hint-pop-no').textContent = no;
     pop.querySelector('.hint-pop-no').hidden = !no;
     pop.querySelector('b').textContent = title;
-    pop.querySelector('.hint-pop-text').textContent = text;
+    // text: chuỗi (một đoạn) hoặc mảng (mỗi phần tử một gạch đầu dòng)
+    var body = pop.querySelector('.hint-pop-text');
+    body.textContent = '';
+    if (Array.isArray(text)) {
+      var ul = document.createElement('ul');
+      text.forEach(function (t) { var li = document.createElement('li'); li.textContent = t; ul.appendChild(li); });
+      body.appendChild(ul);
+    } else {
+      body.textContent = text;
+    }
     place(anchor);
   };
   var hide = function () {

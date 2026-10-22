@@ -16,6 +16,8 @@
   background: #fff; color: #0b2a45; font: 600 12px/1 ui-monospace, monospace; }
 .hint-pop-no[hidden] { display: none; }
 .hint-pop-text { margin: 0; white-space: pre-line; }
+.hint-pop-text ul { margin: 0; padding-left: 18px; white-space: normal; }
+.hint-pop-text li + li { margin-top: 4px; }
 .hint-pop-close { position: absolute; top: 6px; right: 6px; width: 28px; height: 28px; border: 0; border-radius: 6px;
   background: transparent; color: #b9cde0; font-size: 20px; line-height: 1; cursor: pointer; }
 .hint-pop-close:hover { background: rgb(255 255 255 / .1); color: #fff; }

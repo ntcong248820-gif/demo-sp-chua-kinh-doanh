@@ -198,3 +198,17 @@ a.step.is-demo { border-width: 2px; font-weight: 600; text-decoration: underline
   .rt td.rt-dang-ban { border-color: var(--dang-ban); }
   .rt td.rt-het-hang { border-color: var(--het-hang); }
 }
+
+/* 04 · Rule tự bốc trang đang bán cho dải máy mới */
+.rule-steps { display: grid; gap: 8px; margin: 0 0 18px; padding: 0; list-style: none; counter-reset: rs; }
+.rule-steps li { counter-increment: rs; display: grid; grid-template-columns: 28px minmax(0, 190px) minmax(0, 1fr); gap: 10px;
+  align-items: baseline; padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); }
+.rule-steps li::before { content: counter(rs); font: 600 13px/1 var(--font-mono); color: var(--text-dim); }
+.rule-steps span { color: var(--text-dim); font-size: 14px; line-height: 1.5; }
+.rt--rule td { width: auto; }
+.rt--rule tbody th { width: 28%; }
+@media (max-width: 760px) {
+  .rule-steps li { grid-template-columns: 24px minmax(0, 1fr); }
+  .rule-steps span { grid-column: 2; }
+  .rt--rule td { border-left-color: var(--border-bright); }
+}

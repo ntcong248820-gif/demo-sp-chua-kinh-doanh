@@ -1,6 +1,6 @@
 // Tương tác demo v3: nút "Lọc" xổ panel ngay dưới nút (như danh mục đang bán), 2 nhóm Thương hiệu / Loại sản phẩm
 // (OR trong nhóm, AND giữa nhóm),
-// chip đã chọn có × để bỏ, sắp xếp Nổi bật / Có tin mới, lưới gập 2 hàng + "Xem thêm".
+// chip đã chọn có × để bỏ, lưới gập 2 hàng + "Xem thêm".
 // Nội dung đã render sẵn; tắt JS trang vẫn đọc được.
 (() => {
   const $ = (s, r = document) => r.querySelector(s);
@@ -93,23 +93,6 @@
     sync();
   }
 
-  // Trang đang bán (A2): nút nổi mô phỏng cờ khai báo "Hiện khối SP chưa KD". Trạng thái ghi lên URL (?khoi=tat)
-  // để gửi link xem đúng trạng thái. Tắt JS thì khối luôn hiện. Bật/tắt không đổi số SP trên breadcrumb.
-  const tBlock = $('[data-toggle-block]');
-  const tBtn = $('[data-toggle-btn]');
-  if (tBlock && tBtn) {
-    const setBlock = (on) => {
-      tBlock.hidden = !on;
-      tBtn.setAttribute('aria-pressed', String(on));
-      tBtn.querySelector('b').textContent = on ? 'Bật' : 'Tắt';
-      const u = new URL(location.href);
-      if (on) u.searchParams.delete('khoi'); else u.searchParams.set('khoi', 'tat');
-      history.replaceState(null, '', u);
-    };
-    setBlock(new URLSearchParams(location.search).get('khoi') !== 'tat');
-    tBtn.addEventListener('click', () => setBlock(tBlock.hidden));
-  }
-
   const grid = $('[data-grid]');
   if (!grid) return;
   const empty = $('.empty', grid.parentElement);
@@ -120,7 +103,6 @@
   const opts = modal ? $$('.opt', modal) : [];
   let applied = {};   // { nhóm: [giá trị] } đang áp dụng
   let draft = {};     // lựa chọn trong popup, chưa bấm "Xem kết quả"
-  let sort = 'featured';
   let lastFocus;
   const moreBtn = $('[data-more]');
   let expanded = false;
@@ -167,8 +149,7 @@
   };
 
   const apply = () => {
-    const key = sort === 'news' ? (c) => -Number(c.dataset.newsTs) : (c) => Number(c.dataset.order);
-    cards.sort((a, b) => key(a) - key(b) || Number(a.dataset.order) - Number(b.dataset.order));
+    cards.sort((a, b) => Number(a.dataset.order) - Number(b.dataset.order));
     cards.forEach((c) => { c.hidden = !matches(c, applied); grid.append(c); });
     const n = cards.filter((c) => !c.hidden).length;
     empty.hidden = n > 0;
@@ -208,38 +189,6 @@
   }
   $$('[data-reset-filter]').forEach((b) => b.addEventListener('click', () => { applied = {}; apply(); }));
 
-  $$('.sort-btn').forEach((b) => b.addEventListener('click', () => {
-    $$('.sort-btn').forEach((x) => x.classList.remove('is-active'));
-    b.classList.add('is-active'); sort = b.dataset.sort; apply();
-  }));
   fold();
-  // Khung 2 tab trên trang hết hàng: máy mới đang bán | máy cũ giá rẻ; "Xem tất cả" đổi theo tab
   document.documentElement.classList.add('js');
-  $$('.promo--tabs').forEach((box) => {
-    const tabs = $$('.pt-tab', box);
-    const all = $('.pb-all', box);
-    const show = (t) => {
-      tabs.forEach((x) => {
-        const on = x === t;
-        x.classList.toggle('is-active', on); x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1;
-        $('#' + x.getAttribute('aria-controls')).hidden = !on;
-      });
-      all.href = t.dataset.href;
-    };
-    tabs.forEach((t) => t.addEventListener('click', () => show(t)));
-    box.addEventListener('keydown', (e) => {
-      const i = tabs.indexOf(document.activeElement);
-      if (i < 0 || !['ArrowLeft', 'ArrowRight'].includes(e.key)) return;
-      const n = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
-      n.focus(); show(n);
-    });
-    show(tabs[0]);
-  });
-  // Câu dẫn trên lưới "Xem laptop Samsung cũ": cuộn xuống khung và mở đúng tab
-  document.addEventListener('click', (e) => {
-    const a = e.target.closest('[data-open-tab]');
-    if (!a) return;
-    const t = document.getElementById(a.dataset.openTab);
-    if (t) t.click();
-  });
 })();

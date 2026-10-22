@@ -138,13 +138,6 @@ a.picked { font-size: 13px; }
 .release { display: flex; align-items: center; gap: 4px; height: 20px; margin: 0; font-size: 13px; color: #475467; white-space: nowrap; overflow: hidden; }
 .release svg { flex: none; }
 .release.is-stopped { color: #B42318; font-weight: 500; }
-.card-news { display: block; height: 66px; overflow: hidden; padding-top: 8px; border-top: 1px dashed var(--border); font-size: 13px; color: var(--text); }
-.card-news--empty { border-top-color: transparent; }
-.card-news:hover { text-decoration: none; }
-.card-news:hover .card-news-title { color: var(--primary); }
-.card-news-label { display: block; font-size: 12px; font-weight: 600; color: #B54708; }
-.card-news-title { line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-.news-more { color: var(--muted); font-weight: 400; }
 .empty { color: var(--muted); text-align: center; padding: 24px; }
 .pcard.is-folded { display: none; }
 .btn-more { display: flex; align-items: center; justify-content: center; gap: 4px; min-height: 44px; margin: 14px auto 2px;
@@ -336,16 +329,6 @@ body.modal-open { overflow: hidden; }
 .fpanel-foot .btn { min-width: 160px; white-space: nowrap; }
 
 /* Responsive */
-/* Trang đang bán có công tắc (A2): lưới đang bán + khối SP chưa KD + nút công tắc demo */
-.sold-grid { margin-top: 12px; }
-.unsold-block .cnkd-note { margin: 0 0 12px; }
-.unsold-block h2 { display: flex; align-items: center; gap: 8px; font-size: 18px; font-weight: 700; }
-.unsold-block h2::before { content: ""; flex: none; width: 4px; height: 20px; border-radius: 2px; background: var(--primary); }
-.demo-toggle { position: fixed; right: 16px; bottom: 16px; z-index: 40; display: inline-flex; align-items: center; gap: 10px;
-  min-height: 44px; padding: 0 14px; border: 1px solid var(--title); border-radius: 22px; background: #fff; color: var(--title);
-  font-size: 14px; box-shadow: 0 4px 16px rgb(16 24 40 / .15); }
-.demo-toggle b { min-width: 34px; padding: 2px 8px; border-radius: 10px; background: var(--primary); color: #fff; font-size: 13px; }
-.demo-toggle[aria-pressed="false"] b { background: var(--muted); }
 .idx-why { color: var(--muted); font-size: 14px; line-height: 1.45; }
 
 @media (max-width: 1100px) {
@@ -407,7 +390,6 @@ body.modal-open { overflow: hidden; }
 }
 @media (max-width: 767px) {
   .pb-list.sold-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .demo-toggle { right: 12px; bottom: 12px; font-size: 13px; }
 }
 /* Trang đang bán A2 dựng y trang live /may-tinh-de-ban-msi (đo 19/10/2026, desktop 1440 + iPhone 14) */
 .lv-crumb ol { display: flex; flex-wrap: wrap; align-items: center; list-style: none; margin: 0; padding: 20px 0 16px;
@@ -542,32 +524,24 @@ body.modal-open { overflow: hidden; }
 .demo-notice { margin: 0 0 12px; padding: 10px 14px; border: 1px dashed #F79009; border-radius: 8px; background: #FFFAEB;
   color: #93370D; font-size: 14px; line-height: 1.5; }
 
-/* Card máy cũ (/may-doi-tra) trong tab "Máy cũ giá rẻ": cùng khổ card đang bán */
+/* Dải máy cũ (/may-doi-tra), section riêng dưới dải máy mới (họp 21/10: không dùng tab): cùng khổ card đang bán */
 .pb-from { font-size: 12px; font-weight: 500; color: var(--muted); }
-.pt-panel-used .pb-old { flex-wrap: wrap; column-gap: 6px; row-gap: 0; }
-.pt-panel-used .pb-old span { display: inline-flex; gap: 4px; white-space: nowrap; }
+.promo--used .pb-old { flex-wrap: wrap; column-gap: 6px; row-gap: 0; }
+.promo--used .pb-old span { display: inline-flex; gap: 4px; white-space: nowrap; }
+.promo--used h2::before { background: #98A2B3; }
 
-/* Trang hết hàng: 1 khung 2 tab "… đang bán" | "Máy cũ giá rẻ" thay 2 dải liền nhau */
-.pt-tabs { display: flex; gap: 4px; min-width: 0; overflow-x: auto; scrollbar-width: none; }
-.pt-tab { flex: none; min-height: 40px; padding: 0 14px; border: 0; border-bottom: 3px solid transparent; background: none;
-  font: inherit; font-size: 16px; font-weight: 600; color: var(--muted); cursor: pointer; white-space: nowrap; }
-.pt-tab:hover { color: var(--title); }
-.pt-tab.is-active { color: var(--title); border-bottom-color: var(--yellow); }
-.pt-tab:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
-.promo--tabs .pb-head { border-bottom: 1px solid var(--border); margin-bottom: 14px; }
-.js .pt-nojs { display: none; }
-.pt-nojs { margin: 16px 0 10px; font-size: 16px; font-weight: 700; color: var(--title); }
-.pt-short { display: none; }
-/* Mobile: 2 tab chia đôi chiều ngang, nhãn ngắn, để tab "Máy cũ" luôn thấy được; "Xem tất cả" xuống dòng riêng */
-@media (max-width: 767px) {
-  .promo--tabs .pb-head { flex-wrap: wrap; row-gap: 0; }
-  .pt-tabs { flex: 1 0 100%; overflow: visible; }
-  .pt-tab { flex: 1 1 0; padding: 0 6px; font-size: 15px; }
-  .pt-long { display: none; }
-  .pt-short { display: inline; }
-  .promo--tabs .pb-all { order: 2; margin-left: auto; }
-}
-.pt-intro { margin: 0 0 12px; font-size: 14px; line-height: 1.5; color: #475467; }
+/* Trang đang bán mỏng: card SP chưa bán khai báo thẳng vào lưới (D9). Cùng khung card live, khe giá = nhãn trạng thái */
+.lv-noimg { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; aspect-ratio: 1;
+  margin: 8px; border-radius: 6px; background: var(--tag-bg); color: #667085; font-size: 12px; }
+.lv-stage { align-self: flex-start; display: inline-flex; align-items: center; height: 22px; margin-top: 2px; padding: 0 8px;
+  border-radius: 4px; background: #E0F2FE; color: #075985; font-size: 13px; font-weight: 600; }
+.lv-stage.is-coming { background: #FEF0C7; color: #93370D; }
+.lv-notify { display: flex; align-items: center; justify-content: center; gap: 6px; min-height: 32px; border: 1px solid var(--primary);
+  border-radius: 6px; color: var(--primary); font-size: 13px; line-height: 1.2; text-align: center; white-space: nowrap; }
+/* Card mobile hẹp: rút nhãn nút cho khỏi xuống dòng */
+.lv-notify-short { display: none; }
+@media (max-width: 600px) { .lv-notify-long { display: none; } .lv-notify-short { display: inline; } }
+
 
 /* Nhãn trạng thái SP chưa KD (owner 21/10): nằm đúng khe dòng trạng thái dưới tên, thay ngày ra mắt */
 .stage { display: inline-flex; align-items: center; height: 20px; padding: 0 8px; border-radius: 4px; font-size: 12px;

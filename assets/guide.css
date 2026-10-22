@@ -220,3 +220,4 @@ a.step.is-demo { border-width: 2px; font-weight: 600; text-decoration: underline
 .rt--index .rt-demos { margin: 0; padding: 0; border-top: 0; gap: 8px; }
 .rt--index tbody th { vertical-align: middle; }
 .rt-none { color: var(--text-dim); }
+.rt-tag { display: block; margin-top: 2px; font-size: 12px; color: var(--text-dim); }

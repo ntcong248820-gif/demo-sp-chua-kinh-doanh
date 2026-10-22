@@ -191,7 +191,7 @@ a.picked { font-size: 13px; }
 .ib-table table { width: 100%; min-width: 520px; border-collapse: collapse; font-size: 14px; }
 .ib-table th, .ib-table td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; }
 .ib-table th { background: var(--tag-bg); color: var(--title); }
-.ib-article.is-collapsed { max-height: 520px; overflow: hidden; position: relative; }
+.ib-article.is-collapsed { max-height: var(--ib-h, 520px); overflow: hidden; position: relative; }
 .ib-article.is-collapsed::after { content: ""; position: absolute; inset: auto 0 0; height: 120px;
   background: linear-gradient(rgb(255 255 255 / 0), #fff); }
 .ib-toggle { display: flex; align-items: center; gap: 4px; min-height: 44px; margin: 4px auto 0; padding: 0 16px;
@@ -340,7 +340,7 @@ body.modal-open { overflow: hidden; }
   /* Tin mới thành băng cuộn ngang giữa đoạn mở và hỏi đáp */
   .infobox.has-news { display: block; }
   .ib-news { position: static; margin: 16px 0 0; padding: 16px 0 0; border-left: 0; border-top: 1px solid var(--border); }
-  .ib-article.is-collapsed { max-height: 420px; }
+  .ib-article.is-collapsed { max-height: var(--ib-h, 420px); }
   .ibn-list { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
   .ibn-list li { flex: 0 0 64%; scroll-snap-align: start; border: 1px solid var(--border) !important; border-radius: var(--radius-card); overflow: hidden; }
   .ibn-item { flex-direction: column; gap: 6px; padding: 0 0 10px; }
@@ -548,3 +548,74 @@ body.modal-open { overflow: hidden; }
   font-weight: 600; line-height: 1; }
 .stage--unsold { background: #E0F2FE; color: #075985; }
 .stage--rumor { background: #F2F4F7; color: #344054; box-shadow: inset 0 0 0 1px #98A2B3; }
+
+/* ---- Đề xuất UI dải gợi ý máy mới / máy cũ (22/10, chờ owner duyệt) ----
+   Owner: 2 dải gợi ý đang giống hệt lưới SP phía trên nên không tách được vai. Ba phương án đổi bằng
+   <html data-promo-ui="a|b|c">, cùng markup. Màu chỉ dùng token sẵn có (xanh link, xám), không thêm vàng. */
+.ui-switch { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 4px 0 10px; padding: 8px 10px;
+  border: 1px dashed #98A2B3; border-radius: 8px; background: #fff; font-size: 13px; color: #475467; }
+.ui-switch > span { margin-right: 4px; font-weight: 600; }
+.ui-opt { min-height: 32px; padding: 0 10px; border: 1px solid var(--border); border-radius: 16px; background: #fff;
+  color: var(--text); font-size: 13px; }
+.ui-opt[aria-pressed="true"] { border-color: var(--primary); background: var(--primary-50); color: var(--primary); font-weight: 600; }
+
+/* A · Thẻ ngang: nền khác lưới (xanh nhạt cho máy mới, xám cho máy cũ), card nằm ngang ảnh nhỏ bên trái, bỏ nhãn quà /
+   sao để card gọn; nhìn là biết đây là gợi ý, không phải SP của trang. */
+[data-promo-ui="a"] .promo { background: var(--primary-50); border: 0; }
+[data-promo-ui="a"] .promo--used { background: #EAECF0; }
+[data-promo-ui="a"] .promo h2::before { display: none; }
+[data-promo-ui="a"] .promo h2 { font-size: 16px; }
+[data-promo-ui="a"] .pb-list { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+[data-promo-ui="a"] .pb-card { display: grid; grid-template-columns: 72px 1fr; column-gap: 12px; row-gap: 2px;
+  align-content: start; padding: 10px; border: 0; }
+[data-promo-ui="a"] .pb-card img { grid-row: 1 / span 6; width: 72px; height: 72px; margin: 0; }
+[data-promo-ui="a"] .pb-card > :not(img) { grid-column: 2; }
+[data-promo-ui="a"] .pb-tags, [data-promo-ui="a"] .pb-gift, [data-promo-ui="a"] .pb-rate { display: none; }
+[data-promo-ui="a"] .pb-name { min-height: 0; }
+
+/* B · Băng nhỏ: card dọc nhỏ hơn lưới (ảnh 120px, chữ 13px, không viền), đặt trên nền xám trong khung, "Xem tất cả"
+   thành nút đặc. Giữ được giá, % giảm, sao như card thật nhưng rõ là một băng gợi ý. */
+[data-promo-ui="b"] .promo .pb-list { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; padding: 10px;
+  border-radius: 10px; background: var(--page-bg); }
+[data-promo-ui="b"] .pb-card { gap: 2px; padding: 8px; border: 0; font-size: 13px; }
+[data-promo-ui="b"] .pb-card img { width: 120px; margin: 0 auto 6px; }
+[data-promo-ui="b"] .pb-name { font-size: 13px; }
+[data-promo-ui="b"] .pb-price { font-size: 15px; }
+[data-promo-ui="b"] .pb-tags, [data-promo-ui="b"] .pb-gift { display: none; }
+[data-promo-ui="b"] .pb-all { padding: 0 14px; min-height: 36px; border-radius: 18px; background: var(--primary); color: #fff;
+  font-weight: 600; }
+[data-promo-ui="b"] .pb-all:hover { text-decoration: none; filter: brightness(.95); }
+[data-promo-ui="b"] .promo h2::before { display: none; }
+[data-promo-ui="b"] .promo h2 { font-size: 16px; }
+
+/* C · Hai cột: máy mới và máy cũ đứng cạnh nhau như 2 danh sách, mỗi dòng ảnh 64px + tên + giá. Khác hẳn lưới card;
+   trang chỉ có máy mới thì danh sách chia 2 cột. */
+[data-promo-ui="c"] .promo-wrap.has-used { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: start; }
+[data-promo-ui="c"] .promo-wrap .ui-switch { grid-column: 1 / -1; }
+[data-promo-ui="c"] .promo-wrap.has-used .promo { margin: 0; }
+[data-promo-ui="c"] .pb-list { display: block; }
+[data-promo-ui="c"] .promo-wrap:not(.has-used) .pb-list { display: grid; grid-template-columns: 1fr 1fr; column-gap: 24px; }
+[data-promo-ui="c"] .pb-list li { border-top: 1px solid var(--border); }
+[data-promo-ui="c"] .pb-card { display: grid; grid-template-columns: 64px 1fr auto; column-gap: 12px; align-items: center;
+  padding: 10px 0; border: 0; border-radius: 0; }
+[data-promo-ui="c"] .pb-card:hover { box-shadow: none; }
+[data-promo-ui="c"] .pb-card img { grid-row: 1 / span 3; width: 64px; height: 64px; margin: 0; }
+[data-promo-ui="c"] .pb-name { grid-column: 2; min-height: 0; }
+[data-promo-ui="c"] .pb-price { grid-column: 3; grid-row: 1; text-align: right; font-size: 15px; }
+[data-promo-ui="c"] .pb-old { grid-column: 3; grid-row: 2; justify-content: flex-end; }
+[data-promo-ui="c"] .pb-status { grid-column: 2; }
+[data-promo-ui="c"] .pb-tags, [data-promo-ui="c"] .pb-gift, [data-promo-ui="c"] .pb-rate { display: none; }
+
+@media (max-width: 1023px) {
+  [data-promo-ui="a"] .pb-list, [data-promo-ui="b"] .promo .pb-list { display: flex; overflow-x: auto; }
+  [data-promo-ui="a"] .pb-list li { flex: 0 0 280px; }
+  [data-promo-ui="b"] .pb-list li { flex: 0 0 140px; }
+  [data-promo-ui="c"] .promo-wrap.has-used, [data-promo-ui="c"] .promo-wrap:not(.has-used) .pb-list { display: block; }
+  [data-promo-ui="c"] .promo-wrap.has-used .promo + .promo { margin-top: 12px; }
+}
+@media (max-width: 767px) {
+  [data-promo-ui="a"] .pb-list li { flex-basis: 82%; }
+  [data-promo-ui="c"] .pb-card { grid-template-columns: 56px 1fr; }
+  [data-promo-ui="c"] .pb-card img { width: 56px; height: 56px; }
+  [data-promo-ui="c"] .pb-price, [data-promo-ui="c"] .pb-old { grid-column: 2; grid-row: auto; text-align: left; justify-content: flex-start; }
+}

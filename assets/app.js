@@ -28,20 +28,33 @@
   // Infobox dài: gập còn phần đầu + "Xem thêm" như danh mục đang bán. Chỉ gập khi bài dài hơn khung đủ đáng kể;
   // tắt JS thì bài hiện đủ. Thu gọn lại thì cuộn về đầu bài để không lạc chỗ đọc.
   const art = $('.ib-article');
+  // Thanh chọn phương án UI dải gợi ý (demo, chờ owner duyệt): ?ui=a|b|c, nhớ lựa chọn khi chuyển trang demo
+  const uiSwitch = $('.ui-switch');
+  if (uiSwitch) {
+    const setUi = (v) => {
+      if (v) document.documentElement.dataset.promoUi = v; else delete document.documentElement.dataset.promoUi;
+      $$('.ui-opt', uiSwitch).forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.ui === v)));
+      try { localStorage.setItem('promoUi', v); } catch (e) { /* trình duyệt chặn lưu thì thôi */ }
+    };
+    let start = new URLSearchParams(location.search).get('ui');
+    if (start === null) { try { start = localStorage.getItem('promoUi'); } catch (e) { start = ''; } }
+    setUi(['a', 'b', 'c'].includes(start) ? start : '');
+    uiSwitch.hidden = false;
+    $$('.ui-opt', uiSwitch).forEach((b) => b.addEventListener('click', () => setUi(b.dataset.ui)));
+  }
+
   const ibBtn = $('[data-ib-toggle]');
   if (art && ibBtn) {
+    // Mọi trang đều có nút Xem thêm / Thu gọn (owner 22/10, cho nhất quán): bài ngắn hơn khung thì gập còn ~nửa bài
     art.classList.add('is-collapsed');
-    if (art.scrollHeight > art.clientHeight + 80) {
-      ibBtn.hidden = false; ibBtn.setAttribute('aria-expanded', 'false');
-      ibBtn.addEventListener('click', () => {
-        const open = art.classList.toggle('is-collapsed') === false;
-        ibBtn.setAttribute('aria-expanded', String(open));
-        ibBtn.firstElementChild.textContent = open ? 'Thu gọn' : 'Xem thêm';
-        if (!open) art.closest('section').scrollIntoView({ block: 'start' });
-      });
-    } else {
-      art.classList.remove('is-collapsed');
-    }
+    if (art.scrollHeight <= art.clientHeight + 80) art.style.setProperty('--ib-h', Math.round(art.scrollHeight * 0.45) + 'px');
+    ibBtn.hidden = false; ibBtn.setAttribute('aria-expanded', 'false');
+    ibBtn.addEventListener('click', () => {
+      const open = art.classList.toggle('is-collapsed') === false;
+      ibBtn.setAttribute('aria-expanded', String(open));
+      ibBtn.firstElementChild.textContent = open ? 'Thu gọn' : 'Xem thêm';
+      if (!open) art.closest('section').scrollIntoView({ block: 'start' });
+    });
   }
 
   // "Thông tin hãng" trang đang bán (A2), như live: gập còn 200px + "Xem thêm"; bấm mục lục thì mở bài rồi nhảy tới.

@@ -5,6 +5,7 @@
 .hint-dot:hover, .hint-dot[aria-expanded="true"] { transform: scale(1.12); background: #0369a1; }
 .hint-dot:focus-visible { outline: 2px solid #0369a1; outline-offset: 2px; }
 .hint-dot.is-corner { position: absolute; top: 6px; right: 6px; z-index: 60; }
+.hint-dot.is-center { position: absolute; top: 6px; left: calc(50% - 12px); z-index: 60; }
 .hint-dot.is-inline, .hint-dot.is-append { flex: none; margin-left: 8px; vertical-align: middle; }
 .hints-off .hint-dot { display: none; }
 .hint-pop { position: absolute; z-index: 1000; width: min(360px, calc(100vw - 16px)); padding: 12px 36px 14px 14px;

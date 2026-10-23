@@ -97,7 +97,8 @@
   });
   addEventListener('resize', function () { if (current) place(current); });
 
-  // Gắn chấm, rồi đánh số theo thứ tự xuất hiện trên trang
+  // Gắn chấm, rồi đánh số theo thứ tự xuất hiện trên trang. Chỉ đánh số chấm đang hiện: chấm nằm trong case chưa chọn
+  // (phần tử [hidden]) không lấy số, để dãy số không nhảy cóc; đổi case thì đánh số lại (sự kiện demo:case)
   var dots = [];
   (data.items || []).forEach(function (h) {
     var el = document.querySelector(h.sel);
@@ -109,6 +110,11 @@
     if (h.mode === 'after') {
       b.classList.add('is-inline');
       el.insertAdjacentElement('afterend', b);
+    } else if (h.mode === 'center') {
+      // Giữa mép trên vùng (khe giữa 2 cột): góc phải đã là chỗ chấm của khối con bên phải
+      if (getComputedStyle(el).position === 'static') el.style.position = 'relative';
+      b.classList.add('is-center');
+      el.appendChild(b);
     } else if (h.mode === 'append') {
       b.classList.add('is-append');
       el.appendChild(b);
@@ -120,10 +126,15 @@
     dots.push({ b: b, h: h });
   });
   dots.sort(function (x, y) { return x.b.compareDocumentPosition(y.b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1; });
-  dots.forEach(function (d, i) {
-    d.b.textContent = i + 1;
-    bind(d.b, function () { return [String(i + 1), d.h.title, d.h.text]; });
+  var renumber = function () {
+    var n = 0;
+    dots.forEach(function (d) { d.b.textContent = d.b.closest('[hidden]') ? '' : ++n; });
+  };
+  dots.forEach(function (d) {
+    bind(d.b, function () { return [d.b.textContent, d.h.title, d.h.text]; });
   });
+  renumber();
+  document.addEventListener('demo:case', renumber);
 
   var pageBtn = document.querySelector('[data-hint-page]');
   if (pageBtn && data.page) {

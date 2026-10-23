@@ -49,6 +49,7 @@
       var isReal = c.real === undefined ? c === g.cases[0] : c.real;
       empty.hidden = !(allParts && !visible && !isReal);
       g.buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-case') === c.id)); });
+      document.dispatchEvent(new Event('demo:case'));
     };
     groups.push(g);
   });

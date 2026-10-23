@@ -41,10 +41,28 @@
     pop.querySelector('.hint-pop-no').textContent = no;
     pop.querySelector('.hint-pop-no').hidden = !no;
     pop.querySelector('b').textContent = title;
-    // text: chuỗi (một đoạn) hoặc mảng (mỗi phần tử một gạch đầu dòng)
+    // text: chuỗi (một đoạn), mảng chuỗi (gạch đầu dòng), hoặc mảng [nhãn, giá trị] (khung note chung, giá trị là chuỗi
+    // hoặc mảng chuỗi)
     var body = pop.querySelector('.hint-pop-text');
     body.textContent = '';
-    if (Array.isArray(text)) {
+    if (Array.isArray(text) && Array.isArray(text[0])) {
+      var dl = document.createElement('dl');
+      dl.className = 'hint-fields';
+      text.forEach(function (f) {
+        var dt = document.createElement('dt'), dd = document.createElement('dd');
+        dt.textContent = f[0];
+        if (Array.isArray(f[1])) {
+          var list = document.createElement('ul');
+          f[1].forEach(function (t) { var li = document.createElement('li'); li.textContent = t; list.appendChild(li); });
+          dd.appendChild(list);
+        } else {
+          dd.textContent = f[1];
+        }
+        if (/^(Có|Không)\b/.test(f[1])) dd.setAttribute('data-yn', f[1].slice(0, 2) === 'Có' ? 'yes' : 'no');
+        dl.appendChild(dt); dl.appendChild(dd);
+      });
+      body.appendChild(dl);
+    } else if (Array.isArray(text)) {
       var ul = document.createElement('ul');
       text.forEach(function (t) { var li = document.createElement('li'); li.textContent = t; ul.appendChild(li); });
       body.appendChild(ul);

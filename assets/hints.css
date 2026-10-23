@@ -18,6 +18,17 @@
 .hint-pop-text { margin: 0; white-space: pre-line; }
 .hint-pop-text ul { margin: 0; padding-left: 18px; white-space: normal; }
 .hint-pop-text li + li { margin-top: 4px; }
+/* Khung note chung: nhãn cố định bên trái, nội dung bên phải; màn hẹp xếp nhãn lên trên */
+.hint-fields { display: grid; grid-template-columns: 112px 1fr; gap: 6px 10px; margin: 0; white-space: normal; }
+.hint-fields dt { color: #9fbad3; font-size: 12px; line-height: 1.5; padding-top: 1px; }
+.hint-fields dd { margin: 0; min-width: 0; }
+.hint-fields dd ul { margin: 0; padding-left: 16px; }
+.hint-fields dd[data-yn="yes"] { color: #ffd166; }
+.hint-pop:has(.hint-fields) { width: min(460px, calc(100vw - 16px)); max-height: calc(100vh - 60px); overflow-y: auto; }
+@media (max-width: 640px) {
+  .hint-fields { grid-template-columns: 1fr; gap: 0; }
+  .hint-fields dd + dt { margin-top: 8px; }
+}
 .hint-pop-close { position: absolute; top: 6px; right: 6px; width: 28px; height: 28px; border: 0; border-radius: 6px;
   background: transparent; color: #b9cde0; font-size: 20px; line-height: 1; cursor: pointer; }
 .hint-pop-close:hover { background: rgb(255 255 255 / .1); color: #fff; }

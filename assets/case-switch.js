@@ -8,7 +8,7 @@
   var TITLES = {
     promo: 'Dải máy mới / máy cũ', news: 'Bài viết liên quan', unsold: 'SP khai báo thêm',
     'pdp-promo': 'Cột phải: SP đang bán / máy cũ', 'pdp-promo-new': 'Cột phải: SP đang bán',
-    'pdp-info': 'Tab Thông tin sản phẩm'
+    'pdp-info': 'Tab Thông số / Thông tin sản phẩm'
   };
   var boxes = Array.prototype.slice.call(document.querySelectorAll('[data-case-box]'));
   var groups = [];

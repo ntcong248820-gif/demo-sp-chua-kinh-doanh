@@ -153,3 +153,10 @@
 /* Chưa khai báo bài viết: khe rỗng, không chiếm chỗ */
 .pdp-info-slot:not(:has(.pdp-tabs:not([hidden]))) { display: none; }
 .pdp-info-slot .case-empty { margin: 0; }
+
+/* Khe đánh giá (trang SP ngưng KD): bọc 2 bản khối đánh giá theo case, giữ ô lưới "rev" */
+.pdp-rev-slot { grid-area: rev; }
+.pdp-rev-slot .case-empty { margin: 0; }
+/* Ảnh SP chưa có ảnh chính thức: khung logo hãng như card */
+.g-blank { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; border-radius: 8px; }
+.g-blank img { width: auto; height: 32px; }

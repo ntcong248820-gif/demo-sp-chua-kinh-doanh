@@ -6,9 +6,10 @@
    Tắt JS thì không có nút, trang giữ case thật. */
 (function () {
   var TITLES = {
-    promo: 'Dải máy mới / máy cũ', news: 'Bài viết liên quan', unsold: 'SP khai báo thêm',
+    promo: 'Dải máy mới / máy cũ', infobox: 'Infobox + bài viết liên quan', unsold: 'SP khai báo thêm',
     'pdp-promo': 'Cột phải: SP đang bán / máy cũ', 'pdp-promo-new': 'Cột phải: SP đang bán',
-    'pdp-info': 'Tab Thông số / Thông tin sản phẩm'
+    'pdp-info': 'Tab Thông số / Thông tin sản phẩm', 'pdp-tabs': 'Tab Thông số / Thông tin sản phẩm',
+    'pdp-reviews': 'Đánh giá', 'pdp-gallery': 'Ảnh sản phẩm', banner: 'Banner', lines: 'Chip dòng'
   };
   var boxes = Array.prototype.slice.call(document.querySelectorAll('[data-case-box]'));
   var groups = [];

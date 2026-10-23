@@ -201,6 +201,11 @@ a.picked { font-size: 13px; }
 /* Bài viết liên quan dính theo khi cuộn trong lúc bài infobox mở dài */
 .ib-news { position: sticky; top: 48px; padding-left: 24px; border-left: 1px solid var(--border); }
 .ib-news h3 { margin: 0 0 4px; font-size: 16px; font-weight: 700; color: var(--title); }
+/* Không có bài infobox, chỉ còn bài tin: khối bài tin chiếm cả khung, desktop chia cột */
+.infobox:not(.has-news) .ib-news { position: static; padding: 0; border: 0; }
+.infobox:not(.has-news) .ibn-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); column-gap: 24px; }
+.infobox:not(.has-news) .ibn-list li + li { border-top: 0; }
+.infobox:not(.has-news) .ibn-list li { border-bottom: 1px solid var(--border); }
 .faq-panel h2 { margin-bottom: 8px; font-size: 18px; }
 .ibn-list { list-style: none; margin: 0; padding: 0; }
 .ibn-list li + li { border-top: 1px solid var(--border); }
